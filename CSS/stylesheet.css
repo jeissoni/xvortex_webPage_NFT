@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+}
+
+.contenedorPrincipal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagina {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagina:nth-child(1) {
+  background-color: rgb(89, 0, 255);
+}
+
+.imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 186, 0);
+  position: absolute;
+  height: 700px;
+  width: 500px;
+  top: 100px;
+  left: 100px;
+  border-radius: 15px;
+  animation: carta 2s; 
+  /* animation-fill-mode: forwards; */
+  animation-play-state: running;
+}
+
+.imagen img {
+  height: 80%;
+  width: auto;
+  border-radius: 15px;
+}
+
+@keyframes carta {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 4% 0, 4% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
