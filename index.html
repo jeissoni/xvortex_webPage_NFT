@@ -5,98 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./stylesheets/index.css">
-    <title>Document</title>
-    <style>
     
-    @import url('https://fonts.googleapis.com/css2?family=Oswald&family=PT+Mono&display=swap');
-
-    
-body{
-    width: 100%;
-    height: 100vh;
-    color: rgb(254, 254, 254);
-    background: rgb(0, 0, 0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-body h1{
-    font-size: 5em;
-    font-family: 'Oswald', sans-serif;
-    animation: parpadear 2s infinite linear, glitch 2s infinite linear, saltos 2s infinite linear;
-}
-
-
-/**************************************/
-
-@keyframes parpadear {
-    0%, 10%, 12%, 20%{
-        opacity: 0;
-    }
-    1%, 11%, 21%, 50%, 100%{
-        opacity: 1;
-    }
-}
-
-
-@keyframes saltos {
-    0%, 4%, 13%, 24%, 27%, 37%, 100%{
-        transform: translate(0px, 0px);
-
-    }
-    1%, 11%, 35%{
-        transform: translate(100px, 20px);
-        filter: contrast(2);
-
-    }
-    2%, 12%, 36%{
-        transform: translate(-50px, 0);
-        filter: sepia(100%);
-    }
-
-    3%, 26%{
-        transform: translate( 0, -100px);
-        filter: hue-rotate(50deg);
-    }
-}
-
-
-
-@keyframes glitch {
-    0% {
-      text-shadow: 0.1em 0 0 rgba(255, 0, 0, 0.75),
-        -0.1em -0.2em 0 rgba(0, 255, 0, 0.75),
-        -0.25em 0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    
-    10% {
-      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.1em 0.1em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    
-    30% {
-      text-shadow: 0.2em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.1em 0 0 rgba(0, 255, 0, 0.75), 
-        0 -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    
-    40% {
-      text-shadow: -0.1em 0.2em 0 rgba(255, 0, 0, 0.75),
-        -0.1em -0.1em 0 rgba(0, 255, 0, 0.75),
-        -0.25em -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    50% {
-        text-shadow: none;
-    }
-  }
-
-
-    </style>
+    <title>Unnamed</title>
 </head>
 <body>
-        <h1>Unnamed0x</h1>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">Unnamed</a>
+            </div>
+            <ul class="botones">
+                <li id="bnMint" class="bnMint">
+                    <a>Mint</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="conectWallet" id="conectWallet">
+            <div class="wlltContainer">
+                <div class="close" id="close">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                </div>
+                <a href="#" id="connect">Connect Wallet</a>
+            </div>
+        </div>
+    </header>
+
+    <article>
+
+            <div class="cntAlert" id="cntAlert">
+                <img src="./img/connected.png" alt="alert">
+                <p>You're connected to the ethereum network</p>
+            </div>
+
+            <div class="dcntAlert" id="dcntAlert">
+                <img src="./img/alert.png" alt="alert">
+                <p>You're disconnected to the ethereum network</p>
+                <div class="close2" id="alrClose">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                </div>
+            </div>
+
+    </article>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script src="./scripts/index.js"></script>
+
 </body>
 
 </html>
