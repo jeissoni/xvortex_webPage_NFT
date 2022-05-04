@@ -26,14 +26,14 @@
   justify-content: center;
   background-color: rgb(0, 186, 0);
   position: absolute;
-  height: 700px;
-  width: 500px;
-  top: 100px;
-  left: 100px;
+  height: 500px;
+  width: 400px;
+  top: 200px;
+  left: 200px;
   border-radius: 15px;
-  animation: carta 2s; 
+  animation: carta 5s infinite; 
   /* animation-fill-mode: forwards; */
-  animation-play-state: running;
+  animation-play-state: paused;
 }
 
 .imagen img {
@@ -44,12 +44,89 @@
 
 @keyframes carta {
   0% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  50% {
     clip-path: polygon(0 0, 4% 0, 4% 100%, 0% 100%);
   }
-  100% {
+  20% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
+  80% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 4% 0, 4% 100%, 0% 100%);
+  }
 }
+
+.imagen2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 186, 0);
+  position: absolute;
+  height: 300px;
+  width: 400px;
+  top: 50px;
+  left: 800px;
+  border-radius: 15px;
+  animation: carta 5s infinite; 
+  /* animation-fill-mode: forwards; */
+  animation-play-state: paused;
+}
+
+.imagen2 img {
+  height:80%;
+  width: auto;
+  border-radius: 15px;
+}
+
+
+
+
+.imagen3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 186, 0);
+  position: absolute;
+  height: 500px;
+  width: 400px;
+  top: 200px;
+  left: 1350px;
+  border-radius: 15px;
+  animation: carta 5s infinite; 
+  /* animation-fill-mode: forwards; */
+  animation-play-state: paused;
+}
+
+.imagen3 img {
+  height: 80%;
+  width: auto;
+  border-radius: 15px;
+}
+
+
+
+.imagen4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 186, 0);
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  top: 550px;
+  left: 800px;
+  border-radius: 15px;
+  animation: carta 5s infinite; 
+  /* animation-fill-mode: forwards; */
+  animation-play-state: paused;
+}
+
+.imagen4 img {
+  height: 80%;
+  width: auto;
+  border-radius: 15px;
+}
+
+
+
