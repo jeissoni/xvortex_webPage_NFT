@@ -7,28 +7,32 @@ const cntAlert = document.getElementById('cntAlert')
 const dcntAlert = document.getElementById('dcntAlert')
 const alrClose = document.getElementById('alrClose')
 
-itemMint.addEventListener('click', function(){
-    popup.classList.add('visible')
-})
-
 itemClose.addEventListener('click', function(){
     popup.classList.remove('visible')
 })
 
 alrClose.addEventListener('click', function(){
     dcntAlert.classList.remove('show2')
-    console.log(1)
 })
 
-connect.addEventListener('click', () => login())
+
+connect.addEventListener('click', function() {
+  if(itemMint.classList.length == 1){
+    login()
+  }else{
+    logout()
+  }
+})
+
+ethereum.on('connect', info => console.log(`connect to ${info.chainId}`))
+
+ethereum.on('disconnect', err => console.log(err))
 
 let chainId
 
 async function login(){
 
     if(window.ethereum){
-
-      let flag = false
   
       await window.ethereum
                   .request({ method: 'wallet_requestPermissions',
@@ -38,12 +42,7 @@ async function login(){
                                   }
                                 ]
                           })
-                  .then(flag = true)
-  
-      if(flag){
-  
-      const accounts = await window.ethereum
-                             .request({ method: 'eth_requestAccounts' })
+
       await window.ethereum.request({
             "id": 1,
                 "jsonrpc": "2.0",
@@ -55,11 +54,38 @@ async function login(){
                 ]
                 })
 
-    //   ethereum.on('connect', info => console.log(`connect to${info}`))
+    console.log(ethereum.selectedAddress)
 
-    //   ethereum.on('disconnect', err => console.log(`disconnect to${err}`))
+    itemMint.classList.add('walletAddress')
+
+    popup.classList.remove('visible')
+
+    let catch1 = /^\w{5}/
+
+    let catch2 = /\w{4}$/
+            
+    let test1 = ethereum.selectedAddress.match(catch1)
+
+    let test2 = ethereum.selectedAddress.match(catch2)
+
+    itemMint.innerHTML = test1 + '...' + test2
+
+    ethereum.on('accountsChanged', () => {
+
+      test1 = ethereum.selectedAddress.match(catch1)
+
+      test2 = ethereum.selectedAddress.match(catch2)
+
+      itemMint.innerHTML = test1 + '...' + test2
+
+    })
+
+    console.log( ethereum.isConnected())
+
+    
 
       ethereum.on('chainChanged', (chainId) => {
+
           if(chainId === '0x1'){
 
               dcntAlert.classList.remove('show2')
@@ -69,21 +95,16 @@ async function login(){
                   cntAlert.classList.remove('show'); 
                   cntAlert.style.zIndex = 0
                 }, 4000)
-              console.log(dcntAlert.classList)
-              console.log(cntAlert.classList)
 
           }else{
 
             cntAlert.style.zIndex = 0
             dcntAlert.classList.add('show2')
-            console.log(dcntAlert.classList)
 
           }
       });
 
       chainId = await ethereum.request({ method: 'eth_chainId' });
-
-      window.userWalletAddress = accounts[0]
       
     //   const provider = new ethers.providers.Web3Provider(window.ethereum)
       
@@ -92,8 +113,6 @@ async function login(){
     //   const contract = new ethers.Contract(address, abi, signer);
   
     //   const name = await contract.tokenURI(1)
-  
-    }
 
     }else{
       console.log('install metamask')
@@ -102,6 +121,39 @@ async function login(){
   
   }
 
+  function logout(){
+    
+    popup.classList.remove('visible')
+    itemMint.classList.remove('walletAddress')
+    itemMint.innerHTML = 'Conect Wallet'
+
+  }
+
+ console.log( ethereum.isConnected())
+
+  
+// const observer = new MutationObserver((mutationlist) => {
+//   mutationlist.forEach((mutation) => {
+//     if(ethereum.selectedAddress){
+//       console.log(ethereum.selectedAddress, mutation)
+//     }
+//   })
+// })
+
+// const observerOptions = {
+//   attributes: true,
+//   childList: true,
+// }
+
+// address = { address: ethereum.selectedAddress}
+
+// observer.observe(address , observerOptions)
+
+document.addEventListener('DOMContentLoaded', function() {
+  if(ethereum.isConnected()){
+    console.log(1)
+  }
+})
 
 
 
