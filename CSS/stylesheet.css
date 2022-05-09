@@ -1,3 +1,10 @@
+/*font-family: 'Bodoni Moda', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap');
+
+/*font-family: 'Cinzel Decorative', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Cinzel+Decorative&display=swap');
+
+
 * {
   margin: 0;
 }
@@ -16,117 +23,203 @@
   justify-content: center;
 }
 
-.pagina:nth-child(1) {
-  background-color: rgb(89, 0, 255);
+.pagina .titulo {
+  position: absolute;
+  color: black;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 100px;
+  top: 200px;
+  left: 150px;
+  animation: titulo 5s;  
+} 
+
+@keyframes titulo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.imagen {
+.pagina:nth-child(1) {
+  background-color: rgb(0, 136, 255);
+  background-size: cover;
+}
+
+/*pagina carrusel*/
+.pagina:nth-child(3) {
+  background-color: rgb(0, 23, 139);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.pg3 h1 {
+  color: white;
+}
+
+.contenedor-carrusel {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 100%;
+}
+
+/*titulo y controles*/
+.contenedor-carrusel .contenedor-encabezado {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.contenedor-encabezado h3 {
+  color: white;
+  font-size: 30px;
+}
+
+.contenedor-encabezado .indicadores button {
+  background: white;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.contenedor-encabezado .indicadores button:hover,
+.contenedor-encabezado .indicadores button.activo {
+  background: red;
+}
+
+
+.contenedor-cartas {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.contenedor-cartas .flecha-izquierda, 
+.contenedor-cartas .flecha-derecha {
+  position: absolute;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50%-25%);
+  line-height: 40px;
+  width: 50px;
+  cursor: pointer;
+  color: white;
+  z-index: 500;
+  transition: 2s ease all;
+}
+
+.contenedor-cartas .flecha-izquierda:hover, 
+.contenedor-cartas .flecha-derecha:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.contenedor-cartas .flecha-izquierda {
+  left: 0;
+}
+
+.contenedor-cartas .flecha-derecha {
+  right: 0;
+}
+
+.contenedor-cartas2 {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.pg3 .imagen1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0, 186, 0);
-  position: absolute;
+  background-color: rgb(0, 105, 186);
   height: 500px;
-  width: 400px;
+  width: 300px;
   top: 200px;
   left: 200px;
   border-radius: 15px;
   animation: carta 5s infinite; 
-  /* animation-fill-mode: forwards; */
   animation-play-state: paused;
 }
 
-.imagen img {
-  height: 80%;
+.pg3 .imagen1 img {
+  height: 60%;
   width: auto;
   border-radius: 15px;
 }
 
-@keyframes carta {
-  0% {
-    clip-path: polygon(0 0, 4% 0, 4% 100%, 0% 100%);
-  }
-  20% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  80% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  100% {
-    clip-path: polygon(0 0, 4% 0, 4% 100%, 0% 100%);
-  }
-}
 
-.imagen2 {
+.pg3 .imagen2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0, 186, 0);
-  position: absolute;
-  height: 300px;
+  background-color: rgb(0, 105, 186);
+  height: 500px;
   width: 400px;
   top: 50px;
-  left: 800px;
+  left: 900px;
   border-radius: 15px;
   animation: carta 5s infinite; 
-  /* animation-fill-mode: forwards; */
   animation-play-state: paused;
 }
 
-.imagen2 img {
-  height:80%;
+.pg3 .imagen2 img {
+  height:50%;
   width: auto;
   border-radius: 15px;
 }
 
-
-
-
-.imagen3 {
+.pg3 .imagen3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0, 186, 0);
-  position: absolute;
+  background-color: rgb(0, 105, 186);
   height: 500px;
   width: 400px;
   top: 200px;
   left: 1350px;
   border-radius: 15px;
   animation: carta 5s infinite; 
-  /* animation-fill-mode: forwards; */
   animation-play-state: paused;
 }
 
-.imagen3 img {
+.pg3 .imagen3 img {
   height: 80%;
   width: auto;
   border-radius: 15px;
 }
 
-
-
-.imagen4 {
+.pg3 .imagen4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0, 186, 0);
-  position: absolute;
-  height: 400px;
+  background-color: rgb(0, 105, 186);
+  height: 500px;
   width: 400px;
   top: 550px;
-  left: 800px;
+  left: 900px;
   border-radius: 15px;
   animation: carta 5s infinite; 
-  /* animation-fill-mode: forwards; */
-  animation-play-state: paused;
+  animation-play-state: paused; 
 }
 
-.imagen4 img {
+.pg3 .imagen4 img {
   height: 80%;
   width: auto;
   border-radius: 15px;
-}
+} 
 
 
 
