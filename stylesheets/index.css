@@ -1,0 +1,200 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background: #3b3b3b;
+}
+
+a{
+    color: rgb(253, 253, 253);
+    text-decoration: none;
+}
+
+/***************** NAVBAR **************************/
+
+.navbar{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000000;
+}
+
+
+.botones{
+    display: flex;
+    cursor: pointer;
+    list-style: none;
+}
+
+
+.botones a{
+    margin: 0px 20px;
+    text-shadow: none;
+}
+
+#bnMint{
+    background: #ffffff;
+    margin: 0px 30px;
+    padding: 10px;
+}
+
+#bnMint a{
+    color: rgb(0, 0, 0);
+}
+
+/******************** Conectar Wallet *************/
+
+.conectWallet{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    visibility: hidden;
+}
+
+.conectWallet.visible{
+    display: flex;
+    visibility: visible;
+}
+
+.wlltContainer{
+    background: #000000;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+}
+
+.wlltContainer a{
+    background: #ffffff;
+    color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.close{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    top: 20px;
+}
+
+.close .bar1{
+    background: #ffffff;
+    width: 25px;
+    height: 4px;
+    transform: rotateZ(45deg);
+    position: absolute;
+}
+
+.close .bar2{
+    background: #ffffff;
+    width: 25px;
+    height: 4px;
+    transform: rotateZ(-45deg);
+    position: absolute;
+}
+
+
+/****************** alerts **************/
+
+.alerts{
+    position: fixed;
+    bottom: 30px;
+    width: 500px;
+}
+
+.cntAlert{
+    position: fixed;
+    bottom: 30px;
+    display: flex;
+    clip-path: circle(0% at 0 50%);
+    transition: clip-path 1s ease;
+    color: rgb(2, 137, 2);
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 50px;
+    background: rgb(136, 255, 136);
+}
+
+.cntAlert img{
+    position: absolute;
+    left: 20px;
+    width: 30px;
+}
+
+.dcntAlert{
+    position: fixed;
+    bottom: 30px;
+    display: flex;
+    clip-path: circle(0% at 0 50%);
+    transition: clip-path 1s ease;
+    color: rgb(178, 79, 3);
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 50px;
+    background: rgb(255, 174, 112);
+}
+
+.dcntAlert img{
+    position: absolute;
+    left: 20px;
+    width: 20px;
+}
+
+.show{
+    clip-path: circle(150% at 0 50%);
+}
+
+.show2{
+    clip-path: circle(150% at 0 50%);
+}
+
+.close2{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    background: rgba(178, 79, 3, 0.24);
+}
+
+.close2 .bar1{
+    background: rgb(178, 79, 3);
+    width: 25px;
+    height: 4px;
+    transform: rotateZ(45deg);
+    position: absolute;
+}
+
+.close2 .bar2{
+    background: rgb(178, 79, 3);
+    width: 25px;
+    height: 4px;
+    transform: rotateZ(-45deg);
+    position: absolute;
+}
