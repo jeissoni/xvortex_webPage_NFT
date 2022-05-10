@@ -4,99 +4,343 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylesheets/index.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./img/life-out-icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <title>LIFE OUT</title>
     <style>
     
-    @import url('https://fonts.googleapis.com/css2?family=Oswald&family=PT+Mono&display=swap');
+    @font-face {
+        font-family: 'long-shot';
+        src: url('./fonts/Long_Shot.ttf');
+    }
 
+*{
+    padding: 0;
+    margin: 0;
+}
     
 body{
     width: 100%;
     height: 100vh;
     color: rgb(254, 254, 254);
-    background: rgb(0, 0, 0);
+    background:  #000;
+    display: flex;
+}
+
+#logo{
+    font-family: 'long-shot';
+    white-space: wrap;
+    position: relative;
+    top: 100px;
+    opacity: 0;
+    width: 40%;
+    font-size: 18em;
+    text-align: center;
+    transition: all 1s linear;
+    user-select: none;
+    
+}
+
+P{
+    font-family: 'Orbitron', sans-serif;
+    color: rgba(255, 255, 255, 0,9);
+    font-size: 1.6em;
+    user-select: none;
+}
+
+.texto{
+    width: 100%;
+    min-height: 352px;
+}
+
+.texto p{
+    padding: 20px;
+    text-align: center;
+}
+
+.texto p:nth-child(1){
+    color: #fff;
+}
+
+section{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-body h1{
-    font-size: 5em;
-    font-family: 'Oswald', sans-serif;
-    animation: parpadear 2s infinite linear, glitch 2s infinite linear, saltos 2s infinite linear;
+.content{
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 1s;
+    
+}
+
+
+
+/**************loader******************/
+.loader{
+    padding-top: 20px;
+    height: 50px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.loader p{
+    color: #fff;
+    height: 40px;
+    padding-left: 40px;
+}
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.lds-spinner div {
+  transform-origin: 20px 20px;
+  animation: lds-spinner .9s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 1.5px;
+  left: 18px;
+  width: 4px;
+  height: 12px;
+  border-radius: 20%;
+  background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -.9s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(40deg);
+  animation-delay: -.8s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(80deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(120deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(160deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(200deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(280deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(320deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(360deg);
+  animation-delay: 0s;
+}
+
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 
 /**************************************/
 
-@keyframes parpadear {
-    0%, 10%, 12%, 20%{
-        opacity: 0;
+@media (max-width: 860px) {
+
+    .texto{
+        padding-top: 20px;
     }
-    1%, 11%, 21%, 50%, 100%{
-        opacity: 1;
+    p{
+        font-size: 1.5em;
+    }
+
+    section{
+        padding: 0;
+        justify-content: center;
+    }
+
+    #logo{
+        font-size: 10em;
+        width: 50%;
+    }
+    .content{
+        width: 100%;
+        height: 40%;
+    }
+    .dvContent{
+        width: 80%;
     }
 }
-
-
-@keyframes saltos {
-    0%, 4%, 13%, 24%, 27%, 37%, 100%{
-        transform: translate(0px, 0px);
-
-    }
-    1%, 11%, 35%{
-        transform: translate(100px, 20px);
-        filter: contrast(2);
-
-    }
-    2%, 12%, 36%{
-        transform: translate(-50px, 0);
-        filter: sepia(100%);
-    }
-
-    3%, 26%{
-        transform: translate( 0, -100px);
-        filter: hue-rotate(50deg);
-    }
-}
-
-
-
-@keyframes glitch {
-    0% {
-      text-shadow: 0.1em 0 0 rgba(255, 0, 0, 0.75),
-        -0.1em -0.2em 0 rgba(0, 255, 0, 0.75),
-        -0.25em 0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    
-    10% {
-      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.1em 0.1em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    
-    30% {
-      text-shadow: 0.2em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.1em 0 0 rgba(0, 255, 0, 0.75), 
-        0 -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    
-    40% {
-      text-shadow: -0.1em 0.2em 0 rgba(255, 0, 0, 0.75),
-        -0.1em -0.1em 0 rgba(0, 255, 0, 0.75),
-        -0.25em -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    50% {
-        text-shadow: none;
-    }
-  }
 
 
     </style>
 </head>
 <body>
-        <h1>Unnamed0x</h1>
+        <section>
+            <h1 id="logo">LIFE<br>OUT</h1>
+            <div class="content" id="content">
+                    <div class="texto">
+                        <p id="parrafo"></p>
+                        <p id="parrafo2"></p>
+                        <p id="parrafo3"></p>
+                        <p id="parrafo4"></p>
+                    </div>
+                    <div class="loader">
+                        <div class="lds-spinner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <p id="loading">Loading...</p>
+                    </div>
+            </div>
+        </section>
+
+        <script>
+
+            const loading = document.getElementById('loading')
+            const parrafo = document.getElementById('parrafo')
+            const parrafo2 = document.getElementById('parrafo2')
+            const parrafo3 = document.getElementById('parrafo3')
+            const parrafo4 = document.getElementById('parrafo4')
+            const logo = document.getElementById('logo')
+            const content = document.getElementById('content')
+
+            window.addEventListener('load', () => {
+                logo.style.opacity = '1'
+                logo.style.top = '0'
+
+                setTimeout(function(){
+                    logo.style.opacity = '.2'
+                    content.style.display = 'flex'
+                }, 2000)
+                
+            })
+
+            function type(text, tiempo){
+
+                setTimeout(function(){
+                    let array = text.split('')
+                    let count = 0
+                    let escribir = setInterval(function(){
+                      parrafo.innerHTML += array[count]
+                      count++
+                      if(count === array.length){
+                        parrafo.innerHTML = parrafo.innerHTML + "<br>"
+                          clearInterval(escribir)
+                          
+                      }
+                }, tiempo)
+                
+                
+                }, 2000)
+            }
+            function type2(text, tiempo){
+
+                setTimeout(function(){
+                    let array = text.split('')
+                    let count = 0
+                    let escribir = setInterval(function(){
+                      parrafo2.innerHTML += array[count]
+                      count++
+                      if(count === array.length){
+                          clearInterval(escribir)
+                          
+                      }
+                }, tiempo)
+                }, 3000)
+            }
+
+function type3(text, tiempo){
+
+setTimeout(function(){
+   let array = text.split('')
+   let count = 0
+   let escribir = setInterval(function(){
+   parrafo3.innerHTML += array[count]
+   count++
+   if(count === array.length){
+      clearInterval(escribir)
+      
+
+    }
+   }, tiempo)
+
+
+}, 8000)
+}
+
+
+function type4(text, tiempo){
+
+setTimeout(function(){
+   let array = text.split('')
+   let count = 0
+   let escribir = setInterval(function(){
+   parrafo4.innerHTML += array[count]
+   count++
+   if(count === array.length){
+      clearInterval(escribir)
+      
+
+    }
+   }, tiempo)
+
+     
+}, 13000)
+
+setTimeout(() => {
+    loading.innerHTML = 'Loading more info...' 
+}, 15500)
+
+
+
+}
+
+
+            type("The year is 3055.", 50)
+            type2("Exul is the 4th planet in the sericom galaxy were a soler year takes 700 days.", 50)
+            type3("Humanity was devasted by wars and different viruses that impede human reproduction.", 50)
+            type4("And here is where the adventure begins.", 50)
+            
+        </script>
 </body>
 
 </html>
