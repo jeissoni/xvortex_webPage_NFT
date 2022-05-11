@@ -25,6 +25,7 @@ body{
     color: rgb(254, 254, 254);
     background:  #000;
     display: flex;
+    overflow: hidden;
 }
 
 #logo{
@@ -192,7 +193,8 @@ footer{
 }
 
 footer ul{
-    font-family: 'long-shot';
+    /* font-family: 'long-shot'; */
+    font-family: 'Orbitron', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,6 +236,9 @@ footer a:hover{
     p{
         font-size: 1.5em;
     }
+    a{
+        font-size: .6em;
+    }
 }
 
 
@@ -265,7 +270,7 @@ footer a:hover{
         </section>
         <footer id="footer">
             <ul>
-                <li><a href="https://twitter.com/Lifeoutnft" target="_blank">Twiter</a></li>
+                <li><a href="https://twitter.com/Lifeoutnft" target="_blank">Twitter</a></li>
                 <li><a href="https://www.instagram.com/lifeoutmultiverse/" target="_blank">Instagram</a></li>
                 <li><a href="https://discord.gg/wsXVEhgb" target="_blank">Discord</a></li>
             </ul>
@@ -295,8 +300,7 @@ footer a:hover{
                 setTimeout(typeWriter, 70);
               }else{
                 loading.style.opacity = '1'
-                footer.style.opacity = '1'
-                
+                footer.style.opacity = '1'               
                 
               }
 
