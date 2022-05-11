@@ -93,7 +93,6 @@ section{
     padding-top: 20px;
     width: 100%;
     height: 50px;
-    padding-left: 20px;
     display: flex;
     opacity: 0;
     transition: all 1s linear;
@@ -179,6 +178,45 @@ section{
   }
 }
 
+/***************************************/
+
+footer{
+    width: 100%;
+    opacity: 0;
+    transition: all 3s linear;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+}
+
+footer ul{
+    font-family: 'long-shot';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer li{
+    font-size: 2em;
+    padding: 20px;
+    position: relative;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer li a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.58);
+}
+
+footer a:hover{
+    text-decoration-line: underline;
+    color: #fff;
+}
+
 
 /**************************************/
 
@@ -225,11 +263,19 @@ section{
                     </div>
             </div>
         </section>
+        <footer id="footer">
+            <ul>
+                <li><a href="https://twitter.com/Lifeoutnft" target="_blank">Twiter</a></li>
+                <li><a href="https://www.instagram.com/lifeoutmultiverse/" target="_blank">Instagram</a></li>
+                <li><a href="https://discord.gg/wsXVEhgb" target="_blank">Discord</a></li>
+            </ul>
+        </footer>
         <script>
             const loading = document.getElementById("loading");
             const parrafo = document.getElementById("parrafo");
             const logo = document.getElementById("logo");
             const content = document.getElementById("content");
+            const footer = document.getElementById('footer')
 
             const text = "The year is 3055." 
                         +"Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days."          
@@ -249,6 +295,8 @@ section{
                 setTimeout(typeWriter, 70);
               }else{
                 loading.style.opacity = '1'
+                footer.style.opacity = '1'
+                
                 
               }
 
