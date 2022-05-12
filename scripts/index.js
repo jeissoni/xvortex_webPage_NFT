@@ -7,7 +7,7 @@ const audio = document.getElementById("audio");
 
 const text =
   "The year is 3055." +
-  "Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days." +
+  "Exul is the 4th planet in the Sericom galaxy where a solar year takes 700 days." +
   "Humanity was devasted by wars and different viruses that impede human reproduction." +
   "And here is where the adventure begins.";
 
