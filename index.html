@@ -46,7 +46,9 @@ section{
   color: rgb(254, 254, 254);
   background:  #000;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
   height: 100vh;
   scroll-snap-align: center;
 }
@@ -64,9 +66,9 @@ section{
   scroll-snap-align: center;
 }
 
-.texto{
+.texto {
   width: 30%;
-  min-height: 414px;
+  height: auto;
   gap: 30px;
   display: flex;
   align-items: center;
@@ -190,29 +192,79 @@ P {
   font-size: 10px;
 }
 
-.texto2{
+.textoScroll2 {
+  font-family: 'Orbitron', sans-serif;
+  opacity: 0;
+  transition: 2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 20%;
+  bottom: 0px;
+  font-size: 10px;
+}
+
+.texto3 {
+  position: absolute;
+  left: 50px;
+  opacity: 0;
+}
+
+.generation1 {
+  font-family: 'Orbitron', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2em;
+  width: 30%;
+  position: absolute;
+  right: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  opacity: 0;
+  transition: 2s;
+}
+
+.generation1 ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.generation1 ul li{
+  list-style: none;
+  
+}
+
+
+/* section:nth-child(2){
+  color: rgb(254, 254, 254);
+  background:  #000;
+  display: flex;  
+  height: 100vh;
+  scroll-snap-align: center;
+} */
+
+/* .texto2{
   width: 30%;
   min-height: 414px;
   gap: 30px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  opacity: 1;
 }
 
 .texto2 p{
   width: 100%;
   text-align: center;
-}
+} */
 
-P {
-  font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 2em;
-  user-select: none;
-  font-weight: bold;
-}
+
 
 /***************************************/
 
@@ -223,7 +275,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 0px;
+    bottom: 50px;
     background: #000;
 }
 
@@ -309,16 +361,37 @@ footer a:hover{
   <section>
     <div class="content"  id="content">
       <div class="texto texto2">
-      <p id="parrafo2">
-        <!-- Life Out is a utility NFT Project created on the Ethereum chain aiming to create a
-        Multiverse that will reside in the web3 community. We are community driven, so holdign
-        an NFT from the collection will give you perks in the ecosystem. Moreover, being part
-        of the Genesis collection will bring you even more utility in future developments -->
-       </p>
-      </div> 
-       
+        <p id="parrafo2">
+        </p>
+      <div class="textoScroll2">
+        <h2>Scroll for more info</h2>
+      </div>
     </div>
   </section>
+  <section>
+    <div class="content"  id="content">
+      <div class="texto texto3">
+        <p id="parrafo3">
+          LIFE OUT aims to lunch 6006
+          NFTs in three generations.
+          The First Generation will be made as
+          follows:
+        </p> 
+      </div> 
+      <div class="generation1">
+      <h1>
+        GENERATION 1
+      </h1>
+        <ul>
+          <li>999 NFTs will be launched in via Public Sale.</li>
+          <li>Release Date: June 30/2022</li>
+          <li>Price: 0.3 ETH</li>
+          <li>Public Sale</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
 </div>
   <footer id="footer">
     <ul>
@@ -352,7 +425,7 @@ footer a:hover{
             parrafo.innerHTML += text[i];
         }         
         i++;
-        setTimeout(typeWriter, 10);
+        setTimeout(typeWriter, 70);
       }else{
         //loading.style.opacity = '1'
         textoScroll.style.opacity = '1'               
@@ -363,22 +436,30 @@ footer a:hover{
         logo.style.opacity = ".2";
         content.style.display = "flex";
         typeWriter() 
+
     }
 
-    window.addEventListener("load", () => {
+  window.addEventListener("load", () => {
       logo.style.opacity = "1";
       logo.style.top = "calc(40%/2)";
 
       setTimeout(opacidad, 2000);           
 
-    });    
+    });
 
-
-    //Animacion parrafo pagina 2//
+    //Animacion parrafo pagina 2 y 3//
     const parrafo2 = document.getElementById("parrafo2");
+    const textoScroll2 = document.querySelector('.textoScroll2')
+    const texto3 = document.querySelector('.texto3')
+    const generation1 = document.querySelector('.generation1')
+
+    console.log(texto3)
+
 
     const text2 = "Life Out is a utility NFT Project created on the Ethereum chain aiming to create a Multiverse that will reside in the web3 community."
-
+    + 
+    "We are community driven, so holdign an NFT from the collection will give you perks in the ecosystem."
+    +" Moreover, being part of the Genesis collection will bring you even more utility in future developments."
     
     var j = 0;
     function typeWriter2() {   
@@ -387,26 +468,52 @@ footer a:hover{
           parrafo2.innerHTML += text2[j]
           parrafo2.innerHTML += "<br><br>"
         }else{
-          parrafo2.innerHTML += text2[i];
+          parrafo2.innerHTML += text2[j];
         }         
         j++;
-        setTimeout(typeWriter2, 10);
+        setTimeout(typeWriter2, 70);
       }else{
         //loading.style.opacity = '1'
-        //textoScroll.style.opacity = '1'               
+        textoScroll2.style.opacity = '1'               
       }  
     }
-  
 
-    if (parrafo2.getBoundingClientRect().top < window.innerHeight){
-      parrafo2.style.opacity = "1"
-      typeWriter2()
+    const cargarImagen = (entradas) => {
+      entradas.forEach((entrada) => {
+        if(entrada.isIntersecting){
+          parrafo2.style.opacity = "1"
+          texto3.style.opacity = "1"
+          generation1.style.opacity = "1"
+          
+          setTimeout(typeWriter2, 500);
+        } else {
+          //parrafo2.style.opacity = "0"
+        }
+      });
     }
 
-   
-    console.log(document.querySelector(".texto2").getBoundingClientRect().top)
-    console.log(window.innerHeight)
- 
+    const observador = new IntersectionObserver(cargarImagen, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0
+    })
+
+    observador.observe(parrafo2)
+    observador.observe(texto3)
+    observador.observe(generation1)
+
+
+
+
+
+
+    // window.addEventListener("mousemove", () => {
+    // if (parrafo2.getBoundingClientRect().top < window.innerHeight){
+    //   parrafo2.style.opacity = "1"
+    //   setTimeout(typeWriter2, 2000);
+    // }
+    // })
+
      // window.addEventListener("scroll", () =>{
     //   document.querySelector(".texto2").scrollIntoView({
     //     behavior: "smooth"
