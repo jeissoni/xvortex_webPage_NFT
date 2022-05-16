@@ -4,439 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylesheets/index.css">
+    <link rel="stylesheet" href="./style/index.css">
     <link rel="shortcut icon" href="./img/life-out-icon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <title>LIFE OUT</title>
-    <style>
-    
-@font-face {
-    font-family: 'long-shot';
-    src: url('./fonts/Long_Shot.ttf');
-}
 
-* {
-  padding: 0;
-  margin: 0;
-}
-
-.slides {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: block mandatory;
-}
-
-#logo{
-  font-family: 'long-shot';
-  position: fixed; 
-  top: 500px;
-  width: 50%;
-  left: calc(50%/2);
-  opacity: 0;
-  font-size: 15em;
-  transition: all 1s linear;
-  user-select: none;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-section{
-  color: rgb(254, 254, 254);
-  background:  #000;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;
-  height: 100vh;
-  scroll-snap-align: center;
-}
-
-.content{
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  transition: all 1s;
-  scroll-snap-align: center;
-}
-
-.texto {
-  width: 30%;
-  height: auto;
-  gap: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.texto p{
-  width: 100%;
-  text-align: center;
-}
-
-P {
-  font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 2em;
-  user-select: none;
-  font-weight: bold;
-}
-
-/**************loader******************/
-/* .loader{
-    padding-top: 20px;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    opacity: 0;
-    transition: all 1s linear;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.loader p{
-    color: #fff;
-    height: 40px;
-    padding-left: 40px;
-}
-.lds-spinner {
-  color: official;
-  display: inline-block;
-  position: relative;
-  width: 40px;
-  height: 40px;
-}
-.lds-spinner div {
-  transform-origin: 20px 20px;
-  animation: lds-spinner .9s linear infinite;
-}
-.lds-spinner div:after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 1.5px;
-  left: 18px;
-  width: 4px;
-  height: 12px;
-  border-radius: 20%;
-  background: #fff;
-}
-.lds-spinner div:nth-child(1) {
-  transform: rotate(0deg);
-  animation-delay: -.9s;
-}
-.lds-spinner div:nth-child(2) {
-  transform: rotate(40deg);
-  animation-delay: -.8s;
-}
-.lds-spinner div:nth-child(3) {
-  transform: rotate(80deg);
-  animation-delay: -0.7s;
-}
-.lds-spinner div:nth-child(4) {
-  transform: rotate(120deg);
-  animation-delay: -0.6s;
-}
-.lds-spinner div:nth-child(5) {
-  transform: rotate(160deg);
-  animation-delay: -0.5s;
-}
-.lds-spinner div:nth-child(6) {
-  transform: rotate(200deg);
-  animation-delay: -0.4s;
-}
-.lds-spinner div:nth-child(7) {
-  transform: rotate(240deg);
-  animation-delay: -0.3s;
-}
-.lds-spinner div:nth-child(8) {
-  transform: rotate(280deg);
-  animation-delay: -0.2s;
-}
-.lds-spinner div:nth-child(9) {
-  transform: rotate(320deg);
-  animation-delay: -0.1s;
-}
-.lds-spinner div:nth-child(10) {
-  transform: rotate(360deg);
-  animation-delay: 0s;
-}
-
-@keyframes lds-spinner {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-} */
-
-.textoScroll {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 20%;
-  bottom: 50px;
-  font-size: 10px;
-}
-
-.textoScroll2 {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 20%;
-  bottom: 50px;
-  font-size: 10px;
-}
-
-.textoScroll3 {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 6s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 20%;
-  bottom: 50px;
-  font-size: 10px;
-}
-
-.contenido3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 500px;
-  flex-wrap: wrap;
-}
-
-.generation1 {
-  font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 2em;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: 3s;
-  text-align: center;
-}
-
-.generation1 h1 {
-  margin-bottom: 50px;
-}
-
-.generation1 ul {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
-}
-
-.generation1 li{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.aboutus {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 40px;
-  margin-bottom: 50px;
-  opacity: 0;
-  transition: 3s;
-}
-
-.team{
-  display: flex;
-  gap: 500px;
-  opacity: 0;
-  transition: 3s;
-}
-
-
-.team1,
-.team2 {
-  min-width: 400px;
-  gap: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.team1 h1,
-.team2 h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 40px;
-}
-
-.team1 p,
-.team2 p {
-  font-family: 'Orbitron', sans-serif;
-}
-
-.persona {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.persona h1{
-  margin-bottom: 10px;
-}
-
-.persona a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 20px; 
-}
-
-.persona a:hover {
-  text-decoration-line: underline;
-  color: #fff;
-}
-
-
-/* section:nth-child(2){
-  color: rgb(254, 254, 254);
-  background:  #000;
-  display: flex;  
-  height: 100vh;
-  scroll-snap-align: center;
-} */
-
-/* .texto2{
-  width: 30%;
-  min-height: 414px;
-  gap: 30px;
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.texto2 p{
-  width: 100%;
-  text-align: center;
-} */
-
-
-
-/***************************************/
-
-footer{
-    width: 100%;
-    opacity: 0;
-    transition: all 3s linear;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 50px;
-    background: black;
-    position: fixed;
-    bottom: 0;
-}
-
-footer ul{
-    /* font-family: 'long-shot'; */
-    font-family: 'Orbitron', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer li{
-    font-size: 2em;
-    padding: 20px;
-    position: relative;
-    list-style: none;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-footer li a{
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.58);
-}
-
-footer a:hover{
-    text-decoration-line: underline;
-    color: #fff;
-}
-
-/**************************************/
-
-@media (max-width: 1230px) {
-    .texto{
-        width: 50%;
-    }
-    .contenido3 {
-      gap: 100px;
-    }
-    .generation1 h1{
-      font-size: 1.5em;
-      width: 100%;
-    }
-}
-
-@media (max-width: 860px) {
-
-    .texto{
-        width: 80%;
-    }
-    p{
-        font-size: 1.5em;
-    }
-    a{
-        font-size: .6em;
-    }
-    .generation1 h1{
-      font-size: 1.5em;;
-    }
-    .generation1{
-      font-size: 1.5em;
-      width: 100%;
-    }
-}
-
-
-    </style>
 </head>
 <body>
+  <audio  loop id="audio" muted>
+    <source src="./audio/sonido2.mp3" type="audio/mp3">
+  </audio>
+  
   <div class="slides">
+    
   <section>
-      <h1 id="logo">LIFE<br>OUT</h1>
+    <div id='controlSonido' class="muted"></div>
+      <h1 id="logo" class="logo">LIFE<br>OUT</h1>
+      
       <div class="content" id="content">  
         <div class="texto" >
-            <p id="parrafo"></p>
+          <p id="parrafo" class="parrafo visible"></p>
+          <p id="parrafo2" class="parrafo2"></p>
         </div>
         <!-- <div id="loading" class="loader">
             <div class="lds-spinner">
@@ -453,6 +41,10 @@ footer a:hover{
             </div>
             <p>Loading more info...</p>
         </div> -->
+        <div class="botton bnt-next" id="botton">
+          <p>NEXT ></p>
+        </div>
+        
         <div class="textoScroll">
           <h2>Scroll for more info</h2>
         </div>
@@ -460,23 +52,12 @@ footer a:hover{
   </section>
   <section>
     <div class="content"  id="content">
-      <div class="texto texto2">
-        <p id="parrafo2">
-        </p>
-      </div>  
-      <div class="textoScroll2">
-        <h2>Scroll for more info</h2>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="content"  id="content">
-      <div class="contenido3">
-        <div class="texto texto3">
+      <div class="contenido3" id="estesi">
+        <div class="texto texto3" >
           <p id="parrafo3">
-            LIFE OUT aims to lunch 6006
+            LIFE OUT aims to launch 6006
             NFTs in three generations.
-            The First Generation will be made as
+            The First Generation will be launched as 
             follows:
           </p> 
         </div> 
@@ -485,14 +66,13 @@ footer a:hover{
             GENERATION 1
           </h1>
           <ul>
-            <li>999 NFTs will be launched in via Public Sale.</li>
+            <li>999 NFTs will be launched via Public Sale.</li>
             <li>Release Date: June 30/2022</li>
             <li>Price: 0.3 ETH</li>
-            <li>Public Sale</li>
           </ul>
         </div>
         </div>
-        <div class="textoScroll3">
+        <div class="textoScroll2">
           <h2>Scroll for more info</h2>
         </div>
     </div>
@@ -528,7 +108,7 @@ footer a:hover{
               Artist
             </h1>
             <p>Dave</p>
-            <a href="instagram.com/davecalderonr/" target="_blank">instagram</a>
+            <a href="https://instagram.com/davecalderonr/" target="_blank">instagram</a>
           </div>
 
           <div class="persona">
@@ -546,14 +126,11 @@ footer a:hover{
             <p>Mario</p>
             <a href="https://twitter.com/BoarStoic" target="_blank">Twitter</a>
             <p>George</p>
-            <a href="twitter.com/GeorgeL61291640/" target="_blank">Twitter</a>
+            <a href="https://twitter.com/GeorgeL61291640/" target="_blank">Twitter</a>
           </div>
         </div>
       </div>
       
-      <div class="textoScroll3">
-        <h2>Scroll for more info</h2>
-      </div>
     </div>
   </section>
   
@@ -562,163 +139,11 @@ footer a:hover{
     <ul>
         <li><a href="https://twitter.com/Lifeoutnft" target="_blank">Twitter</a></li>
         <li><a href="https://www.instagram.com/lifeoutmultiverse/" target="_blank">Instagram</a></li>
-        <li><a href="https://discord.gg/wsXVEhgb" target="_blank">Discord</a></li>
+        <li><a href="https://discord.gg/U3zPfkZdJz" target="_blank">Discord</a></li>
     </ul>
   </footer>
   
-  <script>
-
-    //Animacion parrafo pagina 1//
-    const loading = document.getElementById("loading");
-    const parrafo = document.getElementById("parrafo");
-    const logo = document.getElementById("logo");
-    const content = document.getElementById("content");
-    const textoScroll = document.querySelector('.textoScroll')
-    const footer = document.getElementById("footer")
-
-    const text = "The year is 3055." 
-                +"Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days."          
-                +"Humanity was devasted by wars and different viruses that impede human reproduction."          
-                +"And here is where the adventure begins."
-
-    var i = 0;
-    function typeWriter() {   
-      if (i < text.length) {
-        if(text[i] == "."){
-          parrafo.innerHTML += text[i]
-          parrafo.innerHTML += "<br><br>"
-        }else{
-            parrafo.innerHTML += text[i];
-        }         
-        i++;
-        setTimeout(typeWriter, 70);
-      }else{
-        //loading.style.opacity = '1'
-        textoScroll.style.opacity = '1'
-        footer.style.opacity = '1'              
-      }  
-    }
-
-    function opacidad(){
-        logo.style.opacity = ".2";
-        content.style.display = "flex";
-        typeWriter() 
-
-    }
-
-  window.addEventListener("load", () => {
-      logo.style.opacity = "1";
-      logo.style.top = "calc(50%/2)";
-
-      setTimeout(opacidad, 2000);           
-
-    });
-
-    //Animacion parrafo pagina 2 y 3//
-    const parrafo2 = document.getElementById("parrafo2");
-    const textoScroll2 = document.querySelector('.textoScroll2')
-    const texto3 = document.querySelector('.texto3')
-    const generation1 = document.querySelector('.generation1')
-    const textoScroll3 = document.querySelector('.textoScroll3')
-
-    console.log(generation1)
-
-
-    const text2 = "Life Out is a utility NFT Project created on the Ethereum chain aiming to create a Multiverse that will reside in the web3 community."
-    + 
-    "We are community driven, so holdign an NFT from the collection will give you perks in the ecosystem."
-    +" Moreover, being part of the Genesis collection will bring you even more utility in future developments."
-    
-    var j = 0;
-    function typeWriter2() {   
-      if (j < text2.length) {
-        if(text2[j] == "."){
-          parrafo2.innerHTML += text2[j]
-          parrafo2.innerHTML += "<br><br>"
-        }else{
-          parrafo2.innerHTML += text2[j];
-        }         
-        j++;
-        setTimeout(typeWriter2, 70);
-      }else{
-        //loading.style.opacity = '1'
-        textoScroll2.style.opacity = '1'               
-      }  
-    }
-
-    const cargarImagen = (entradas) => {
-      entradas.forEach((entrada) => {
-        if(entrada.isIntersecting){
-          parrafo2.style.opacity = "1"
-          
-          setTimeout(typeWriter2, 500);
-        } else {
-          //parrafo2.style.opacity = "0"
-        }
-      });
-    }
-
-    const observador = new IntersectionObserver(cargarImagen, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1.0
-    })
-
-    observador.observe(parrafo2)
-    
-    const info3 = (entradas) => {
-      entradas.forEach((entrada) => {
-        if(entrada.isIntersecting){
-          texto3.style.opacity = "1"
-          generation1.style.opacity = "1"
-          textoScroll3.style.opacity = "1"
-          
-          setTimeout(typeWriter2, 500);
-        } else {
-          //parrafo2.style.opacity = "0"
-        }
-      });
-    }
-
-    const observador2 = new IntersectionObserver(info3, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1.0
-    })
-
-    observador2.observe(generation1)
-    observador2.observe(texto3)
-
-  //Animacion pagina 4 About Us//
-
-  const aboutus = document.querySelector(".aboutus")
-  const team = document.querySelector(".team")
-
-  const info4 = (entradas) => {
-      entradas.forEach((entrada) => {
-        if(entrada.isIntersecting){
-          aboutus.style.opacity = "1"
-          team.style.opacity = "1"
-          
-          setTimeout(typeWriter2, 500);
-        } else {
-          //parrafo2.style.opacity = "0"
-        }
-      });
-    }
-
-    const observador3 = new IntersectionObserver(info4, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1.0
-    })
-
-    observador3.observe(aboutus)
-    observador3.observe(team)
-
-
-
-  </script>
+  <script src="./scripts/index.js"></script>
 
         
 
