@@ -12,18 +12,19 @@
 </head>
 
 <body>
-    <audio src="./audio/sonido2.mp3" loop id="audio" muted autoplay>
+    <audio  loop id="audio" muted>
+        <source src="./audio/sonido2.mp3" type="audio/mp3">
     </audio>
     <section id="section">
-        <h1 id="logo">LIFE<br>OUT</h1>
+        <h1 id="logo" class="logo">LIFE<br>OUT</h1>
+        <div id='controlSonido' class="muted"></div>
         <div class="content visible" id="content">
             <p id="parrafo" class="parrafo"></p>
         </div>
         <div class="content2" id="content2">
-            <p class="descripcion" id="descripcion">ctus quas libero aperiam odit ratione hic unde maxime? Illo,</p>
-            
+            <p class="descripcion" id="descripcion"></p>
         </div>
-        <div class="bnt-next" id="bnt-next">
+        <div class="botton bnt-next" id="botton">
             <p>NEXT ></p>
         </div>
     </section>
