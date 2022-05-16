@@ -1,0 +1,494 @@
+@font-face {
+    font-family: 'long-shot';
+    src: url('../fonts/Long_Shot.ttf');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.slides {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: block mandatory;
+}
+
+#logo{
+  font-family: 'long-shot';
+  position: fixed; 
+  top: 500px;
+  width: 50%;
+  left: calc(50%/2);
+  opacity: 0;
+  font-size: 15em;
+  transition: all 1s linear;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+section{
+  color: rgb(254, 254, 254);
+  background:  #000;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  height: 100vh;
+  scroll-snap-align: center;
+}
+
+.content{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s;
+  scroll-snap-align: center;
+}
+
+.parrafo2,
+.parrafo {
+    position: absolute;
+    opacity: 0;
+    transition: all .2s linear;
+
+}
+
+.visible{
+    opacity: 1;
+}
+
+.texto {
+  width: 30%;
+  height: auto;
+  gap: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.texto p{
+  width: 100%;
+  text-align: center;
+}
+
+P {
+  font-family: 'Orbitron', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2em;
+  user-select: none;
+  font-weight: bold;
+}
+
+/**************loader******************/
+/* .loader{
+    padding-top: 20px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    opacity: 0;
+    transition: all 1s linear;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.loader p{
+    color: #fff;
+    height: 40px;
+    padding-left: 40px;
+}
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.lds-spinner div {
+  transform-origin: 20px 20px;
+  animation: lds-spinner .9s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 1.5px;
+  left: 18px;
+  width: 4px;
+  height: 12px;
+  border-radius: 20%;
+  background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -.9s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(40deg);
+  animation-delay: -.8s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(80deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(120deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(160deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(200deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(280deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(320deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(360deg);
+  animation-delay: 0s;
+}
+
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+} */
+
+#controlSonido{
+    position: absolute;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    top: 50px;
+    scale: .8;
+}
+
+.muted{
+    background: url('../img/mute.png') center no-repeat;
+}
+
+.unmuted{
+    background: url('../img/simbolo-de-interfaz-de-subir-volumen.png') no-repeat center;
+}
+
+.botton{
+    white-space: nowrap;
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    transition: all 1s linear;
+    bottom: 150px;
+    z-index: 10;
+}
+
+.botton:hover > p{
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+.textoScroll {
+  font-family: 'Orbitron', sans-serif;
+  opacity: 0;
+  transition: 2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 20%;
+  bottom: 20px;
+  font-size: 10px;
+}
+
+.textoScroll2 {
+  font-family: 'Orbitron', sans-serif;
+  opacity: 0;
+  transition: 2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 20%;
+  bottom: 50px;
+  font-size: 10px;
+}
+
+.textoScroll3 {
+  font-family: 'Orbitron', sans-serif;
+  opacity: 0;
+  transition: 6s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 20%;
+  bottom: 50px;
+  font-size: 10px;
+}
+
+.contenido3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 500px;
+  flex-wrap: wrap;
+}
+
+#estesi {
+  opacity: 0;
+  transition: 3s;
+}
+
+.generation1 {
+  font-family: 'Orbitron', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2em;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.generation1 h1 {
+  margin-bottom: 50px;
+}
+
+.generation1 ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.generation1 li{
+  font-family: 'Orbitron', sans-serif;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.aboutus {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 40px;
+  margin-bottom: 50px;
+  opacity: 0;
+  transition: 3s;
+}
+
+.team{
+  display: flex;
+  gap: 500px;
+  opacity: 0;
+  transition: 3s;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.team1,
+.team2 {
+  min-width: 400px;
+  gap: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.team1 h1,
+.team2 h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 40px;
+}
+
+.team1 p,
+.team2 p {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.persona {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona h1{
+  margin-bottom: 10px;
+}
+
+.persona a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 20px; 
+}
+
+.persona a:hover {
+  text-decoration-line: underline;
+  color: #fff;
+}
+
+/***************************************/
+
+footer{
+    height: 120px;
+    width: 100%;
+    opacity: 0;
+    transition: all 3s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 50px;
+    position: fixed;
+    bottom: 0;
+}
+
+footer ul{
+    /* font-family: 'long-shot'; */
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer li{
+    font-size: 2em;
+    padding: 20px;
+    position: relative;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer li a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.58);
+}
+
+footer a:hover{
+    text-decoration-line: underline;
+    color: #fff;
+}
+
+/**************************************/
+
+@media (max-width: 1230px) {
+    p{
+        font-size: 1.5em;
+    }
+    a{
+        font-size: .6em;
+    }
+    .texto{
+        width: 50%;
+    }
+    .contenido3 {
+      gap: 50px;
+    }
+    .generation1 h1{
+        font-size: 1.5em;;
+      }
+      .generation1{
+        font-size: 1.5em;
+        width: 100%;
+      }
+    .team{
+        gap: 25px;
+    }
+    .team1,
+    .team2 {
+  gap: 25px;
+}
+footer {
+    height: 100px;
+}
+}
+
+@media (max-width: 860px) {
+
+    .texto{
+        width: 80%;
+    }
+    p{
+        font-size: 1.5em;
+    }
+    a{
+        font-size: .6em;
+    }
+    .generation1 h1{
+      font-size: 1.5em;;
+    }
+    .generation1{
+      font-size: 1.5em;
+      width: 100%;
+    }
+    .team{
+        gap: 25px;
+    }
+    .aboutus {
+        font-size: 20px;
+    }
+.persona h1,
+.persona p {
+    font-size: 20px;
+}
+
+.persona h1 {
+    text-decoration-line: underline;
+}
+.team1,
+.team2 {
+  gap: 25px;
+}
+#logo{
+    font-size: 12em;
+}
+.parrafo {
+    width: 90%;
+    font-size: 1.2em;
+}
+.parrafo2 {
+    width: 90%;
+    font-size: 1.2em;
+}
+.textoScroll2 {
+    bottom: 15px;
+  }
+  footer {
+      height: 100px;
+  }
+
+}
