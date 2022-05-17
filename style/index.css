@@ -246,12 +246,13 @@ P {
 .team1 h1,
 .team2 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .team1 p,
 .team2 p {
   font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
 }
 
 .persona {
@@ -268,12 +269,27 @@ P {
 .persona a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.58);
-  font-size: 20px; 
+  font-size: 18px; 
 }
 
 .persona a:hover {
   text-decoration-line: underline;
   color: #fff;
+}
+
+.tecnico{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  height: 30px;
+  width: 100%;
+}
+.teamPersona{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /***************************************/
@@ -347,7 +363,7 @@ footer a:hover{
     gap: 600px;
   }
 }
-@media (max-width: 1400px){
+@media (max-width: 1410px){
   .team{
     gap: 300px;
   }
@@ -385,6 +401,18 @@ footer a:hover{
     .team{
         gap: 25px;
     }
+    .team1 h1,
+    .team2 h1 {
+      font-size: 25px;
+    }
+    .team1 p,
+    .team2 p {
+      font-size: 18px;
+    }
+    .team1 a,
+    .team2 a {
+      font-size: 13px;
+    }
     .team1,
     .team2 {
   gap: 25px;
@@ -395,6 +423,8 @@ footer {
 }
 
 @media (max-width: 890px) {
+
+   
 
     .texto{
         width: 80%;
@@ -423,16 +453,24 @@ footer {
         gap: 25px;
     }
     .aboutus {
-        font-size: 20px;
+        font-size: 25px;
     }
-.persona h1,
-.persona p {
-    font-size: 20px;
-}
 
-.persona h1 {
-    text-decoration-line: underline;
-}
+    .team1 h1,
+    .team2 h1 {
+      font-size: 20px;
+    }
+    .team1 p,
+    .team2 p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.735);
+    }
+    .team1 a,
+    .team2 a {
+      font-size: 10px;
+    }
+    
+
 .team1,
 .team2 {
   gap: 25px;
@@ -481,7 +519,8 @@ footer {
     gap: 8px;
   }
   .aboutus{
-    top: 10vh;
+    top: 12vh;
+    font-size: 20px;
   }
   .contenido3 p{
     font-size: 15px;
@@ -501,4 +540,25 @@ footer {
   .textoScroll{
     bottom: 80px;
   }
+}
+@media (max-width: 360px){
+  .aboutus {
+    font-size: 20px;
+    top: 45px;
+}
+    .team1 h1,
+    .team2 h1 {
+      font-size: 17px;
+    }
+    .team1 p,
+    .team2 p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.735);
+    }
+    .team1 a,
+    .team2 a {
+      font-size: 9px;
+    }
+
+
 }
