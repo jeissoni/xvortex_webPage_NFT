@@ -42,8 +42,8 @@ function dealay(n) {
     });
 }
 
-let timeDelay = 0.8;
-let time = 60;
+let timeDelay = 0;
+let time = 10;
 
 async function typeWriter() {
     if (i < text.length) {
@@ -82,15 +82,12 @@ async function typeWriter2() {
     if (i < text2.length) {
         if (text2[i] == ".") {
             try{
-
                 audio.pause();
-
             }catch(error){
                 console.log(error)
             }
-            audio.muted = true;
             descripcion.innerHTML += text2[i];
-            await dealay(0.8);
+            await dealay(timeDelay);
             descripcion.innerHTML += "<br><br>";
         } else {
             try{
@@ -121,7 +118,7 @@ window.addEventListener("load", () => {
     setTimeout(opacidad, 2000);
 });
 
-function borrar(parrafo) {
+async function borrar(parrafo) {
     let element = parrafo;
 
     function typeDelete() {
@@ -150,7 +147,6 @@ botton.addEventListener("click", async () => {
 
     if (botton.classList[1] == "bnt-next") {
         botton.style.opacity = "0";
-        borrar(parrafo);
         await dealay(1);
         content.classList.remove("visible");
         content2.classList.add("visible");
@@ -187,4 +183,6 @@ botton.addEventListener("click", async () => {
         botton.classList.add("bnt-next2");
         return botton.classList.remove("bnt-previous2");
     }
+
+    
 });
