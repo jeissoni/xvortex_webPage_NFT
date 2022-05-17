@@ -16,13 +16,11 @@
   scroll-snap-type: block mandatory;
 }
 
-#logo{
+.logo{
   font-family: 'long-shot';
   position: fixed; 
-  top: 500px;
-  width: 50%;
-  left: calc(50%/2);
   opacity: 0;
+  padding-top: 100px;
   font-size: 15em;
   transition: all 1s linear;
   user-select: none;
@@ -48,7 +46,6 @@ section{
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   align-items: center;
   justify-content: center;
   transition: all 1s;
@@ -69,8 +66,7 @@ section{
 
 .texto {
   width: 30%;
-  height: auto;
-  gap: 30px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,6 +76,7 @@ section{
 
 .texto p{
   width: 100%;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -91,95 +88,7 @@ P {
   font-weight: bold;
 }
 
-/**************loader******************/
-/* .loader{
-    padding-top: 20px;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    opacity: 0;
-    transition: all 1s linear;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
 
-.loader p{
-    color: #fff;
-    height: 40px;
-    padding-left: 40px;
-}
-.lds-spinner {
-  color: official;
-  display: inline-block;
-  position: relative;
-  width: 40px;
-  height: 40px;
-}
-.lds-spinner div {
-  transform-origin: 20px 20px;
-  animation: lds-spinner .9s linear infinite;
-}
-.lds-spinner div:after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 1.5px;
-  left: 18px;
-  width: 4px;
-  height: 12px;
-  border-radius: 20%;
-  background: #fff;
-}
-.lds-spinner div:nth-child(1) {
-  transform: rotate(0deg);
-  animation-delay: -.9s;
-}
-.lds-spinner div:nth-child(2) {
-  transform: rotate(40deg);
-  animation-delay: -.8s;
-}
-.lds-spinner div:nth-child(3) {
-  transform: rotate(80deg);
-  animation-delay: -0.7s;
-}
-.lds-spinner div:nth-child(4) {
-  transform: rotate(120deg);
-  animation-delay: -0.6s;
-}
-.lds-spinner div:nth-child(5) {
-  transform: rotate(160deg);
-  animation-delay: -0.5s;
-}
-.lds-spinner div:nth-child(6) {
-  transform: rotate(200deg);
-  animation-delay: -0.4s;
-}
-.lds-spinner div:nth-child(7) {
-  transform: rotate(240deg);
-  animation-delay: -0.3s;
-}
-.lds-spinner div:nth-child(8) {
-  transform: rotate(280deg);
-  animation-delay: -0.2s;
-}
-.lds-spinner div:nth-child(9) {
-  transform: rotate(320deg);
-  animation-delay: -0.1s;
-}
-.lds-spinner div:nth-child(10) {
-  transform: rotate(360deg);
-  animation-delay: 0s;
-}
-
-@keyframes lds-spinner {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-} */
 
 #controlSonido{
     position: absolute;
@@ -204,7 +113,7 @@ P {
     position: absolute;
     opacity: 0;
     transition: all 1s linear;
-    bottom: 150px;
+    bottom: 170px;
     z-index: 10;
 }
 
@@ -221,8 +130,8 @@ P {
   align-items: center;
   justify-content: center;
   position: absolute;
-  height: 20%;
-  bottom: 20px;
+  height: 20px;
+  bottom: 120px;
   font-size: 10px;
 }
 
@@ -298,17 +207,23 @@ P {
   text-align: center;
 }
 
+.contenido3 p,
+.contenido3 li{
+  font-size: 30px;
+}
+
 .aboutus {
   font-family: 'Orbitron', sans-serif;
+  position: absolute;
+  top: 130px;
   font-size: 40px;
-  margin-bottom: 50px;
   opacity: 0;
   transition: 3s;
 }
 
 .team{
   display: flex;
-  gap: 500px;
+  gap: 900px;
   opacity: 0;
   transition: 3s;
   flex-wrap: wrap;
@@ -404,8 +319,50 @@ footer a:hover{
 }
 
 /**************************************/
+@media (max-height: 850px){
+  .texto p{
+    font-size: 20px;
+  }
+  .botton p{
+    font-size: 25px;
+  }
+}
+@media (max-height: 700px){
+  .texto p{
+    font-size: 20px;
+  }
+  .botton p{
+    font-size: 25px;
+  }
+  .botton{
+    bottom: 20px;
+  }
+}
 
-@media (max-width: 1230px) {
+@media (max-width: 1850px){
+  .aboutus{
+    top: 100px;
+  }
+  .team{
+    gap: 600px;
+  }
+}
+@media (max-width: 1400px){
+  .team{
+    gap: 300px;
+  }
+  .botton p{
+    font-size: 20px;
+  }
+  .botton{
+    bottom: 130px;
+  }
+  .textoScroll{
+    bottom: 100px;
+  }
+}
+
+@media (max-width: 1250px) {
     p{
         font-size: 1.5em;
     }
@@ -416,7 +373,7 @@ footer a:hover{
         width: 50%;
     }
     .contenido3 {
-      gap: 50px;
+      gap: 40px;
     }
     .generation1 h1{
         font-size: 1.5em;;
@@ -437,22 +394,29 @@ footer {
 }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 890px) {
 
     .texto{
         width: 80%;
     }
+    .texto3{
+      height: 80px;
+    }
     p{
-        font-size: 1.5em;
+        font-size: 20px;
+    }
+    li{
+      font-size: 20px;
     }
     a{
-        font-size: .6em;
+        font-size: 20px;
     }
     .generation1 h1{
-      font-size: 1.5em;;
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      
     }
     .generation1{
-      font-size: 1.5em;
       width: 100%;
     }
     .team{
@@ -490,5 +454,51 @@ footer {
   footer {
       height: 100px;
   }
+  .contenido3{
+    gap: 25px;
+  }
 
+}
+
+@media (max-width: 600px){
+  #controlSonido{
+    top: 2vh;
+    scale: .6;
+  }
+  .texto p{
+    font-size: 15px;
+  }
+  .team p{
+    font-size: 1em;
+  }
+  .team h1{
+    font-size: 15px;
+  }
+  .team a{
+    font-size: 12px;
+  }
+  .team{
+    gap: 8px;
+  }
+  .aboutus{
+    top: 10vh;
+  }
+  .contenido3 p{
+    font-size: 15px;
+  }
+  .contenido3 li{
+    font-size: 15px;
+  }
+  .generation1{
+    font-size: 1em;
+  }
+  footer li a{
+    font-size: 15px;
+  }
+  .botton{
+    bottom: 120px;
+  }
+  .textoScroll{
+    bottom: 80px;
+  }
 }

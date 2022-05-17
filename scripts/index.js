@@ -24,7 +24,7 @@ const text2 = "Life Out is a utility NFT Project created on the Ethereum chain a
 +" Moreover, being part of the Genesis collection will bring you even more utility in future developments."
             
 
-var i = 0;
+let i = 0;
 
 muteButtom.addEventListener('click', () => {
   
@@ -89,7 +89,7 @@ function opacidad(){
 
 window.addEventListener("load", () => {
   logo.style.opacity = "1";
-  logo.style.top = "calc(50%/2)";
+  logo.style.paddingTop = '0'
 
   setTimeout(opacidad, 2000);           
 
@@ -153,7 +153,7 @@ botton.addEventListener("click", async () => {
       console.log("next");
       parrafo.classList.remove("visible");
       parrafo2.classList.add("visible");
-      botton.firstElementChild.innerHTML = "< PREVIUS";
+      botton.firstElementChild.innerHTML = "< PREVIOUS";
       botton.classList.remove("bnt-next2");
       return botton.classList.add("bnt-previous2");
   }
