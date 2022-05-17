@@ -107,13 +107,23 @@ P {
     background: url('../img/simbolo-de-interfaz-de-subir-volumen.png') no-repeat center;
 }
 
+.BtTexto{  
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  height: 200px;
+  width: 250px;
+}
+
 .botton{
     white-space: nowrap;
     display: flex;
-    position: absolute;
     opacity: 0;
     transition: all 1s linear;
-    bottom: 170px;
     z-index: 10;
 }
 
@@ -129,10 +139,8 @@ P {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
   height: 20px;
-  bottom: 120px;
-  font-size: 10px;
+  font-size: 20px;
 }
 
 .textoScroll2 {
@@ -143,23 +151,11 @@ P {
   align-items: center;
   justify-content: center;
   position: absolute;
-  height: 20%;
-  bottom: 50px;
-  font-size: 10px;
+  height: 20px;
+  bottom: 120px;
+  font-size: 20px;
 }
 
-.textoScroll3 {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 6s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 20%;
-  bottom: 50px;
-  font-size: 10px;
-}
 
 .contenido3 {
   display: flex;
@@ -246,12 +242,13 @@ P {
 .team1 h1,
 .team2 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .team1 p,
 .team2 p {
   font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
 }
 
 .persona {
@@ -268,12 +265,27 @@ P {
 .persona a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.58);
-  font-size: 20px; 
+  font-size: 18px; 
 }
 
 .persona a:hover {
   text-decoration-line: underline;
   color: #fff;
+}
+
+.tecnico{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  height: 30px;
+  width: 100%;
+}
+.teamPersona{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /***************************************/
@@ -292,7 +304,6 @@ footer{
 }
 
 footer ul{
-    /* font-family: 'long-shot'; */
     font-family: 'Orbitron', sans-serif;
     display: flex;
     align-items: center;
@@ -319,6 +330,7 @@ footer a:hover{
 }
 
 /**************************************/
+
 @media (max-height: 850px){
   .texto p{
     font-size: 20px;
@@ -347,18 +359,15 @@ footer a:hover{
     gap: 600px;
   }
 }
-@media (max-width: 1400px){
+@media (max-width: 1410px){
   .team{
     gap: 300px;
   }
+  .BtTexto{
+    bottom: 5%;
+  }
   .botton p{
     font-size: 20px;
-  }
-  .botton{
-    bottom: 130px;
-  }
-  .textoScroll{
-    bottom: 100px;
   }
 }
 
@@ -385,6 +394,18 @@ footer a:hover{
     .team{
         gap: 25px;
     }
+    .team1 h1,
+    .team2 h1 {
+      font-size: 25px;
+    }
+    .team1 p,
+    .team2 p {
+      font-size: 18px;
+    }
+    .team1 a,
+    .team2 a {
+      font-size: 13px;
+    }
     .team1,
     .team2 {
   gap: 25px;
@@ -395,6 +416,8 @@ footer {
 }
 
 @media (max-width: 890px) {
+
+   
 
     .texto{
         width: 80%;
@@ -423,16 +446,30 @@ footer {
         gap: 25px;
     }
     .aboutus {
-        font-size: 20px;
+        font-size: 25px;
     }
-.persona h1,
-.persona p {
-    font-size: 20px;
-}
 
-.persona h1 {
-    text-decoration-line: underline;
-}
+    .team1 h1,
+    .team2 h1 {
+      font-size: 20px;
+    }
+    .team1 p,
+    .team2 p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.735);
+    }
+    .team1 a,
+    .team2 a {
+      font-size: 10px;
+    }
+    .textoScroll{
+      font-size: 15px;
+    }
+    .textoScroll2{
+      font-size: 15px;
+    }
+    
+
 .team1,
 .team2 {
   gap: 25px;
@@ -448,9 +485,6 @@ footer {
     width: 90%;
     font-size: 1.2em;
 }
-.textoScroll2 {
-    bottom: 15px;
-  }
   footer {
       height: 100px;
   }
@@ -465,12 +499,24 @@ footer {
     top: 2vh;
     scale: .6;
   }
+  .BtTexto{
+    gap: 10px;
+    bottom: 10%;
+  }
+  .botton p{
+    font-size: 15px;
+  }
+  .textoScroll{
+    font-size: 12px;
+  }
+  .textoScroll2{
+    font-size: 12px;
+    bottom: 150px;
+  }
   .texto p{
     font-size: 15px;
   }
-  .team p{
-    font-size: 1em;
-  }
+  
   .team h1{
     font-size: 15px;
   }
@@ -481,7 +527,8 @@ footer {
     gap: 8px;
   }
   .aboutus{
-    top: 10vh;
+    top: 12vh;
+    font-size: 20px;
   }
   .contenido3 p{
     font-size: 15px;
@@ -495,10 +542,88 @@ footer {
   footer li a{
     font-size: 15px;
   }
-  .botton{
-    bottom: 120px;
+}
+@media (max-width: 340px){
+  .texto p{
+    font-size: 10px;
   }
+  .generation1 li{
+    font-size: 12px;
+  }
+  #logo{
+    font-size: 8em;
+  }
+
   .textoScroll{
-    bottom: 80px;
+    font-size: 9px;
   }
+
+  .textoScroll2{
+    font-size: 9px;
+    bottom: 100px;
+  }
+
+  .texto p{
+    font-size: 12px;
+  }
+  .BtTexto{
+    gap: 10px;
+    bottom: 150px;
+    height: 50px;
+  }
+  .botton p{
+    font-size: 12px;
+  }
+  .textoScroll h2{
+    font-size: 8px;
+  }
+
+  .aboutus {
+    font-size: 20px;
+    top: 45px;
+}
+    .team1 h1,
+    .team2 h1 {
+      font-size: 17px;
+    }
+    .team1 p,
+    .team2 p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.735);
+    }
+    .team1 a,
+    .team2 a {
+      font-size: 9px;
+    }
+    footer li a{
+      font-size: 9px;
+    }
+}
+
+@media (max-width: 260px){
+
+  .BtTexto{
+    bottom: 150px;
+    gap: 5px;
+  }
+  .aboutus{
+    font-size: 16px;
+  }
+    .team1 h1,
+    .team2 h1 {
+      font-size: 12px;
+    }
+    .team1 p,
+    .team2 p {
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.735);
+    }
+    .team1 a,
+    .team2 a {
+      font-size: 6px;
+    }
+    footer li{
+      padding: 5px;
+    }
+    
 }
