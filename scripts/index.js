@@ -20,7 +20,7 @@ const text = "The year is 3055."
 
 const text2 = "Life Out is a utility NFT Project created on the Ethereum chain aiming to create a Multiverse that will reside in the web3 community."
 + 
-"We are community driven, so holdign an NFT from the collection will give you perks in the ecosystem."
+"We are community driven, so holding an NFT from the collection will give you perks in the ecosystem."
 +" Moreover, being part of the Genesis collection will bring you even more utility in future developments."
             
 
@@ -150,7 +150,7 @@ botton.addEventListener("click", async () => {
   }
 
   if (botton.classList[1] == "bnt-next2") {
-      console.log("next");
+      //console.log("next");
       parrafo.classList.remove("visible");
       parrafo2.classList.add("visible");
       botton.firstElementChild.innerHTML = "< PREVIOUS";
@@ -159,7 +159,7 @@ botton.addEventListener("click", async () => {
   }
 
   if (botton.classList[1] == "bnt-previous2") {
-      console.log("previus");
+      //console.log("previus");
       parrafo2.classList.remove("visible");
       parrafo.classList.add("visible");
       botton.firstElementChild.innerHTML = "NEXT >";
@@ -195,8 +195,9 @@ async function typeWriter2() {
       setTimeout(typeWriter2, time);
   } else {
       botton.style.opacity = "1";
+      //botton.style.paddingBottom = "50px"
       textoScroll2.style.opacity = '1'
-      botton.firstElementChild.innerHTML = "< PREVIUS";
+      botton.firstElementChild.innerHTML = "< PREVIOUS";
       textoScroll.style.opacity = '1'
       footer.style.opacity = "1"
       i = 0;
