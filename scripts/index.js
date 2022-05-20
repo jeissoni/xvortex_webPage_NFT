@@ -102,22 +102,10 @@ function borrar(parrafo) {
       let last = element.innerHTML.length - 1;
 
       if (parrafo.innerHTML !== "") {
-        try{
-          audio.play();
-      }catch(error){
-          console.log(error)
-      }
 
           element.innerHTML = element.innerHTML.substring(0, last);
 
           setTimeout(typeDelete, 1);
-      } else {
-          try{
-              audio.pause();
-          }catch(error){
-              console.log(error)
-          }
-          
       }
   }
 
@@ -129,7 +117,7 @@ botton.addEventListener("click", async () => {
   if (botton.classList[1] == "bnt-next") {
       botton.style.opacity = "0";
       borrar(parrafo);
-      await dealay(1);
+      await dealay(1.8);
       parrafo.classList.remove("visible");
       parrafo2.classList.add("visible");
       typeWriter2();
