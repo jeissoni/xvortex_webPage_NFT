@@ -88,33 +88,14 @@ P {
   font-weight: bold;
 }
 
-
-
-#controlSonido{
-    position: absolute;
-    z-index: 10;
-    width: 30px;
-    height: 30px;
-    top: 50px;
-    scale: .8;
-}
-
-.muted{
-    background: url('../img/mute.png') center no-repeat;
-}
-
-.unmuted{
-    background: url('../img/simbolo-de-interfaz-de-subir-volumen.png') no-repeat center;
-}
-
 .BtTexto{  
   position: absolute;
-  bottom: 5%;
+  bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
   height: 200px;
   width: 250px;
 }
@@ -125,6 +106,10 @@ P {
     opacity: 0;
     transition: all 1s linear;
     z-index: 10;
+}
+
+.botton p{
+  font-size: 25px;
 }
 
 .botton:hover > p{
@@ -140,7 +125,7 @@ P {
   align-items: center;
   justify-content: center;
   height: 20px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .textoScroll2 {
@@ -152,8 +137,8 @@ P {
   justify-content: center;
   position: absolute;
   height: 20px;
-  bottom: 120px;
-  font-size: 20px;
+  bottom: 50px;
+  font-size: 15px;
 }
 
 
@@ -298,9 +283,8 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 50px;
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 0px;
 }
 
 footer ul{
@@ -362,12 +346,6 @@ footer a:hover{
 @media (max-width: 1410px){
   .team{
     gap: 300px;
-  }
-  .BtTexto{
-    bottom: 5%;
-  }
-  .botton p{
-    font-size: 20px;
   }
 }
 
@@ -500,8 +478,7 @@ footer {
     scale: .6;
   }
   .BtTexto{
-    gap: 10px;
-    bottom: 10%;
+    height: 250px;
   }
   .botton p{
     font-size: 15px;
@@ -511,7 +488,11 @@ footer {
   }
   .textoScroll2{
     font-size: 12px;
-    bottom: 150px;
+    bottom: 100px;
+  }
+
+  .texto{
+    width: 60%;
   }
   .texto p{
     font-size: 15px;
@@ -539,10 +520,19 @@ footer {
   .generation1{
     font-size: 1em;
   }
+  footer{
+    bottom: 50px;
+  }
   footer li a{
     font-size: 15px;
   }
 }
+@media (max-width: 420px){
+  .texto{
+    width: 80%;
+  }
+}
+
 @media (max-width: 340px){
   .texto p{
     font-size: 10px;
@@ -560,7 +550,7 @@ footer {
 
   .textoScroll2{
     font-size: 9px;
-    bottom: 100px;
+    bottom: 40px;
   }
 
   .texto p{
@@ -568,8 +558,7 @@ footer {
   }
   .BtTexto{
     gap: 10px;
-    bottom: 150px;
-    height: 50px;
+    height: 150px;
   }
   .botton p{
     font-size: 12px;
@@ -603,7 +592,7 @@ footer {
 @media (max-width: 260px){
 
   .BtTexto{
-    bottom: 150px;
+    height: 80px;
     gap: 5px;
   }
   .aboutus{
@@ -616,7 +605,6 @@ footer {
     .team1 p,
     .team2 p {
       font-size: 9px;
-      color: rgba(255, 255, 255, 0.735);
     }
     .team1 a,
     .team2 a {
@@ -626,4 +614,36 @@ footer {
       padding: 5px;
     }
     
+}
+
+@media (max-width: 240px){
+  .aboutus{
+    top: 20px;
+    font-size: 13px;
+  }
+  .team{
+    gap: 0;
+  }
+  .team1,
+  .team2{
+    gap: 5px;
+  }
+  .team1 h1,
+  .team2 h1 {
+    font-size: 10px;
+  }
+  .team1 p,
+  .team2 p {
+    font-size: 7px;
+  }
+  .team1 a,
+  .team2 a {
+    font-size: 5px;
+  }
+  footer{
+    bottom: 0;
+  }
+  footer li{
+    padding: 5px;
+  }
 }
