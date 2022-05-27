@@ -11,7 +11,6 @@ const texto3 = document.getElementById("estesi")
 const generation1 = document.querySelector('.generation1')
 const textoScroll3 = document.querySelector('.textoScroll3')
 const botton = document.getElementById('botton')
-const muteButtom = document.getElementById('controlSonido')
 
 const text = "The year is 3055." 
             +"Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days."          
@@ -22,24 +21,8 @@ const text2 = "Life Out is a utility NFT Project created on the Ethereum chain a
 + 
 "We are community driven, so holding an NFT from the collection will give you perks in the ecosystem."
 +" Moreover, being part of the Genesis collection will bring you even more utility in future developments."
-            
 
 let i = 0;
-
-muteButtom.addEventListener('click', () => {
-  
-  if(muteButtom.className === 'muted'){
-      muteButtom.classList.remove('muted')
-      muteButtom.classList.add('unmuted')
-      console.log(1)
-      return  audio.muted = false;
-  }else{
-      muteButtom.classList.add('muted')
-      muteButtom.classList.remove('unmuted')
-      return  audio.muted = true
-  }
-  
-})
 
 function dealay(n) {
   return new Promise(function (resolve) {
@@ -47,26 +30,15 @@ function dealay(n) {
   });
 }
 
-let timeDelay = 0.8;
-let time = 70;
+let timeDelay = 0;
+let time = 10;
 
 async function typeWriter() {
   if (i < text.length) {
       if (text[i] == ".") {
-          try{
-              audio.pause();
-          }catch(error){
-              console.log(error)
-          }
           parrafo.innerHTML += text[i];
-          await dealay(timeDelay);
           parrafo.innerHTML += "<br><br>";
       } else {
-          try{
-              audio.play();
-          }catch(error){
-              console.log(error)
-          }
           parrafo.innerHTML += text[i];
       }
       i++;
@@ -102,22 +74,10 @@ function borrar(parrafo) {
       let last = element.innerHTML.length - 1;
 
       if (parrafo.innerHTML !== "") {
-        try{
-          audio.play();
-      }catch(error){
-          console.log(error)
-      }
 
           element.innerHTML = element.innerHTML.substring(0, last);
 
           setTimeout(typeDelete, 1);
-      } else {
-          try{
-              audio.pause();
-          }catch(error){
-              console.log(error)
-          }
-          
       }
   }
 
@@ -141,8 +101,6 @@ botton.addEventListener("click", async () => {
       parrafo.classList.add("visible");
       botton.firstElementChild.innerHTML = "NEXT >";
       parrafo2.classList.remove("visible");
-      timeDelay = 0;
-      time = 0;
       typeWriter();
       
       botton.classList.add("bnt-next2");
@@ -150,7 +108,6 @@ botton.addEventListener("click", async () => {
   }
 
   if (botton.classList[1] == "bnt-next2") {
-      //console.log("next");
       parrafo.classList.remove("visible");
       parrafo2.classList.add("visible");
       botton.firstElementChild.innerHTML = "< PREVIOUS";
@@ -159,7 +116,6 @@ botton.addEventListener("click", async () => {
   }
 
   if (botton.classList[1] == "bnt-previous2") {
-      //console.log("previus");
       parrafo2.classList.remove("visible");
       parrafo.classList.add("visible");
       botton.firstElementChild.innerHTML = "NEXT >";
@@ -175,31 +131,18 @@ async function typeWriter2() {
     
   if (i < text2.length) {
       if (text2[i] == ".") {
-          try{
-              audio.pause();
-          }catch(error){
-              console.log(error)
-          }
           parrafo2.innerHTML += text2[i];
-          await dealay(0.8);
           parrafo2.innerHTML += "<br><br>";
       } else {
-          try{
-              audio.play();
-          }catch(error){
-              console.log(error)
-          }
           parrafo2.innerHTML += text2[i];
       }
       i++;
       setTimeout(typeWriter2, time);
   } else {
       botton.style.opacity = "1";
-      //botton.style.paddingBottom = "50px"
       textoScroll2.style.opacity = '1'
       botton.firstElementChild.innerHTML = "< PREVIOUS";
       textoScroll.style.opacity = '1'
-      footer.style.opacity = "1"
       i = 0;
   }
 }
@@ -234,7 +177,7 @@ const info4 = (entradas) => {
     if(entrada.isIntersecting){
       aboutus.style.opacity = "1"
       team.style.opacity = "1"
-      
+      footer.style.opacity = "1"
       //setTimeout(typeWriter2, 500);
     } else {
       //parrafo2.style.opacity = "0"
