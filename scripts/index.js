@@ -11,7 +11,9 @@ const texto3 = document.getElementById("estesi")
 const generation1 = document.querySelector('.generation1')
 const textoScroll3 = document.querySelector('.textoScroll3')
 const botton = document.getElementById('botton')
-
+const particles = document.getElementById('particles-js')
+const earthquake = document.querySelector('.earthquake')
+const video = document.getElementById('video')
 const text = "The year is 3055." 
             +"Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days."          
             +"Humanity was devasted by wars and different viruses that impede human reproduction."          
@@ -21,8 +23,22 @@ const text2 = "Life Out is a utility NFT Project created on the Ethereum chain a
 + 
 "We are community driven, so holding an NFT from the collection will give you perks in the ecosystem."
 +" Moreover, being part of the Genesis collection will bring you even more utility in future developments."
-
 let i = 0;
+
+video.playbackRate = 2.0
+
+function playVideo(){
+  video.play()
+  setTimeout(() => {
+    particles.style.opacity = '1'
+    earthquake.style.zIndex = '-10'
+    logo.style.opacity = "1";
+    logo.style.paddingTop = '0'
+    setTimeout(opacidad, 2000); 
+  }, 15000)
+}
+
+video.onclick = playVideo
 
 function dealay(n) {
   return new Promise(function (resolve) {
@@ -59,13 +75,13 @@ function opacidad(){
 
 }
 
-window.addEventListener("load", () => {
-  logo.style.opacity = "1";
-  logo.style.paddingTop = '0'
+// window.addEventListener("load", () => {
+//   logo.style.opacity = "1";
+//   logo.style.paddingTop = '0'
 
-  setTimeout(opacidad, 2000);           
+//   setTimeout(opacidad, 2000);           
 
-});
+// });
 
 function borrar(parrafo) {
   let element = parrafo;
