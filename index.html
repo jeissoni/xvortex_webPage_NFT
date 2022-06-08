@@ -46,32 +46,138 @@
 </head>
 
 <body>
-  
-  <section class="earthquake">
-    <video src="./video/Earthquake fissure 1.mp4" id="video"></video>
-  </section>
 
-  <div class="slides">
+  <header>
+      <div class="nvLogo">LIFE OUT</div>
+      <ul class="botones Language">
+        <li class="boton" data-function="lore">LORE</li>
+        <li class="boton" data-function="about">ABOUT</li>
+        <li class="boton" data-function="team">TEAM</li>
+        <li class="boton" data-function="social-media">SOCIAL MEDIA</li>
+        <li class="boton" data-function="en">English</li>
+        <li class="boton" data-function="es">Español</li>
+      </ul>
+  </header>
+
+  <article>
     <div id="particles-js"></div>
-    <section>
-      <h1 id="logo" class="logo">LIFE<br>OUT</h1>
+
+    <div class="earthquake">
+      <video src="./video/GRIETA_1.mp4" id="video" muted autoplay></video>
+      <h1 class="logo" id="logo">LIFE<br>OUT</h1>
+    </div>
       
-      <div class="content" id="content">  
+      <div class="history">
         <div class="texto" >
-          <p id="parrafo" class="parrafo visible"></p>
-          <p id="parrafo2" class="parrafo2"></p>
+          <p class="parrafo traducir" data-content="lore" data-type="text">The year is 3055.
+            <br>
+            <br>
+            Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days.
+            <br>
+            <br>
+            Humanity was devastated by wars and different viruses that impede human reproduction.
+            <br>
+            <br>
+            And here is where the adventure begins.</p>
         </div>
-        <div class="BtTexto">
-            <div class="botton bnt-next" id="botton">
-                <p>NEXT ></p>
+        <img src="./img/planetafinal (3).png" alt="planet">
+      </div>
+
+      <div class="about">
+        <h1 class="about-title traducir" data-content="about" data-type="title">What is life Out Multiverse?</h1>
+        <div class="dvabout">
+          <div class="questions traducir" data-content="about" data-type="text">
+            Life Out is a utility NFT Project created on the Ethereum chain aiming to create a Multiverse that will reside in the web3 community.
+          <br>
+          <br>
+          We are community driven, so holding an NFT from the collection will give you perks in the ecosystem.
+          <br>
+          <br>
+          Moreover, being part of the Genesis collection will bring you even more utility in future developments.
+          </div>
+          <div class="questions-container">
+            <div class="questions q2 traducir" data-content="about" data-type="text2">
+              LIFE OUT aims to launch 6006 NFTs in three generations.The First Generation will be launched as follows:
             </div>
-            <div class="textoScroll">
-                Scroll for more info
+            <div class="questions q3">
+              <h3 class="traducir" data-content="about" data-type="subtitle">
+                GENERATION 1
+              </h3>
+              <p class="traducir" data-content="about" data-type="text3">
+                999 NFTs will be launched via Public Sale.
+                <br>
+                <br>
+                Release Date: June 30/2022
+                <br>
+                <br>
+                Price: 0.3 ETH
+              </p>
             </div>
+            
+          </div>
         </div>
       </div>
-    </section>
-    <section>
+
+      <div class="team-container">
+
+        <h1 class="aboutus">
+          About Us
+        </h1> 
+        <div class="team">
+          <div class="dvteam team1"> 
+            <div class="persona"> 
+              <h1>
+                CEO
+              </h1>
+              <p>Julián Andrés Romero</p>
+              <a href="https://twitter.com/TheMetalorian0x" target="_blank">Twitter</a>
+            </div> 
+  
+            <div class="persona"> 
+              <h1>
+                Developer
+              </h1>
+              <p>Jeisson Niño Castillo</p>
+              <a href="https://twitter.com/Jei_Nino" target="_blank">Twitter</a>
+            </div>
+          </div>
+  
+          <div class="dvteam team2"> 
+            <div class="persona">
+              <h1>
+                Artist
+              </h1>
+              <p>David Calderon</p>
+              <a href="https://instagram.com/davecalderonr/" target="_blank">instagram</a>
+            </div>
+  
+            <div class="persona">
+              <h1>
+                Community Manager
+              </h1>
+              <p>Carlos Andrés Rojas</p>
+              <a href="https://twitter.com/Boley_Eth" target="_blank">Twitter</a>
+            </div>
+            
+            <div class="persona">
+              <h1>
+                Technical Team
+              </h1>
+              <div class="tecnico">
+                  <div class="teamPersona">
+                      <p>Mario</p>
+                      <a href="https://twitter.com/BoarStoic" target="_blank">Twitter</a>
+                  </div>
+                  <div class="teamPersona">
+                      <p>George</p>
+                      <a href="https://twitter.com/GeorgeL61291640/" target="_blank">Twitter</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- <section>
     <div class="content"  id="content">
       <div class="contenido3" id="estesi">
         <div class="texto" >
@@ -164,11 +270,14 @@
         </ul>
       </footer>
     </div>
-  </section>
+    </section> -->
+  </article>
   
-   
-  </div>
-  
+  <footer>
+    <a href="https://twitter.com/Lifeoutnft" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/lifeoutmultiverse/" target="_blank">Instagram</a>
+  </footer>
+
   <script src="./scripts/particles.js"></script>
   <script src="./scripts/app.js"></script>
   <script src="./scripts/index.js"></script>
