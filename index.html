@@ -49,13 +49,26 @@
 
   <header>
       <div class="nvLogo">LIFE OUT</div>
-      <ul class="botones Language">
-        <li class="boton" data-function="lore">LORE</li>
-        <li class="boton" data-function="about">ABOUT</li>
-        <li class="boton" data-function="team">TEAM</li>
-        <li class="boton" data-function="social-media">SOCIAL MEDIA</li>
-        <li class="boton" data-function="en">English</li>
-        <li class="boton" data-function="es">Español</li>
+      <div class="menu-container">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div class="botones">
+        <a class="boton traducir" href="#history" data-content="navbar" data-type="lore">LORE</a>
+        <a class="boton traducir" href="#about" data-content="navbar" data-type="about">ABOUT</a>
+        <a class="boton traducir" href="#team-container" data-content="navbar" data-type="team">TEAM</a>
+        <a class="boton traducir" href="#footer" data-content="navbar" data-type="social-media">SOCIAL MEDIA</a>
+        <div class="language-container">
+          <a class="boton traducir" data-content="navbar" data-type="language">
+            LANGUAGE
+            <img src='./img/caret-abajo.png' alt='flecha' style='height: 10px;'>
+          </a>
+          <div class="language" >
+            <a class="boton" data-function="en">ENGLISH</a>
+            <a class="boton" data-function="es">ESPAÑOL</a>
+          </div>
+        </div>
       </ul>
   </header>
 
@@ -63,11 +76,10 @@
     <div id="particles-js"></div>
 
     <div class="earthquake">
-      <video src="./video/GRIETA_1.mp4" id="video" muted autoplay></video>
-      <h1 class="logo" id="logo">LIFE<br>OUT</h1>
+      <video src="./video/GRIETAPAG.mp4" id="video" muted autoplay></video>
     </div>
       
-      <div class="history">
+      <div class="history" id="history">
         <div class="texto" >
           <p class="parrafo traducir" data-content="lore" data-type="text">The year is 3055.
             <br>
@@ -83,7 +95,7 @@
         <img src="./img/planetafinal (3).png" alt="planet">
       </div>
 
-      <div class="about">
+      <div class="about" id="about">
         <h1 class="about-title traducir" data-content="about" data-type="title">What is life Out Multiverse?</h1>
         <div class="dvabout">
           <div class="questions traducir" data-content="about" data-type="text">
@@ -118,7 +130,7 @@
         </div>
       </div>
 
-      <div class="team-container">
+      <div class="team-container" id="team-container">
 
         <h1 class="aboutus">
           About Us
@@ -130,7 +142,7 @@
                 CEO
               </h1>
               <p>Julián Andrés Romero</p>
-              <a href="https://twitter.com/TheMetalorian0x" target="_blank">Twitter</a>
+              <a href="https://twitter.com/TheMetalorian0x" target="_blank"><img src="./img/twitter-sign.png" alt="twitter"></a>
             </div> 
   
             <div class="persona"> 
@@ -138,7 +150,7 @@
                 Developer
               </h1>
               <p>Jeisson Niño Castillo</p>
-              <a href="https://twitter.com/Jei_Nino" target="_blank">Twitter</a>
+              <a href="https://twitter.com/Jei_Nino" target="_blank"><img src="./img/twitter-sign.png" alt="twitter"></a>
             </div>
           </div>
   
@@ -148,7 +160,7 @@
                 Artist
               </h1>
               <p>David Calderon</p>
-              <a href="https://instagram.com/davecalderonr/" target="_blank">instagram</a>
+              <a href="https://instagram.com/davecalderonr/" target="_blank"><img src="./img/instagram.png" alt="twitter"></a>
             </div>
   
             <div class="persona">
@@ -156,7 +168,7 @@
                 Community Manager
               </h1>
               <p>Carlos Andrés Rojas</p>
-              <a href="https://twitter.com/Boley_Eth" target="_blank">Twitter</a>
+              <a href="https://twitter.com/Boley_Eth" target="_blank"><img src="./img/twitter-sign.png" alt="twitter"></a>
             </div>
             
             <div class="persona">
@@ -166,11 +178,11 @@
               <div class="tecnico">
                   <div class="teamPersona">
                       <p>Mario</p>
-                      <a href="https://twitter.com/BoarStoic" target="_blank">Twitter</a>
+                      <a href="https://twitter.com/BoarStoic" target="_blank"><img src="./img/twitter-sign.png" alt="twitter"></a>
                   </div>
                   <div class="teamPersona">
                       <p>George</p>
-                      <a href="https://twitter.com/GeorgeL61291640/" target="_blank">Twitter</a>
+                      <a href="https://twitter.com/GeorgeL61291640/" target="_blank"><img src="./img/twitter-sign.png" alt="twitter"></a>
                   </div>
               </div>
             </div>
@@ -273,9 +285,9 @@
     </section> -->
   </article>
   
-  <footer>
-    <a href="https://twitter.com/Lifeoutnft" target="_blank">Twitter</a>
-    <a href="https://www.instagram.com/lifeoutmultiverse/" target="_blank">Instagram</a>
+  <footer id="footer">
+    <a href="https://twitter.com/Lifeoutnft" target="_blank"><img src="./img/twitter-sign.png" alt="twitter"></a>
+    <a href="https://www.instagram.com/lifeoutmultiverse/" target="_blank"><img src="./img/instagram.png" alt="instagram"></a>
   </footer>
 
   <script src="./scripts/particles.js"></script>

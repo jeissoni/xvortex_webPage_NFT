@@ -1,4 +1,11 @@
 {
+    "navbar":{
+        "lore": "HISTORIA",
+        "about": "ABOUT",
+        "team": "EQEIPO",
+        "social-media": "REDES SOCIALES",
+        "language": "LENGUAGE<img src='./img/caret-abajo.png' alt='flecha' style='height: 10px;'>"
+    },
     "lore": {
         "text": "El año es el 3055.<br><br>Exul es el cuarto planeta de la galaxia Sericom donde un año solar dura 700 días.<br><br>La humanidad fue devastada por guerras y diferentes virus que impiden la reproducción humana.<br><br>Y aquí es donde comienza la aventura."
     },

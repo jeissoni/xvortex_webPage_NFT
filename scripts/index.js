@@ -12,11 +12,13 @@ const parrafo = document.querySelector(".parrafo");
 // const textoScroll3 = document.querySelector('.textoScroll3')
 // const botton = document.getElementById('botton')
 const translatetexts = document.querySelectorAll('.traducir')
+const menuContainer = document.querySelector('.menu-container')
+const botones = document.querySelector('.botones')
 // const lore = document.getElementById('lore')
 // const about = document.getElementById('about')
 // const team = document.getElementById('team')
 // const socialMedia = document.getElementById('social-media')
-const idioma = document.querySelector('.Language')
+const idioma = document.querySelector('.language')
 const particles = document.getElementById('particles-js')
 const earthquake = document.querySelector('.earthquake')
 const video = document.getElementById('video')
@@ -37,36 +39,20 @@ const body = document.getElementsByTagName('body')[0]
 // let i = 0;
 
 
-// function fcHistory(){
-//   history.scrollIntoView()
-// }
-
-// function fcQuestion(){
-//   questions.scrollIntoView()
-// }
-// function fcTeam(){
-//   aboutus.scrollIntoView()
-// }
-// function fcsocialMedia(){
-//   footer.scrollIntoView()
-// }
-
-video.playbackRate = 2.0
+function showButtons(){
+  botones.classList.toggle('visible')
+  console.log(botones.classList)
+}
 
 
-  setTimeout(() => {
+
+setTimeout(() => {
+    video.playbackRate = 2.0
     particles.style.opacity = '1'
     earthquake.style.zIndex = '0'
     earthquake.style.position = 'static'
-    logo.style.opacity = "1";
-    logo.style.paddingTop = '0'
     // setTimeout(opacidad, 2000); 
-  }, 15000)
-
-// lore.onclick = fcHistory
-// about.onclick = fcQuestion
-// team.onclick = fcTeam
-// socialMedia.onclick = fcsocialMedia
+}, 15000)
 
 function dealay(n) {
   return new Promise(function (resolve) {
@@ -75,10 +61,11 @@ function dealay(n) {
 }
 
 const info3 = (entradas) => {
+  
   entradas.forEach((entrada) => {
     if(entrada.isIntersecting){
-      parrafo.style.marginRight = "0"
       console.log(1)
+      parrafo.style.marginRight = "0"
     } else {
       
     }
@@ -109,7 +96,7 @@ async function language(element){
 }
 
 idioma.addEventListener('click', (e) => {
-
+  console.log(1)
   if(e.target.dataset.function === 'en'){
     language(e.target.dataset.function)
   }
@@ -118,14 +105,10 @@ idioma.addEventListener('click', (e) => {
   if(e.target.dataset.function === 'es'){
     language(e.target.dataset.function)
   }
-
-  if(e.target.dataset.function === 'lore'){
-    console.log(e.target.parentElement)
-    e.target.parentElement.scrollIntoView()
-  }
-  
   
 })
+
+menuContainer.onclick = showButtons
 
 // let timeDelay = 0;
 // let time = 10;

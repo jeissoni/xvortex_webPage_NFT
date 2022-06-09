@@ -26,11 +26,11 @@ body{
 
 header{
   position: fixed;
-  z-index: 5;
+  z-index: 10;
   top: 0;
   width: 100%;
   height: 80px;
-  background: rgba(0, 0, 0, 0.608);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,6 +43,21 @@ header{
   font-family: 'long-shot';
 }
 
+.menu-container {
+  margin-right: 10px;
+  display: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-container div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px;
+  transition: 0.4s;
+}
+
 .botones{
   margin-right: 20px;
   display: flex;
@@ -51,11 +66,13 @@ header{
 }
 
 .boton{
+  height: 80px;
+  line-height: 80px;
   font-size: 2em;
   padding: 0px 20px;
   font-family: 'long-shot';
   color: #fff;
-  list-style: none;
+  text-decoration: none;
   display: flex;
   justify-content: center;
   position: relative;
@@ -65,7 +82,7 @@ header{
 .boton::after{
   content: '';
   position: absolute;
-  bottom: -23px;
+  bottom: 0px;
   width: 100%;
   height: 4px;
   background-color: #ff0000;
@@ -76,6 +93,40 @@ header{
   display: block;
 }
 
+.language-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language{
+  display: none;
+  position: absolute;
+  top: 80px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.language-container a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language .boton{
+  height: 40px;
+  line-height: 40px;
+  font-family: Orbitron;
+  font-size: 1.2em;
+}
+
+.language-container:hover > .language{
+  display: block;
+}
+
+header .visible{
+  display: flex;
+}
 
 /************ grieta *************/
 
@@ -123,9 +174,9 @@ header{
 #particles-js{
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 5;
   position: fixed;
-  opacity: 0;
+  opacity: 10;
   transition: all 1s;
 }
 
@@ -138,6 +189,7 @@ article{
 
 
 .history {
+  z-index: 0;
   position: relative;
   width: 100%;
   height: 800px;
@@ -148,7 +200,8 @@ article{
 
 .history img{
   position: absolute;
-  top: -10px;
+  z-index: 5;
+  top: -150px;
   right: 0;
   width: 1400px;
 }
@@ -247,9 +300,12 @@ article{
   z-index: 50;
 }
 
+.persona img{
+  width: 25px;
+}
+
 .persona h1,
-.persona p,
-.persona a{
+.persona p{
   color: #fff;
   font-family: Orbitron;
 }
@@ -278,7 +334,16 @@ article{
 }
 
 .teamPersona{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   z-index: 1000;
+}
+
+.teamPersona img{
+  width: 25px;
 }
 
 /********** footer ************/
@@ -287,10 +352,11 @@ footer{
   z-index: 50;
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 100px;
+  gap: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 footer a{
@@ -303,620 +369,29 @@ footer a{
 footer a:hover{
   text-decoration: underline;
 }
-/* section{
-  color: rgb(254, 254, 254);
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;
-  height: 100vh;
-  scroll-snap-align: center;
-}
 
-.content{
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 1s;
-  scroll-snap-align: center;
-}
-
-.parrafo2,
-.parrafo {
+@media (max-width: 860px){
+  header{
+    flex-wrap: wrap;
+  }
+  .menu-container{
+    display: block;
+  }
+  .botones{
+    background: rgba(0, 0, 0, 0.6);
     position: absolute;
-    opacity: 0;
-    transition: all .2s linear;
-
-}
-
-.visible{
-    opacity: 1;
-}
-
-.texto {
-  width: 30%;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.texto p{
-  width: 100%;
-  font-size: 25px;
-  text-align: center;
-}
-
-P {
-  font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 2em;
-  user-select: none;
-  font-weight: bold;
-}
-
-.BtTexto{  
-  position: absolute;
-  bottom: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 40px;
-  height: 200px;
-  width: 250px;
-}
-
-.botton{
-    white-space: nowrap;
-    display: flex;
-    opacity: 0;
-    transition: all 1s linear;
-    z-index: 10;
-}
-
-.botton p{
-  font-size: 25px;
-}
-
-.botton:hover > p{
-    cursor: pointer;
-    text-decoration-line: underline;
-}
-
-.textoScroll {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  font-size: 15px;
-}
-
-.textoScroll2 {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 20px;
-  bottom: 50px;
-  font-size: 15px;
-}
-
-
-.contenido3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 500px;
-  flex-wrap: wrap;
-}
-
-#estesi {
-  opacity: 0;
-  transition: 3s;
-}
-
-.generation1 {
-  font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 2em;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.generation1 h1 {
-  margin-bottom: 50px;
-}
-
-.generation1 ul {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
-}
-
-.generation1 li{
-  font-family: 'Orbitron', sans-serif;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.contenido3 p,
-.contenido3 li{
-  font-size: 30px;
-}
-
-.aboutus {
-  font-family: 'Orbitron', sans-serif;
-  position: absolute;
-  top: 130px;
-  font-size: 40px;
-  opacity: 0;
-  transition: 3s;
-}
-
-.team{
-  display: flex;
-  gap: 900px;
-  opacity: 0;
-  transition: 3s;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.team1,
-.team2 {
-  min-width: 400px;
-  gap: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.team1 h1,
-.team2 h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 35px;
-}
-
-.team1 p,
-.team2 p {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 22px;
-}
-
-.persona {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.persona h1{
-  margin-bottom: 10px;
-}
-
-.persona a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 18px; 
-}
-
-.persona a:hover {
-  text-decoration-line: underline;
-  color: #fff;
-}
-
-.tecnico{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 45px;
-  height: 30px;
-  width: 100%;
-}
-.teamPersona{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-/***************************************/
-
-/* footer{
-    height: 120px;
+    flex-direction: column;
+    top: 80px;
     width: 100%;
-    opacity: 0;
-    transition: all 3s linear;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0px;
-}
-
-footer ul{
-    font-family: 'Orbitron', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer li{
-    font-size: 2em;
-    padding: 20px;
-    position: relative;
-    list-style: none;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-footer li a{
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.58);
-}
-
-footer a:hover{
-    text-decoration-line: underline;
-    color: #fff;
-} */ 
-
-/**************************************/
-
-/* @media (max-height: 850px){
-  .texto p{
-    font-size: 20px;
+    display: none;
   }
-  .botton p{
-    font-size: 25px;
+  .boton{
+    height: 50px;
+    line-height: 50px;
   }
-}
-@media (max-height: 700px){
-  .texto p{
-    font-size: 20px;
-  }
-  .botton p{
-    font-size: 25px;
-  }
-  .botton{
-    bottom: 20px;
-  }
-}
-
-@media (max-width: 1850px){
-  .aboutus{
-    top: 100px;
-  }
-  .team{
-    gap: 600px;
-  }
-}
-@media (max-width: 1410px){
-  .team{
-    gap: 300px;
-  }
-}
-
-@media (max-width: 1250px) {
-    p{
-        font-size: 1.5em;
-    }
-    a{
-        font-size: .6em;
-    }
-    .texto{
-        width: 50%;
-    }
-    .contenido3 {
-      gap: 40px;
-    }
-    .generation1 h1{
-        font-size: 1.5em;;
-      }
-      .generation1{
-        font-size: 1.5em;
-        width: 100%;
-      }
-    .team{
-        gap: 25px;
-    }
-    .team1 h1,
-    .team2 h1 {
-      font-size: 25px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 18px;
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 13px;
-    }
-    .team1,
-    .team2 {
-  gap: 25px;
-}
-footer {
-    height: 100px;
-}
-}
-
-@media (max-width: 890px) {
-
-   
-
-    .texto{
-        width: 80%;
-    }
-    .texto3{
-      height: 80px;
-    }
-    p{
-        font-size: 20px;
-    }
-    li{
-      font-size: 20px;
-    }
-    a{
-        font-size: 20px;
-    }
-    .generation1 h1{
-      font-size: 1.1em;
-      margin-bottom: 15px;
-      
-    }
-    .generation1{
-      width: 100%;
-    }
-    .team{
-        gap: 25px;
-    }
-    .aboutus {
-        font-size: 25px;
-    }
-
-    .team1 h1,
-    .team2 h1 {
-      font-size: 20px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.735);
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 10px;
-    }
-    .textoScroll{
-      font-size: 15px;
-    }
-    .textoScroll2{
-      font-size: 15px;
-    }
-    
-
-.team1,
-.team2 {
-  gap: 25px;
-}
-#logo{
-    font-size: 12em;
-}
-.parrafo {
-    width: 90%;
-    font-size: 1.2em;
-}
-.parrafo2 {
-    width: 90%;
-    font-size: 1.2em;
-}
-  footer {
-      height: 100px;
-  }
-  .contenido3{
-    gap: 25px;
-  }
-
-}
-
-@media (max-width: 600px){
-  #controlSonido{
-    top: 2vh;
-    scale: .6;
-  }
-  .BtTexto{
-    height: 250px;
-  }
-  .botton p{
-    font-size: 15px;
-  }
-  .textoScroll{
-    font-size: 12px;
-  }
-  .textoScroll2{
-    font-size: 12px;
-    bottom: 100px;
-  }
-
-  .texto{
-    width: 60%;
-  }
-  .texto p{
-    font-size: 15px;
+  .language{
+    top: 50px;
+    width: 300px;
   }
   
-  .team h1{
-    font-size: 15px;
-  }
-  .team a{
-    font-size: 12px;
-  }
-  .team{
-    gap: 8px;
-  }
-  .aboutus{
-    top: 12vh;
-    font-size: 20px;
-  }
-  .contenido3 p{
-    font-size: 15px;
-  }
-  .contenido3 li{
-    font-size: 15px;
-  }
-  .generation1{
-    font-size: 1em;
-  }
-  footer{
-    bottom: 50px;
-  }
-  footer li a{
-    font-size: 15px;
-  }
 }
-@media (max-width: 420px){
-  .texto{
-    width: 80%;
-  }
-}
-
-@media (max-width: 340px){
-  .texto p{
-    font-size: 10px;
-  }
-  .generation1 li{
-    font-size: 12px;
-  }
-  #logo{
-    font-size: 8em;
-  }
-
-  .textoScroll{
-    font-size: 9px;
-  }
-
-  .textoScroll2{
-    font-size: 9px;
-    bottom: 40px;
-  }
-
-  .texto p{
-    font-size: 12px;
-  }
-  .BtTexto{
-    gap: 10px;
-    height: 150px;
-  }
-  .botton p{
-    font-size: 12px;
-  }
-  .textoScroll h2{
-    font-size: 8px;
-  }
-
-  .aboutus {
-    font-size: 20px;
-    top: 45px;
-}
-    .team1 h1,
-    .team2 h1 {
-      font-size: 17px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.735);
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 9px;
-    }
-    footer li a{
-      font-size: 9px;
-    }
-}
-
-@media (max-width: 260px){
-
-  .BtTexto{
-    height: 80px;
-    gap: 5px;
-  }
-  .aboutus{
-    font-size: 16px;
-  }
-    .team1 h1,
-    .team2 h1 {
-      font-size: 12px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 9px;
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 6px;
-    }
-    footer li{
-      padding: 5px;
-    }
-    
-}
-
-@media (max-width: 240px){
-  .aboutus{
-    top: 20px;
-    font-size: 13px;
-  }
-  .team{
-    gap: 0;
-  }
-  .team1,
-  .team2{
-    gap: 5px;
-  }
-  .team1 h1,
-  .team2 h1 {
-    font-size: 10px;
-  }
-  .team1 p,
-  .team2 p {
-    font-size: 7px;
-  }
-  .team1 a,
-  .team2 a {
-    font-size: 5px;
-  }
-  footer{
-    bottom: 0;
-  }
-  footer li{
-    padding: 5px;
-  }
-} */
