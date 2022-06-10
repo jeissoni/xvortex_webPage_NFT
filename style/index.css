@@ -3,647 +3,395 @@
     src: url('../fonts/Long_Shot.ttf');
 }
 
+@font-face {
+  font-family: Orbitron;
+  src: url(../fonts/Orbitron-VariableFont_wght.ttf);
+}
+
+:root{
+  --space-blue: #0C0C16;
+}
+
 * {
   padding: 0;
   margin: 0;
 }
 
-.slides {
+body{
+  width: 100%;
+  background: url(../img/estrellas-min.png) #000 ;
+}
+
+/************ navbar *************/
+
+header{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: block mandatory;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nvLogo{
+  font-size: 3em;
+  margin-left: 20px;
+  color: #fff;
+  font-family: 'long-shot';
+}
+
+.menu-container {
+  margin-right: 10px;
+  display: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-container div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px;
+  transition: 0.4s;
+}
+
+.botones{
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton{
+  height: 80px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.boton::after{
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  background-color: #ff0000;
+  display: none;
+}
+
+.boton:hover::after{
+  display: block;
+}
+
+.language-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language{
+  display: none;
+  position: absolute;
+  top: 80px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.language-container a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language .boton{
+  height: 40px;
+  line-height: 40px;
+  font-family: Orbitron;
+  font-size: 1.2em;
+}
+
+.language-container:hover > .language{
+  display: block;
+}
+
+header .visible{
+  display: flex;
+}
+
+/************ grieta *************/
+
+.earthquake{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  width: 100%;
+  height: 1000px;
+  overflow: hidden;
+}
+
+.earthquake video{
+  height: 1000px;
+}
+
+.transparencia{
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  position: absolute;
 }
 
 .logo{
   font-family: 'long-shot';
-  position: fixed; 
+  width: 100%;
+  height: 1000px;
   opacity: 0;
   padding-top: 100px;
   font-size: 15em;
+  position: absolute;
+  z-index: 3;
   transition: all 1s linear;
   user-select: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  color: #fff;
 }
 
-section{
-  color: rgb(254, 254, 254);
-  background:  #000;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center;
-  height: 100vh;
-  scroll-snap-align: center;
-}
+/*********** particulas **********/
 
-.content{
-  position: relative;
-  height: 100vh;
+#particles-js{
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  z-index: 5;
+  position: fixed;
+  opacity: 10;
   transition: all 1s;
-  scroll-snap-align: center;
 }
 
-.parrafo2,
-.parrafo {
-    position: absolute;
-    opacity: 0;
-    transition: all .2s linear;
-
-}
-
-.visible{
-    opacity: 1;
-}
-
-.texto {
-  width: 30%;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+/*********** contenido ***********/
+article{
+  width: 100%;
   position: relative;
 }
 
-.texto p{
+
+
+.history {
+  z-index: 0;
+  position: relative;
   width: 100%;
-  font-size: 25px;
-  text-align: center;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-P {
-  font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 2em;
-  user-select: none;
-  font-weight: bold;
-}
-
-.BtTexto{  
+.history img{
   position: absolute;
-  bottom: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 40px;
-  height: 200px;
-  width: 250px;
+  z-index: 5;
+  top: -150px;
+  right: 0;
+  width: 1400px;
 }
 
-.botton{
-    white-space: nowrap;
-    display: flex;
-    opacity: 0;
-    transition: all 1s linear;
-    z-index: 10;
+.texto{
+  width: 600px;
 }
 
-.botton p{
-  font-size: 25px;
+.parrafo{
+  transition: all 1s linear;
+  text-align: center;
+  margin-right: -200px;
+  color: rgb(255, 255, 255);
+  font-family: Orbitron;
+  font-size: 1.5em;
 }
 
-.botton:hover > p{
-    cursor: pointer;
-    text-decoration-line: underline;
-}
-
-.textoScroll {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  font-size: 15px;
-}
-
-.textoScroll2 {
-  font-family: 'Orbitron', sans-serif;
-  opacity: 0;
-  transition: 2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 20px;
-  bottom: 50px;
-  font-size: 15px;
-}
-
-
-.contenido3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 500px;
-  flex-wrap: wrap;
-}
-
-#estesi {
-  opacity: 0;
-  transition: 3s;
-}
-
-.generation1 {
-  font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 2em;
-  width: 30%;
+.about{
+  width: 100%;
+  height: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.about-title{
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  font-family: Orbitron;
+  font-size: 2.5em;
+}
+
+.dvabout{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.questions{
+  width: 500px;
+  padding: 50px;
+  font-family: Orbitron;
+  color: #fff;
+  font-size: 1.5em;
   text-align: center;
 }
 
-.generation1 h1 {
-  margin-bottom: 50px;
-}
 
-.generation1 ul {
+.questions-container{
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  text-align: center;
+  gap: 30px;
 }
 
-.generation1 li{
-  font-family: 'Orbitron', sans-serif;
-  list-style: none;
+/************ team *********/
+
+.team-container{
+  width: 100%;
+  height: 800px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
 }
 
-.contenido3 p,
-.contenido3 li{
-  font-size: 30px;
-}
-
-.aboutus {
-  font-family: 'Orbitron', sans-serif;
-  position: absolute;
-  top: 130px;
-  font-size: 40px;
-  opacity: 0;
-  transition: 3s;
+.aboutus{
+  color: #fff;
+  font-size: 4em;
+  padding: 50px;
+  font-family: Orbitron;
 }
 
 .team{
+  width: 100%;
+  height: 600px;
   display: flex;
-  gap: 900px;
-  opacity: 0;
-  transition: 3s;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-
-.team1,
-.team2 {
-  min-width: 400px;
-  gap: 70px;
+.dvteam{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: 'Orbitron', sans-serif;
+  gap: 40px;
 }
 
-.team1 h1,
-.team2 h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 35px;
-}
-
-.team1 p,
-.team2 p {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 22px;
-}
-
-.persona {
+.persona{
+  gap: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 30px;
+  z-index: 50;
+}
+
+.persona img{
+  width: 25px;
+}
+
+.persona h1,
+.persona p{
+  color: #fff;
+  font-family: Orbitron;
 }
 
 .persona h1{
-  margin-bottom: 10px;
+  font-size: 2em;
 }
 
-.persona a {
+.persona p{
+  font-size: 1.3em;
+}
+
+.persona a{
+  position: relative;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 18px; 
 }
 
-.persona a:hover {
-  text-decoration-line: underline;
-  color: #fff;
+.persona a:hover{
+  text-decoration: underline;
 }
 
 .tecnico{
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 45px;
-  height: 30px;
-  width: 100%;
+  gap: 30px;
 }
+
 .teamPersona{
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  z-index: 1000;
 }
 
-/***************************************/
+.teamPersona img{
+  width: 25px;
+}
+
+/********** footer ************/
 
 footer{
-    height: 120px;
-    width: 100%;
-    opacity: 0;
-    transition: all 3s linear;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0px;
+  z-index: 50;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  gap: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-footer ul{
-    font-family: 'Orbitron', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer li{
-    font-size: 2em;
-    padding: 20px;
-    position: relative;
-    list-style: none;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-footer li a{
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.58);
+footer a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: Orbitron;
 }
 
 footer a:hover{
-    text-decoration-line: underline;
-    color: #fff;
+  text-decoration: underline;
 }
 
-/**************************************/
-
-@media (max-height: 850px){
-  .texto p{
-    font-size: 20px;
+@media (max-width: 860px){
+  header{
+    flex-wrap: wrap;
   }
-  .botton p{
-    font-size: 25px;
+  .menu-container{
+    display: block;
   }
-}
-@media (max-height: 700px){
-  .texto p{
-    font-size: 20px;
+  .botones{
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    flex-direction: column;
+    top: 80px;
+    width: 100%;
+    display: none;
   }
-  .botton p{
-    font-size: 25px;
+  .boton{
+    height: 50px;
+    line-height: 50px;
   }
-  .botton{
-    bottom: 20px;
-  }
-}
-
-@media (max-width: 1850px){
-  .aboutus{
-    top: 100px;
-  }
-  .team{
-    gap: 600px;
-  }
-}
-@media (max-width: 1410px){
-  .team{
-    gap: 300px;
-  }
-}
-
-@media (max-width: 1250px) {
-    p{
-        font-size: 1.5em;
-    }
-    a{
-        font-size: .6em;
-    }
-    .texto{
-        width: 50%;
-    }
-    .contenido3 {
-      gap: 40px;
-    }
-    .generation1 h1{
-        font-size: 1.5em;;
-      }
-      .generation1{
-        font-size: 1.5em;
-        width: 100%;
-      }
-    .team{
-        gap: 25px;
-    }
-    .team1 h1,
-    .team2 h1 {
-      font-size: 25px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 18px;
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 13px;
-    }
-    .team1,
-    .team2 {
-  gap: 25px;
-}
-footer {
-    height: 100px;
-}
-}
-
-@media (max-width: 890px) {
-
-   
-
-    .texto{
-        width: 80%;
-    }
-    .texto3{
-      height: 80px;
-    }
-    p{
-        font-size: 20px;
-    }
-    li{
-      font-size: 20px;
-    }
-    a{
-        font-size: 20px;
-    }
-    .generation1 h1{
-      font-size: 1.1em;
-      margin-bottom: 15px;
-      
-    }
-    .generation1{
-      width: 100%;
-    }
-    .team{
-        gap: 25px;
-    }
-    .aboutus {
-        font-size: 25px;
-    }
-
-    .team1 h1,
-    .team2 h1 {
-      font-size: 20px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.735);
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 10px;
-    }
-    .textoScroll{
-      font-size: 15px;
-    }
-    .textoScroll2{
-      font-size: 15px;
-    }
-    
-
-.team1,
-.team2 {
-  gap: 25px;
-}
-#logo{
-    font-size: 12em;
-}
-.parrafo {
-    width: 90%;
-    font-size: 1.2em;
-}
-.parrafo2 {
-    width: 90%;
-    font-size: 1.2em;
-}
-  footer {
-      height: 100px;
-  }
-  .contenido3{
-    gap: 25px;
-  }
-
-}
-
-@media (max-width: 600px){
-  #controlSonido{
-    top: 2vh;
-    scale: .6;
-  }
-  .BtTexto{
-    height: 250px;
-  }
-  .botton p{
-    font-size: 15px;
-  }
-  .textoScroll{
-    font-size: 12px;
-  }
-  .textoScroll2{
-    font-size: 12px;
-    bottom: 100px;
-  }
-
-  .texto{
-    width: 60%;
-  }
-  .texto p{
-    font-size: 15px;
+  .language{
+    top: 50px;
+    width: 300px;
   }
   
-  .team h1{
-    font-size: 15px;
-  }
-  .team a{
-    font-size: 12px;
-  }
-  .team{
-    gap: 8px;
-  }
-  .aboutus{
-    top: 12vh;
-    font-size: 20px;
-  }
-  .contenido3 p{
-    font-size: 15px;
-  }
-  .contenido3 li{
-    font-size: 15px;
-  }
-  .generation1{
-    font-size: 1em;
-  }
-  footer{
-    bottom: 50px;
-  }
-  footer li a{
-    font-size: 15px;
-  }
-}
-@media (max-width: 420px){
-  .texto{
-    width: 80%;
-  }
-}
-
-@media (max-width: 340px){
-  .texto p{
-    font-size: 10px;
-  }
-  .generation1 li{
-    font-size: 12px;
-  }
-  #logo{
-    font-size: 8em;
-  }
-
-  .textoScroll{
-    font-size: 9px;
-  }
-
-  .textoScroll2{
-    font-size: 9px;
-    bottom: 40px;
-  }
-
-  .texto p{
-    font-size: 12px;
-  }
-  .BtTexto{
-    gap: 10px;
-    height: 150px;
-  }
-  .botton p{
-    font-size: 12px;
-  }
-  .textoScroll h2{
-    font-size: 8px;
-  }
-
-  .aboutus {
-    font-size: 20px;
-    top: 45px;
-}
-    .team1 h1,
-    .team2 h1 {
-      font-size: 17px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.735);
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 9px;
-    }
-    footer li a{
-      font-size: 9px;
-    }
-}
-
-@media (max-width: 260px){
-
-  .BtTexto{
-    height: 80px;
-    gap: 5px;
-  }
-  .aboutus{
-    font-size: 16px;
-  }
-    .team1 h1,
-    .team2 h1 {
-      font-size: 12px;
-    }
-    .team1 p,
-    .team2 p {
-      font-size: 9px;
-    }
-    .team1 a,
-    .team2 a {
-      font-size: 6px;
-    }
-    footer li{
-      padding: 5px;
-    }
-    
-}
-
-@media (max-width: 240px){
-  .aboutus{
-    top: 20px;
-    font-size: 13px;
-  }
-  .team{
-    gap: 0;
-  }
-  .team1,
-  .team2{
-    gap: 5px;
-  }
-  .team1 h1,
-  .team2 h1 {
-    font-size: 10px;
-  }
-  .team1 p,
-  .team2 p {
-    font-size: 7px;
-  }
-  .team1 a,
-  .team2 a {
-    font-size: 5px;
-  }
-  footer{
-    bottom: 0;
-  }
-  footer li{
-    padding: 5px;
-  }
 }

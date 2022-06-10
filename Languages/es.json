@@ -1,0 +1,23 @@
+{
+    "navbar":{
+        "lore": "HISTORIA",
+        "about": "ABOUT",
+        "team": "EQEIPO",
+        "social-media": "REDES SOCIALES",
+        "language": "LENGUAGE<img src='./img/caret-abajo.png' alt='flecha' style='height: 10px;'>"
+    },
+    "lore": {
+        "text": "El año es el 3055.<br><br>Exul es el cuarto planeta de la galaxia Sericom donde un año solar dura 700 días.<br><br>La humanidad fue devastada por guerras y diferentes virus que impiden la reproducción humana.<br><br>Y aquí es donde comienza la aventura."
+    },
+    "about": {
+        "title": "¿Qué es life Out Multiverse?",
+        "text": "Life Out es un proyecto NFT de servicios públicos creado en la cadena Ethereum con el objetivo de crear un multiverso que residirá en la comunidad web3.<br><br>Estamos impulsados por la comunidad, por lo que tener un NFT de la colección le dará ventajas en el ecosistema.<br><br>Además, ser parte de la colección Génesis le brindará aún más utilidad en futuros desarrollos.",
+        "text2": "LIFE OUT tiene como objetivo lanzar 6006 NFT en tres generaciones. La primera generación se lanzará de la siguiente manera:",
+        "subtitle": "GENERACIÓN 1",
+        "text3": "Se lanzarán 999 NFT mediante venta pública.<br><br>Fecha de lanzamiento: 30 de junio de 2022<br><br>Precio: 0,3 ETH"
+    },
+    "team": {
+        "title": "equipo",
+        "developer": ""
+    }
+}
