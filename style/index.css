@@ -260,12 +260,85 @@ article{
   margin-bottom: 20px;
 }
 
+.tortas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.tortas  p{
+  padding-top: 50px;
+  font-family: Orbitron;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tortas h1 {
+  color: white;
+  font-family: Orbitron;
+  font-size: 40px;
+}
+
+.tortas3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.torta1 {
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.torta1 h2{
+  color: white;
+  font-family: Orbitron;
+  font-size: 30px;
+}
+
+.torta1 img{
+  height: 500px;
+  width: auto;
+}
+
+.torta2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.torta2 h2{
+  font-family: Orbitron;
+  color: white;
+  font-size: 30px;
+}
+
+.torta2 img{
+  height: 500px;
+  width: auto;
+}
+
+
+
 
 /************ team *********/
 
 .team-container{
   width: 100%;
-  height: 800px;
+  height: 1000px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -277,11 +350,12 @@ article{
   font-size: 60px;
   padding: 0px;
   font-family: Orbitron;
+  margin-bottom: 70px;
 }
 
 .team{
   width: 100%;
-  height: 600px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -520,6 +594,7 @@ footer a:hover{
   .aboutus{
     padding: 30px;
     font-size: 3em;
+    margin-bottom: 70px;
   }
   .persona h1{
     font-size: 1.7em;
@@ -533,9 +608,15 @@ footer a:hover{
   .team {
     flex-direction: column;
   }
+  .team-container {
+    gap: 10px;
+    height: 1200px;
+  }
   .aboutus{
     padding: 20px;
     font-size: 2em;
+    margin-bottom: 20px;
+    
   }
   .persona h1{
     font-size: 1.4em;
@@ -590,4 +671,6 @@ footer a:hover{
   footer img{
     height: 30px;
   }
+
+  
 }
