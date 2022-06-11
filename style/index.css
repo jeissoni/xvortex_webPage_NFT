@@ -260,37 +260,113 @@ article{
   margin-bottom: 20px;
 }
 
+.tortas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.tortas  p{
+  padding-top: 50px;
+  font-family: Orbitron;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tortas h1 {
+  color: white;
+  font-family: Orbitron;
+  font-size: 40px;
+}
+
+.tortas3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.torta1 {
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.torta1 h2{
+  color: white;
+  font-family: Orbitron;
+  font-size: 30px;
+}
+
+.torta1 img{
+  height: 500px;
+  width: auto;
+}
+
+.torta2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.torta2 h2{
+  font-family: Orbitron;
+  color: white;
+  font-size: 30px;
+}
+
+.torta2 img{
+  height: 500px;
+  width: auto;
+}
+
+
+
 
 /************ team *********/
 
 .team-container{
   width: 100%;
-  height: 800px;
+  height: 1000px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 30px;
 }
 
 .aboutus{
   color: #fff;
-  font-size: 4em;
-  padding: 50px;
+  font-size: 60px;
+  padding: 0px;
   font-family: Orbitron;
+  margin-bottom: 70px;
 }
 
 .team{
   width: 100%;
-  height: 600px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  gap: 50px;
 }
 
 .dvteam{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 0px;
 }
 
 .persona{
@@ -298,12 +374,13 @@ article{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
-  z-index: 50;
+  height: 150px;
+  padding: 10px;
+  z-index: 1000;
 }
 
 .persona img{
-  width: 25px;
+  width: 20px;
 }
 
 .persona h1,
@@ -332,7 +409,7 @@ article{
 .tecnico{
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
 }
 
 .teamPersona{
@@ -341,24 +418,57 @@ article{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 1000;
+  z-index: 0;
 }
 
 .teamPersona img{
   width: 25px;
 }
 
+.iconosRedes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.persona a {
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+}
+
+.team2 a { 
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+}
+
+.persona a:hover,
+footer a:hover {
+  cursor: pointer;
+  border: 2px solid yellow;
+  /* transform: scale(1.05); */
+  transition: 1s ease linear;
+}
+
 /********** footer ************/
 
 footer{
+  padding-top: 50px;
+}
+
+footer .hola{
+  background: rgba(0, 0, 0, 0.8);
   z-index: 50;
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 80px;
   gap: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 2px solid rgb(255, 255, 255);
 }
 
 footer a{
@@ -481,5 +591,86 @@ footer a:hover{
     top: 50px;
     width: 300px;
   }
+  .aboutus{
+    padding: 30px;
+    font-size: 3em;
+    margin-bottom: 70px;
+  }
+  .persona h1{
+    font-size: 1.7em;
+  }
+  .persona p{
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 700px){
+  .team {
+    flex-direction: column;
+  }
+  .team-container {
+    gap: 10px;
+    height: 1200px;
+  }
+  .aboutus{
+    padding: 20px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    
+  }
+  .persona h1{
+    font-size: 1.4em;
+  }
+  .persona p{
+    font-size: 1em;
+  }
+  .persona img{
+    width: 20px;
+  }
+  .persona a {
+    height: 20px;
+    width: 20px;
+  }
+  .dvteam{
+    gap: 40px;
+  }
+  .persona {
+    height: 40px;
+    padding: 20px;
+  }
+  
+}
+
+@media (max-width: 600px){
+  .torta1 img{
+    height: auto;
+    width: 90%;
+  }
+  .torta2 img{
+    height: auto;
+    width: 90%;
+  }
+  .tortas  p{
+    
+    font-size: 15px;
+    
+  }
+
+  .torta1 {
+    height: 400px;
+    
+  }
+  .torta2 {
+    height: 400px;
+    
+  }
+  
+  footer .hola{
+    height: 50px;
+  }
+  footer img{
+    height: 30px;
+  }
+
   
 }
