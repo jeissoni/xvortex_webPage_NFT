@@ -641,6 +641,8 @@ footer a:hover{
   
 }
 
+#videoMovil {display:none;}
+
 @media (max-width: 600px){
   .torta1 img{
     height: auto;
@@ -650,10 +652,8 @@ footer a:hover{
     height: auto;
     width: 90%;
   }
-  .tortas  p{
-    
-    font-size: 15px;
-    
+  .tortas  p{    
+    font-size: 15px;    
   }
 
   .torta1 {
@@ -661,8 +661,7 @@ footer a:hover{
     
   }
   .torta2 {
-    height: 400px;
-    
+    height: 400px;    
   }
   
   footer .hola{
@@ -671,6 +670,9 @@ footer a:hover{
   footer img{
     height: 30px;
   }
+
+  #videoMovil {display:block;}
+  #video {display:none;}
 
   
 }
