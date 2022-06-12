@@ -15,10 +15,7 @@ const body = document.getElementsByTagName('body')[0]
 
 function showButtons(){
   botones.classList.toggle('visible')
-  console.log(botones.classList)
 }
-
-
 
 setTimeout(() => {
     video.playbackRate = 2.0
@@ -33,29 +30,6 @@ function dealay(n) {
   });
 }
 
-// const info3 = (entradas) => {
-  
-//   entradas.forEach((entrada) => {
-//     if(entrada.isIntersecting){
-//       console.log(1)
-//       parrafo.style.marginRight = "0"
-//     } else {
-      
-//     }
-//   });
-// }
-
-// const observador = new IntersectionObserver(info3, {
-//   root: null,
-//   rootMargin: "0px",
-//   threshold: 1.0
-// })
-
-// observador.observe(parrafo)
-
-
-
-
 async function language(element){
   const requestJson = await fetch(`../Languages/${element}.json`)
   const texts = await requestJson.json()
@@ -69,7 +43,6 @@ async function language(element){
 }
 
 idioma.addEventListener('click', (e) => {
-  console.log(1)
   if(e.target.dataset.function === 'en'){
     language(e.target.dataset.function)
   }
