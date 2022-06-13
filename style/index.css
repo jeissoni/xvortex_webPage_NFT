@@ -30,7 +30,7 @@ header{
   top: 0;
   width: 100%;
   height: 80px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,7 +104,7 @@ header{
   display: none;
   position: absolute;
   top: 80px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(0, 0, 0);
 }
 
 .language-container a{
@@ -136,12 +136,16 @@ header .visible{
   align-items: center;
   z-index: 10;
   width: 100%;
-  height: 1000px;
   overflow: hidden;
 }
 
 .earthquake video{
   height: 1000px;
+}
+
+
+#videoMovil {
+  display:none;
 }
 
 .transparencia{
@@ -192,7 +196,7 @@ article{
   z-index: 0;
   position: relative;
   width: 100%;
-  height: 800px;
+  min-height: 800px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -225,7 +229,7 @@ article{
 
 .about{
   width: 100%;
-  height: 1000px;
+  min-height: 1000px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -266,13 +270,14 @@ article{
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
+  min-height: 1000px;
 }
 
 .tortas  p{
   padding-top: 50px;
   font-family: Orbitron;
   color: white;
-  font-size: 20px;
+  font-size: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,6 +285,7 @@ article{
 }
 
 .tortas h1 {
+  text-align: center;
   color: white;
   font-family: Orbitron;
   font-size: 40px;
@@ -341,6 +347,7 @@ article{
   height: 1000px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 30px;
 }
@@ -348,6 +355,7 @@ article{
 .aboutus{
   color: #fff;
   font-size: 60px;
+  text-align: center;
   padding: 0px;
   font-family: Orbitron;
   margin-bottom: 70px;
@@ -376,7 +384,7 @@ article{
   align-items: center;
   height: 150px;
   padding: 10px;
-  z-index: 1000;
+  z-index: 5;
 }
 
 .persona img{
@@ -385,6 +393,7 @@ article{
 
 .persona h1,
 .persona p{
+  text-align: center;
   color: #fff;
   font-family: Orbitron;
 }
@@ -525,7 +534,7 @@ footer a:hover{
 @media (max-width: 900px){
   .texto{
     width: 500px;
-    font-size: .6em;
+    font-size: .8em;
   }
 }
 @media (max-width: 600px){
@@ -605,18 +614,22 @@ footer a:hover{
 }
 
 @media (max-width: 700px){
-  .team {
-    flex-direction: column;
-  }
-  .team-container {
-    gap: 10px;
-    height: 1200px;
-  }
   .aboutus{
     padding: 20px;
     font-size: 2em;
     margin-bottom: 20px;
-    
+    width: 80%;
+  }
+  .about-title{
+    width: 90%;
+  }
+  .team {
+    flex-direction: column;
+  }
+  .team-container {
+    margin-top: 100px;
+    gap: 10px;
+    min-height: 1200px;
   }
   .persona h1{
     font-size: 1.4em;
@@ -641,9 +654,21 @@ footer a:hover{
   
 }
 
-#videoMovil {display:none;}
 
 @media (max-width: 600px){
+  .earthquake{
+    margin-top: 70px;
+  }
+  .earthquake video{
+    width: 100%;
+    height: auto;
+  }
+  #videoMovil {
+    display:block;
+  }
+  #video {
+    display:none;
+  }
   .torta1 img{
     height: auto;
     width: 90%;
@@ -653,7 +678,7 @@ footer a:hover{
     width: 90%;
   }
   .tortas  p{    
-    font-size: 15px;    
+    font-size: 1.2em;    
   }
 
   .torta1 {
@@ -671,8 +696,7 @@ footer a:hover{
     height: 30px;
   }
 
-  #videoMovil {display:block;}
-  #video {display:none;}
+  
 
   
 }
