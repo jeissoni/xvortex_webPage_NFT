@@ -31,7 +31,7 @@ function dealay(n) {
 }
 
 async function language(element){
-  const requestJson = await fetch(`../Languages/${element}.json`)
+  const requestJson = await fetch(`../languages/${element}.json`)
   const texts = await requestJson.json()
 
   for( const translatetext of translatetexts ){
