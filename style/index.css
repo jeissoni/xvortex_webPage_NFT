@@ -140,7 +140,7 @@ header .visible{
 }
 
 .earthquake video{
-  height: 1000px;
+  height: 1500px;
 }
 
 
@@ -489,6 +489,11 @@ footer a{
 
 footer a:hover{
   text-decoration: underline;
+}
+@media (max-width: 1900px){
+  .earthquake video{
+    height: 1000px;
+  }
 }
 
 @media (max-width: 1600px){
