@@ -190,8 +190,6 @@ article{
   position: relative;
 }
 
-
-
 .history {
   z-index: 0;
   position: relative;
@@ -264,16 +262,25 @@ article{
   margin-bottom: 20px;
 }
 
-.tortas {
+.containerPorcentajes {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  min-height: 1000px;
+  min-height: 600px;
+  width: 100%;
+  margin-bottom: 300px;
 }
 
-.tortas  p{
+.containerPorcentajes h1 {
+  text-align: center;
+  color: white;
+  font-family: Orbitron;
+  font-size: 40px;
+}
+
+.containerPorcentajes p{
   padding-top: 50px;
   font-family: Orbitron;
   color: white;
@@ -282,63 +289,361 @@ article{
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 90%;
 }
 
-.tortas h1 {
-  text-align: center;
-  color: white;
-  font-family: Orbitron;
-  font-size: 40px;
-}
-
-.tortas3 {
+.containerTortas {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
+  height: 500px;
+  gap: 150px;
+}
+
+.containerTorta1 {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.containerTorta1 h2{
+  position: absolute;
+  top: 50px;
+  color: white;
+  font-family: Orbitron;
+  font-size: 30px;
+}
+
+.texto1 {
+  font-family: Orbitron;
+  font-size: 20px;
+  color: white;
+  width: 150px;
+  position: absolute;
+  top: 200px;
+  left: 30px;
+  z-index: 5;
+}
+
+.texto1::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: blur(5px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.texto2 {
+  font-family: Orbitron;
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  top: 380px;
+  left: 50px;
+  z-index: 5;
+  width: 150px;
+}
+
+.texto2::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: blur(5px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.texto3 {
+  font-family: Orbitron;
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  top: 250px;
+  left: 350px;
+  width: 300px;
+  width: 200px;
+  z-index: 5;
+}
+
+.texto3::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: blur(5px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.sombratorta1 {
+  background-color: rgb(99, 142, 211);
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50px;
+  top: 200px;
+  filter: blur(10px);
+  transform:  skew(15deg);
+  z-index: 0;
+  opacity: .5;
 }
 
 .torta1 {
-  height: 650px;
+  background-color: black;
+  top: 30px;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  position: relative;
+  border: 7px solid #fff53b;
+  transform:  skew(15deg);
+  z-index: 1;
+  box-shadow: 0 0 50px #fff53b;
+}
+
+.porcion1 {
+  position: absolute;
+  top: -13px;
+  left: 13px;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: url(../img/3.png);
+  background-size: 300px 300px;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 50% 50%, 50% 0);
+  z-index: 2;
+  transition: 300ms linear;
+}
+
+.porcion1:hover {
+  transform: scale(1.02);
+  transform: translate(15px, -15px);
+}
+
+.porcion2 {
+  position: absolute;
+  top: -13px;
+  left: 13px;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: url(../img/2.png);
+  background-size: 300px 300px;
+  clip-path: polygon(50% 50%, 0 50%, 0 100%);
+  z-index: 4;
+}
+
+.porcion2:hover {
+  transition: 300ms linear;
+  transform: scale(1.05);
+  transform: translate(15px, -15px);
+}
+
+.porcion3 {
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  height: 100%;
+  width: 100%;
+  background: url(../img/1.png);
+  background-size: 300px 300px;
+  border-radius: 50%;
+  clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
+  z-index: 3;
+}
+
+.porcion3:hover {
+  transition: 300ms linear;
+  transform: scale(1.05);
+  transform: translate(15px, -15px);
+}
+
+.sombratorta2 {
+  background-color: rgb(99, 142, 211);
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50px;
+  top: 200px;
+  filter: blur(10px);
+  transform:  skew(15deg);
+  z-index: 0;
+  opacity: .5;
+}
+
+.containerTorta2 {
+  width: 600px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  position: relative;
 }
 
-.torta1 h2{
+.containerTorta2 h2{
+  position: absolute;
+  top: 50px;
   color: white;
   font-family: Orbitron;
   font-size: 30px;
 }
 
-.torta1 img{
-  height: 500px;
-  width: auto;
+.texto4 {
+  font-family: Orbitron;
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  top: 200px;
+  left: 30px;
+  z-index: 5;
+  width: 150px;
+}
+
+.texto4::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: blur(5px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.texto5 {
+  font-family: Orbitron;
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  top: 400px;
+  left: 70px;
+  z-index:5;
+  width: 150px;
+}
+
+.texto5::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: blur(5px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.texto6 {
+  font-family: Orbitron;
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  top: 250px;
+  left: 350px;
+  z-index: 5;
+  width: 300px;
+}
+
+.texto6::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: blur(5px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 
 .torta2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  background-color: black;
+  top: 30px;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  position: relative;
+  border: 7px solid #fff53b;
+  transform:  skew(15deg);
+  z-index: 1;
+  box-shadow: 0 0 50px #fff53b;
 }
 
-.torta2 h2{
-  font-family: Orbitron;
-  color: white;
-  font-size: 30px;
+.porcion4 {
+  position: absolute;
+  top: -13px;
+  left: 13px;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: url(../img/4.png);
+  background-size: 300px 300px;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 50% 50%, 50% 0);
+  z-index: 2;
+  transition: 300ms linear;
 }
 
-.torta2 img{
-  height: 500px;
-  width: auto;
+.porcion4:hover {
+  transform: scale(1.02);
+  transform: translate(15px, -15px);
 }
 
+.porcion5 {
+  position: absolute;
+  top: -13px;
+  left: 13px;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: url(../img/5.png);
+  background-size: 300px 300px;
+  clip-path: polygon(50% 50%, 0 60%, 0 100%);
+  z-index: 4;
+}
 
+.porcion5:hover {
+  transition: 300ms linear;
+  transform: scale(1.05);
+  transform: translate(20px, -20px);
+}
 
+.porcion6 {
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  height: 100%;
+  width: 100%;
+  background: url(../img/6.png);
+  background-size: 300px 300px;
+  border-radius: 50%;
+  clip-path: polygon(0 0, 50% 0, 50% 50%, 0 60%);
+  z-index: 3;
+}
+
+.porcion6:hover {
+  transition: 300ms linear;
+  transform: scale(1.05);
+  transform: translate(15px, -15px); 
+}
 
 /************ team *********/
 
@@ -669,24 +974,80 @@ footer a:hover{
   #video {
     display:none;
   }
-  .torta1 img{
-    height: auto;
-    width: 90%;
+  .containerTortas {
+    gap: 50px;
   }
-  .torta2 img{
-    height: auto;
-    width: 90%;
+  .containerTorta1 {
+    width: 300px;
+    height: 300px;
   }
-  .tortas  p{    
-    font-size: 1.2em;    
+  .containerTorta2 {
+    width: 300px;
+    height: 300px;
   }
-
+  .sombratorta1 {
+    top: 180px;
+    left: 20px;
+    height: 200px;
+    width: 200px;
+  }
   .torta1 {
-    height: 400px;
-    
+    top: 80px;
+    height: 200px;
+    width: 200px;
+  }
+  .texto1 {
+    font-size: 15px;
+    top: 150px;
+    left: 0px;
+    width: 100px;
+  }
+  .texto2 {
+    font-size: 15px;
+    top: 250px;
+    left: 0px;
+  }
+  .texto3 {
+    font-size: 15px;
+    top: 180px;
+    left: 200px;
+    width: 100px;
+  }
+  .sombratorta2 {
+    top: 180px;
+    left: 20px;
+    height: 200px;
+    width: 200px;
   }
   .torta2 {
-    height: 400px;    
+    top: 80px;
+    height: 200px;
+    width: 200px;
+  }
+  .texto4 {
+    font-size: 15px;
+    top: 150px;
+    left: 0px;
+    width: 100px;
+  }
+  .texto5 {
+    font-size: 15px;
+    top: 250px;
+    left: 0px;
+  }
+  .texto6 {
+    font-size: 15px;
+    top: 180px;
+    left: 200px;
+    width: 120px;
+  }
+  .porcion3 {
+    top: -20px;
+    left: 20px;
+  }
+  .porcion6 {
+    top: -20px;
+    left: 20px;
   }
   
   footer .hola{
@@ -695,8 +1056,5 @@ footer a:hover{
   footer img{
     height: 30px;
   }
-
-  
-
   
 }
