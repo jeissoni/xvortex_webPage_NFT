@@ -2,7 +2,7 @@
     "navbar":{
         "lore": "HISTORIA",
         "about": "ABOUT",
-        "team": "EQEIPO",
+        "team": "EQUIPO",
         "social-media": "REDES SOCIALES",
         "language": "LENGUAGE<img src='./img/caret-abajo.png' alt='flecha' style='height: 10px;'>"
     },
@@ -17,8 +17,7 @@
         "text3": "Se lanzarán 999 NFT mediante venta pública.<br><br>Fecha de lanzamiento: 30 de junio de 2022<br><br>Precio: 0,3 ETH"
     },
     "team": {
-        "title": "equipo",
-        "developer": ""
+        "title": "EQUIPO"
     },
     "nft-nomincs":{
         "title": "NFT-NOMICS",
