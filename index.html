@@ -72,23 +72,25 @@
       </ul>
   </header>
 
-  <article>
+  <div class="earthquake">
+
+    <video id="video" autoplay muted playsinline>
+      <source src="./video/GRIETAPAG.mp4" type="video/mp4">
+    </video>
+
+    <video id="videoMovil" autoplay muted playsinline>
+      <source src="./video/vertical.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <article id="articulo">
     <div id="particles-js"></div>
 
-    <div class="earthquake">
-
-      <video id="video" autoplay muted playsinline>
-        <source src="./video/GRIETAPAG.mp4" type="video/mp4">
-      </video>
-
-      <video id="videoMovil" autoplay muted playsinline>
-        <source src="./video/vertical.mp4" type="video/mp4">
-      </video>
-    </div>
+    
 
     <div class="ads">
       <div class="advideo">
-        <video src="./video/MASTERTRAILER.mp4" id="trailer" poster="./img/portada.png"></video>
+        <video src="./video/MASTERTRAILER.mp4" id="trailer" poster="./img/portada.png" playsinline></video>
         <img src="./img/boton-de-play.png" alt="boton-de-play" class="play">
       </div>
     </div>

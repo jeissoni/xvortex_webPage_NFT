@@ -25,7 +25,7 @@ video.playbackRate = 3.0
 setTimeout(() => {
     particles.style.opacity = '1'
     earthquake.style.zIndex = '0'
-    earthquake.style.position = 'static'
+    earthquake.style.position = 'fixed'
 }, 15000)
 
 function dealay(n) {
@@ -94,3 +94,14 @@ function playvideo(){
 
 playTrailer.onclick = playvideo
 menuContainer.onclick = showButtons
+
+const articulo = document.getElementById('articulo')
+document.addEventListener('scroll', () => {
+  let position = window.scrollY / 500
+  if(position <= 1){
+    articulo.style.opacity = `${position}`
+  }
+  if(position >= 1){
+    articulo.style.opacity = '1'
+  }
+})
