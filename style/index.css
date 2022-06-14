@@ -190,7 +190,39 @@ article{
   position: relative;
 }
 
+.ads{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.advideo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.advideo video{
+  width: 100%;
+  z-index: 5;
+}
 
+.advideo img{
+  cursor: pointer;
+  opacity: 1;
+  border-radius: 50%;
+  transition: all .3s;
+  width: 5%;
+  position: absolute;
+  z-index: 6;
+}
+
+.advideo img:nth-child(3){
+  display: none;
+}
+
+.advideo img:hover{
+  box-shadow: 0px 0px 30px #637BA8, 0px 0px 15px #637BA8;
+}
 
 .history {
   z-index: 0;
@@ -205,7 +237,7 @@ article{
 .history img{
   position: absolute;
   z-index: -55;
-  top: -120px;
+  top: -20px;
   right: 0;
   width: 741px;
 }

@@ -7,6 +7,10 @@ const idioma = document.querySelector('.language')
 const particles = document.getElementById('particles-js')
 const earthquake = document.querySelector('.earthquake')
 const video = document.getElementById('video')
+const videoContainer = document.querySelector('.advideo')
+const videoTrailer = document.getElementById('trailer')
+const playTrailer = document.querySelector('.play')
+const pauseTrailer = document.querySelector('.pause')
 const history = document.querySelector('.history')
 const questions = document.querySelector('.about')
 const aboutus = document.querySelector('.team-container')
@@ -17,8 +21,8 @@ function showButtons(){
   botones.classList.toggle('visible')
 }
 
+video.playbackRate = 3.0
 setTimeout(() => {
-    video.playbackRate = 2.0
     particles.style.opacity = '1'
     earthquake.style.zIndex = '0'
     earthquake.style.position = 'static'
@@ -42,6 +46,8 @@ async function language(element){
   }
 }
 
+
+
 idioma.addEventListener('click', (e) => {
   if(e.target.dataset.function === 'en'){
     language(e.target.dataset.function)
@@ -54,4 +60,37 @@ idioma.addEventListener('click', (e) => {
   
 })
 
+let bandera = false
+
+function playandPause(entradas){
+  entradas.forEach((entrada) => {
+    if(videoTrailer.ended){
+      playTrailer.style.display = 'block'
+      bandera = false
+    }
+    if(entrada.isIntersecting){
+      if(bandera && !videoTrailer.ended){
+        videoTrailer.play()
+      }
+    }else {
+      videoTrailer.pause()
+    }
+  });
+}
+
+const observer = new IntersectionObserver( playandPause, {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.8
+})
+
+observer.observe(videoTrailer)
+
+function playvideo(){
+  videoTrailer.play()
+  playTrailer.style.display = 'none'
+  bandera = true
+}
+
+playTrailer.onclick = playvideo
 menuContainer.onclick = showButtons
