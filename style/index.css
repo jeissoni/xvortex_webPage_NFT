@@ -104,7 +104,7 @@ header{
   display: none;
   position: absolute;
   top: 80px;
-  background: rgb(0, 0, 0);
+  background: rgb(0, 0, 0, 0.6);
 }
 
 .language-container a{
@@ -164,7 +164,7 @@ header .visible{
 article{
   width: 100%;
   position: relative;
-  background-color: #000;
+  background: #000 url(../img/estrellas-min.png);
   opacity: 0;
   padding-top: 800px;
 }
@@ -190,12 +190,75 @@ article{
   opacity: 1;
   border-radius: 50%;
   transition: all .3s;
-  width: 5%;
-  position: absolute;
+  width: 60px;
+  height: auto;
   z-index: 6;
 }
 
 .advideo img:hover{
+  box-shadow: 0px 0px 30px #637BA8, 0px 0px 15px #637BA8;
+}
+.ads2{
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.advideo2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.advideo2 video{
+  width: 100%;
+  z-index: 5;
+}
+
+.containerBtnPlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerBtnPlay h2 {
+  color: #fff;
+  font-family: Orbitron;
+  font-size: 20px;
+  width: 100%;
+  z-index: 6;
+  margin-top: 20px;
+}
+
+.containerBtnPlay2 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.containerBtnPlay2 h2 {
+  color: #fff;
+  font-family: Orbitron;
+  font-size: 20px;
+  width: 100%;
+  z-index: 6;
+  margin-top: 20px;
+}
+
+.containerBtnPlay2 img{
+  cursor: pointer;
+  opacity: 1;
+  border-radius: 50%;
+  transition: all .3s;
+  width: 5%;
+  z-index: 6;
+}
+
+.advideo2 img:hover{
   box-shadow: 0px 0px 30px #637BA8, 0px 0px 15px #637BA8;
 }
 
@@ -892,7 +955,7 @@ footer a:hover{
 }
 
 
-@media (max-width: 860px){
+@media (max-width: 890px){
   header{
     flex-wrap: wrap;
   }
@@ -983,6 +1046,17 @@ footer a:hover{
   }
   #video {
     display:none;
+  }
+  .ads{
+    display: none;
+  }
+  .advideo2 img {
+    height: 70px;
+    width: auto;
+  }
+  
+  .ads2{
+    display: flex;
   }
   .containerTortas {
     gap: 50px;

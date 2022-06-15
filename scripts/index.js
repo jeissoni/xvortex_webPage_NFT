@@ -10,7 +10,11 @@ const video = document.getElementById('video')
 const videoContainer = document.querySelector('.advideo')
 const videoTrailer = document.getElementById('trailer')
 const playTrailer = document.querySelector('.play')
-const pauseTrailer = document.querySelector('.pause')
+const textTrailer = document.querySelector('.containerBtnPlay h2')
+const videoContainer2 = document.querySelector('.advideo2')
+const videoTrailer2 = document.getElementById('trailer2')
+const playTrailer2 = document.querySelector('.play2')
+const textTrailer2 = document.querySelector('.containerBtnPlay2 h2')
 const history = document.querySelector('.history')
 const questions = document.querySelector('.about')
 const aboutus = document.querySelector('.team-container')
@@ -46,8 +50,6 @@ async function language(element){
   }
 }
 
-
-
 idioma.addEventListener('click', (e) => {
   if(e.target.dataset.function === 'en'){
     language(e.target.dataset.function)
@@ -66,6 +68,7 @@ function playandPause(entradas){
   entradas.forEach((entrada) => {
     if(videoTrailer.ended){
       playTrailer.style.display = 'block'
+      textTrailer.style.display = 'block'
       bandera = false
     }
     if(entrada.isIntersecting){
@@ -84,14 +87,49 @@ const observer = new IntersectionObserver( playandPause, {
   threshold: 0.8
 })
 
+let bandera2 = false
+
 observer.observe(videoTrailer)
+
+function playandPause2(entradas){
+  entradas.forEach((entrada) => {
+    if(videoTrailer2.ended){
+      playTrailer2.style.display = 'block'
+      textTrailer2.style.display = 'block'
+      bandera2 = false
+    }
+    if(entrada.isIntersecting){
+      if(bandera2 && !videoTrailer2.ended){
+        videoTrailer2.play()
+      }
+    }else {
+      videoTrailer2.pause()
+    }
+  });
+}
+
+const observer2 = new IntersectionObserver( playandPause2, {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.5
+})
+
+observer2.observe(videoTrailer2)
 
 function playvideo(){
   videoTrailer.play()
   playTrailer.style.display = 'none'
+  textTrailer.style.display = 'none'
   bandera = true
 }
+function playvideo2(){
+  videoTrailer2.play()
+  playTrailer2.style.display = 'none'
+  textTrailer2.style.display = 'none'
+  bandera2 = true
+}
 
+playTrailer2.onclick = playvideo2
 playTrailer.onclick = playvideo
 menuContainer.onclick = showButtons
 
