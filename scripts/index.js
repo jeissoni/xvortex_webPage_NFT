@@ -121,13 +121,9 @@ videoTrailer2.addEventListener('ended', () => {
 
 function playvideo(){
   videoTrailer.play()
-  playTrailer.style.display = 'none'
-  textTrailer.style.display = 'none'
 }
 function playvideo2(){
   videoTrailer2.play()
-  playTrailer2.style.display = 'none'
-  textTrailer2.style.display = 'none'
 }
 
 playTrailer2.onclick = playvideo2
@@ -143,4 +139,21 @@ document.addEventListener('scroll', () => {
   if(position >= 1){
     articulo.style.opacity = '1'
   }
+})
+
+videoTrailer.addEventListener('pause', () => {
+  playTrailer.style.display = 'block'
+  textTrailer.style.display = 'block'
+})
+videoTrailer.addEventListener('play', () => {
+  playTrailer.style.display = 'none'
+  textTrailer.style.display = 'none'
+})
+videoTrailer2.addEventListener('pause', () => {
+  playTrailer2.style.display = 'block'
+  textTrailer2.style.display = 'block'
+})
+videoTrailer2.addEventListener('play', () => {
+  playTrailer2.style.display = 'none'
+  textTrailer2.style.display = 'none'
 })
