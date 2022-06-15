@@ -7,6 +7,7 @@ const idioma = document.querySelector('.language')
 const particles = document.getElementById('particles-js')
 const earthquake = document.querySelector('.earthquake')
 const video = document.getElementById('video')
+const videoMovil = document.getElementById('videoMovil')
 const videoContainer = document.querySelector('.advideo')
 const videoTrailer = document.getElementById('trailer')
 const playTrailer = document.querySelector('.play')
@@ -25,7 +26,9 @@ function showButtons(){
   botones.classList.toggle('visible')
 }
 
-video.playbackRate = 3.0
+videoMovil.playbackRate = 2.0
+video.playbackRate = 2.0
+
 setTimeout(() => {
     particles.style.opacity = '1'
     earthquake.style.zIndex = '0'
@@ -62,19 +65,14 @@ idioma.addEventListener('click', (e) => {
   
 })
 
-let bandera = false
 
 function playandPause(entradas){
   entradas.forEach((entrada) => {
-    if(videoTrailer.ended){
-      playTrailer.style.display = 'block'
-      textTrailer.style.display = 'block'
-      bandera = false
-    }
+  
     if(entrada.isIntersecting){
-      if(bandera && !videoTrailer.ended){
-        videoTrailer.play()
-      }
+      
+      videoTrailer.play()
+
     }else {
       videoTrailer.pause()
     }
@@ -87,21 +85,16 @@ const observer = new IntersectionObserver( playandPause, {
   threshold: 0.8
 })
 
-let bandera2 = false
 
 observer.observe(videoTrailer)
 
 function playandPause2(entradas){
   entradas.forEach((entrada) => {
-    if(videoTrailer2.ended){
-      playTrailer2.style.display = 'block'
-      textTrailer2.style.display = 'block'
-      bandera2 = false
-    }
+ 
     if(entrada.isIntersecting){
-      if(bandera2 && !videoTrailer2.ended){
-        videoTrailer2.play()
-      }
+
+      videoTrailer2.play()
+
     }else {
       videoTrailer2.pause()
     }
@@ -116,17 +109,25 @@ const observer2 = new IntersectionObserver( playandPause2, {
 
 observer2.observe(videoTrailer2)
 
+videoTrailer.addEventListener('ended', () => {
+  playTrailer.style.display = 'block'
+  textTrailer.style.display = 'block'
+})
+
+videoTrailer2.addEventListener('ended', () => {
+  playTrailer2.style.display = 'block'
+  textTrailer2.style.display = 'block'
+})
+
 function playvideo(){
   videoTrailer.play()
   playTrailer.style.display = 'none'
   textTrailer.style.display = 'none'
-  bandera = true
 }
 function playvideo2(){
   videoTrailer2.play()
   playTrailer2.style.display = 'none'
   textTrailer2.style.display = 'none'
-  bandera2 = true
 }
 
 playTrailer2.onclick = playvideo2
