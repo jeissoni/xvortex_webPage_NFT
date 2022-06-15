@@ -179,6 +179,7 @@ article{
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .advideo video{
   width: 100%;
