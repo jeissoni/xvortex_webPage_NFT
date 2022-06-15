@@ -1,0 +1,28 @@
+{
+    "navbar":{
+        "lore": "LORE",
+        "supply": "SUPPLY",
+        "team": "TEAM",
+        "social-media": "SOCIAL MEDIA",
+        "docs": "Docs",
+        "language": "LANGUAGE<img src='./img/caret-abajo.png' alt='flecha' style='height: 10px;'>"
+    },
+    "lore": {
+        "text": "The year is 3055.<br><br>Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days.<br><br>Humanity was devastated by wars and different viruses that impede human reproduction.<br><br>And here is where the adventure begins."
+    },
+    "about": {
+        "title": "Life Out Supply",
+        "text": "Life Out is an utility NFT Project created on the Ethereum chain aiming to create a Multiverse that will reside in the web3 community.<br><br>We are community driven, so holding an NFT from the collection will give you perks in the ecosystem.<br><br>Moreover, being part of the Genesis collection will bring you even more utility in future developments.",
+        "text2": "LIFE OUT aims to launch 6012 NFTs in three generations.The First Generation will be launched as follows:",
+        "subtitle": "GENERATION 1",
+        "text3": "999 NFTs will be launched via Public Sale<br><br>Release Date: June 30/2022<br><br> Price: 0.3 ETH"
+    },
+    "team": {
+        "title": "About Us",
+        "developer": ""
+    },
+    "nft-nomincs":{
+        "title": "NFT-NOMICS",
+        "text": "The distribution of our vision and economic organization is given as follows:"
+    }
+}
