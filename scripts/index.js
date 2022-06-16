@@ -1,6 +1,5 @@
 //Animacion parrafo pagina 1//
-const parrafo = document.querySelector(".parrafo");
-const translatetexts = document.querySelectorAll('.traducir')
+const translatetexts = document.querySelectorAll('[data-content]')
 const menuContainer = document.querySelector('.menu-container')
 const botones = document.querySelector('.botones')
 const idioma = document.querySelector('.language')
@@ -8,38 +7,42 @@ const particles = document.getElementById('particles-js')
 const earthquake = document.querySelector('.earthquake')
 const video = document.getElementById('video')
 const videoMovil = document.getElementById('videoMovil')
-const videoContainer = document.querySelector('.advideo')
 const videoTrailer = document.getElementById('trailer')
 const playTrailer = document.querySelector('.play')
 const textTrailer = document.querySelector('.containerBtnPlay h2')
-const videoContainer2 = document.querySelector('.advideo2')
-const videoTrailer2 = document.getElementById('trailer2')
-const playTrailer2 = document.querySelector('.play2')
-const textTrailer2 = document.querySelector('.containerBtnPlay2 h2')
-const history = document.querySelector('.history')
-const questions = document.querySelector('.about')
-const aboutus = document.querySelector('.team-container')
-const footer = document.getElementsByTagName('footer')[0]
-const body = document.getElementsByTagName('body')[0]
+const videoTrailerMovil = document.getElementById('trailer2')
+const playTrailerMovil = document.querySelector('.play2')
+const textTrailerMovil = document.querySelector('.containerBtnPlay2 h2')
+let userPlaytVideo = false
+let userPlaytVideoMovil = false
+
+// show particles
+
+setTimeout(() => {
+  particles.style.opacity = '1'
+}, 15000)
+// navbar hamburger icon
+
+botones.addEventListener("click", (e) => {
+  e.target.classList.forEach((clase) => {
+    if (clase === "boton") {
+      botones.classList.toggle('visible')
+    }
+  })
+})
 
 function showButtons(){
   botones.classList.toggle('visible')
 }
 
+menuContainer.onclick = showButtons
+
+// speed video
+
 videoMovil.playbackRate = 2.0
 video.playbackRate = 2.0
 
-setTimeout(() => {
-    particles.style.opacity = '1'
-    earthquake.style.zIndex = '0'
-    earthquake.style.position = 'fixed'
-}, 15000)
-
-function dealay(n) {
-  return new Promise(function (resolve) {
-      setTimeout(resolve, n * 1000);
-  });
-}
+// change language
 
 async function language(element){
   const requestJson = await fetch(`../languages/${element}.json`)
@@ -65,11 +68,27 @@ idioma.addEventListener('click', (e) => {
   
 })
 
+// efecto scroll
+
+const articulo = document.getElementById('articulo')
+document.addEventListener('scroll', () => {
+  let position = window.scrollY / 500
+  if(position <= 1){
+    articulo.style.opacity = `${position}`
+  }
+  if(position >= 1){
+    articulo.style.opacity = '1'
+  }
+})
+
+// stop video when is off screen
+
+// pc video
 
 function playandPause(entradas){
   entradas.forEach((entrada) => {
   
-    if(entrada.isIntersecting){
+    if(entrada.isIntersecting && userPlaytVideo){
       
       videoTrailer.play()
 
@@ -88,59 +107,53 @@ const observer = new IntersectionObserver( playandPause, {
 
 observer.observe(videoTrailer)
 
-function playandPause2(entradas){
+// movil video
+
+function playandPauseMovil(entradas){
   entradas.forEach((entrada) => {
  
-    if(entrada.isIntersecting){
+    if(entrada.isIntersecting && userPlaytVideoMovil){
 
-      videoTrailer2.play()
+      videoTrailerMovil.play()
 
     }else {
-      videoTrailer2.pause()
+      videoTrailerMovil.pause()
     }
   });
 }
 
-const observer2 = new IntersectionObserver( playandPause2, {
+const observer2 = new IntersectionObserver( playandPauseMovil, {
   root: null,
   rootMargin: '0px',
   threshold: 0.5
 })
 
-observer2.observe(videoTrailer2)
+observer2.observe(videoTrailerMovil)
+
+// playvideo button
+
+function playvideo(){
+  videoTrailer.play()
+  userPlaytVideo = true
+}
+function playvideoMovil(){
+  videoTrailerMovil.play()
+  userPlaytVideoMovil = true
+}
+
+playTrailerMovil.onclick = playvideoMovil
+playTrailer.onclick = playvideo
+
+// show play icon when video is stoped
 
 videoTrailer.addEventListener('ended', () => {
   playTrailer.style.display = 'block'
   textTrailer.style.display = 'block'
 })
-
-videoTrailer2.addEventListener('ended', () => {
-  playTrailer2.style.display = 'block'
-  textTrailer2.style.display = 'block'
+videoTrailerMovil.addEventListener('ended', () => {
+  playTrailerMovil.style.display = 'block'
+  textTrailerMovil.style.display = 'block'
 })
-
-function playvideo(){
-  videoTrailer.play()
-}
-function playvideo2(){
-  videoTrailer2.play()
-}
-
-playTrailer2.onclick = playvideo2
-playTrailer.onclick = playvideo
-menuContainer.onclick = showButtons
-
-const articulo = document.getElementById('articulo')
-document.addEventListener('scroll', () => {
-  let position = window.scrollY / 500
-  if(position <= 1){
-    articulo.style.opacity = `${position}`
-  }
-  if(position >= 1){
-    articulo.style.opacity = '1'
-  }
-})
-
 videoTrailer.addEventListener('pause', () => {
   playTrailer.style.display = 'block'
   textTrailer.style.display = 'block'
@@ -149,11 +162,12 @@ videoTrailer.addEventListener('play', () => {
   playTrailer.style.display = 'none'
   textTrailer.style.display = 'none'
 })
-videoTrailer2.addEventListener('pause', () => {
-  playTrailer2.style.display = 'block'
-  textTrailer2.style.display = 'block'
+videoTrailerMovil.addEventListener('pause', () => {
+  playTrailerMovil.style.display = 'block'
+  textTrailerMovil.style.display = 'block'
 })
-videoTrailer2.addEventListener('play', () => {
-  playTrailer2.style.display = 'none'
-  textTrailer2.style.display = 'none'
+videoTrailerMovil.addEventListener('play', () => {
+  playTrailerMovil.style.display = 'none'
+  textTrailerMovil.style.display = 'none'
 })
+

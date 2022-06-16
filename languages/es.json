@@ -2,35 +2,35 @@
     "navbar":{
         "lore": "HISTORIA",
         "supply": "SUMINISTRO",
+        "nft-nomics": "hola",
         "team": "EQUIPO",
         "social-media": "REDES SOCIALES",
-        "docs": "Docs",
-        "language": "LENGUAJE<img src='./img/caret-abajo.png' alt='flecha' style='height: 10px;'>"
+        "docs": "Docs<img src='./img/log-out.png' alt='flecha' style='height: 10px;'>"
     },
     "lore": {
-        "text": "El año es 3055.<br><br>Exul es el cuarto planeta de la galaxia Sericom donde un año solar dura 700 días.<br><br>La humanidad fue devastada por guerras y diferentes virus que impiden la reproducción humana.<br><br>La última gran guerra dividió a Exul con la grieta de Voidlong, creando dos continentes diferentes:<br><br>El Este, conformado por los Kazonianos, Bauxianos, Gordianos y Najianos y el Oeste con los Resquerianos, Nagyrianos, Mortianos y Bulpianos.<br><br>Cada uno ha salvaguardado unos pocos recursos naturales sobrantes de las guerras que les ayudan a sobrevivir pero sin ninguna esperanza han sido llevados a guerras tratando de apoderarse de las tierras y recursos del otro.<br><br>Esto ha obligado a los Exulianos a buscar un lugar fuera de su planeta, un lugar donde puedan evitar la extinción, organizando un grupo de exploradores, expertos en estrategia bélica, pilotos en maniobras espaciales, navegantes (Especialistas en cartografía cósmica) y un capitán para cada grupo.<br><br>Todos son sobrevivientes de los campos de guerra y mantuvieron sus rangos militares para continuar con una estructura organizada en los viajes de búsqueda espacial.<br><br>Y aquí es donde comienza la aventura."
+        "lore-text": "El año es 3055.<br><br>Exul es el cuarto planeta de la galaxia Sericom donde un año solar dura 700 días.<br><br>La humanidad fue devastada por guerras y diferentes virus que impiden la reproducción humana.<br><br>La última gran guerra dividió a Exul con la grieta de Voidlong, creando dos continentes diferentes:<br><br>El Este, conformado por los Kazonianos, Bauxianos, Gordianos y Najianos y el Oeste con los Resquerianos, Nagyrianos, Mortianos y Bulpianos.<br><br>Cada uno ha salvaguardado unos pocos recursos naturales sobrantes de las guerras que les ayudan a sobrevivir pero sin ninguna esperanza han sido llevados a guerras tratando de apoderarse de las tierras y recursos del otro.<br><br>Esto ha obligado a los Exulianos a buscar un lugar fuera de su planeta, un lugar donde puedan evitar la extinción, organizando un grupo de exploradores, expertos en estrategia bélica, pilotos en maniobras espaciales, navegantes (Especialistas en cartografía cósmica) y un capitán para cada grupo.<br><br>Todos son sobrevivientes de los campos de guerra y mantuvieron sus rangos militares para continuar con una estructura organizada en los viajes de búsqueda espacial.<br><br>Y aquí es donde comienza la aventura."
     },
-    "about": {
-        "title": "Suministro de Life Out",
-        "title2": "¿Que es Life Out?",
-        "text": "Life Out es un proyecto NFT de utilidad creado en la red Ethereum con el objetivo de crear un multiverso que residirá en la comunidad web3.<br><br>Estamos impulsados por la comunidad, por lo que tener un NFT de la colección le dará ventajas en el ecosistema.<br><br>Además, ser parte de la colección Génesis le brindará aún más beneficios en futuros desarrollos.",
-        "text2": "LIFE OUT tiene como objetivo lanzar 6012 NFT en tres generaciones. La primera generación se lanzará de la siguiente manera:",
-        "subtitle": "GENERACIÓN 1",
-        "text3": "Se lanzarán 999 NFT mediante venta pública.<br><br>Fecha de lanzamiento: 30 de junio de 2022<br><br>Precio: 0,3 ETH"
+    "lifeOut": {
+        "lifeOut-title": "¿Que es Life Out?",
+        "lifeOut-text": "Life Out es un proyecto NFT de utilidad creado en la red Ethereum con el objetivo de crear un multiverso que residirá en la comunidad web3.<br><br>Estamos impulsados por la comunidad, por lo que tener un NFT de la colección le dará ventajas en el ecosistema.<br><br>Además, ser parte de la colección Génesis le brindará aún más beneficios en futuros desarrollos."
+    },
+    "supply": {
+        "supply-title": "Cantidad de NFTs",
+        "supply-text": "LIFE OUT tiene como objetivo lanzar 6012 NFT en tres generaciones. La primera generación se lanzará de la siguiente manera:",
+        "supply-subtitle": "GENERACIÓN 1",
+        "supply-description": "Se lanzarán 999 NFT mediante venta pública.<br><br>Fecha de lanzamiento: 30 de junio de 2022<br><br>Precio: 0,3 ETH"
+    },
+    "nft-nomincs":{
+        "nft-nomincs-title": "NFT-NOMICS",
+        "nft-nomincs-description": "Nuestra organización económica se dará como se muestra a continuación:",
+        "torta1-title": "VENTA",
+        "torta1-percentage-team": "25% EMPRESA",
+        "torta1-percentage-reserve": "60% RESERVA ACTIVA",
+        "torta2-title": "TRANSACCIONES",
+        "torta2-percentage-team": "30% EMPRESA",
+        "torta2-percentage-investment": "60% RE-INVERSION PARA EXPANSION"
     },
     "team": {
         "title": "EQUIPO"
-    },
-    "nft-nomincs":{
-        "title": "NFT-NOMICS",
-        "description": "Nuestra organización económica se dará como se muestra a continuación:",
-        "title1": "VENTA",
-        "text1": "25% EMPRESA",
-        "text2": "15% MARKETING",
-        "text3": "60% RESERVA ACTIVA",
-        "title2": "TRANSACCIONES",
-        "text4": "30% EMPRESA",
-        "text5": "10% MARKETING",
-        "text6": "60% RE-INVERSION PARA EXPANSION"
     }
 }
