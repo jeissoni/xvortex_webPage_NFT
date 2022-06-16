@@ -55,19 +55,23 @@
         <div class="bar3"></div>
       </div>
       <div class="botones">
-        <a class="boton traducir" href="#history" data-content="navbar" data-type="lore">LORE</a>
-        <a class="boton traducir" href="#about" data-content="navbar" data-type="supply">SUPPLY</a>
-        <a class="boton traducir" href="#team-container" data-content="navbar" data-type="team">TEAM</a>
-        <a class="boton traducir" href="#footer" data-content="navbar" data-type="social-media">SOCIAL MEDIA</a>
-        <a class="boton traducir" href="https://lifeout.gitbook.io/life-out/" target="_blank" data-content="navbar" data-type="docs">Docs</a>
+        <a class="boton" href="#history" data-content="navbar" data-type="lore">LORE</a>
+        <a class="boton" href="#supply" data-content="navbar" data-type="supply">SUPPLY</a>
+        <a class="boton" href="#container-nft-nomics" data-content="navbar" data-type="nft-nomics">NFT-NOMICS</a>
+        <a class="boton " href="#team-container" data-content="navbar" data-type="team">TEAM</a>
+        <a class="boton" href="#footer" data-content="navbar" data-type="social-media">SOCIAL MEDIA</a>
         <div class="language-container">
-          <a class="boton traducir" data-content="navbar" data-type="language">
-            LANGUAGE
-            <img src='./img/caret-abajo.png' alt='flecha' style='height: 10px;'>
+          <a class="boton-language">
+            Config.
+            <img src='./img/caret-abajo.png' alt='flecha' style='height: 14px;'>
           </a>
           <div class="language" >
             <a class="boton" data-function="en">ENGLISH</a>
             <a class="boton" data-function="es">ESPAÑOL</a>
+            <a class="boton" href="https://lifeout.gitbook.io/life-out/" target="_blank" data-content="navbar" data-type="docs">
+              Docs
+              <img src='./img/log-out.png' alt='flecha' style='height: 10px;'>
+            </a>
           </div>
         </div>
       </ul>
@@ -76,11 +80,11 @@
   <div class="earthquake">
 
     <video id="video" autoplay muted playsinline>
-      <source src="./video/GRIETAPAG.mp4" type="video/mp4">
+      <source src="./video/grieta.mp4" type="video/mp4">
     </video>
 
     <video id="videoMovil" autoPlay muted playsinline>
-      <source src="./video/vertical.mp4" type="video/mp4">
+      <source src="./video/grietaMovil.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -92,7 +96,7 @@
     <div class="ads">
       <div class="advideo">
         <video id="trailer" poster="./img/portada.png" preload="none" playsinline>
-          <source src="./video/MASTERTRAILER.mp4" type="video/mp4">
+          <source src="./video/trailer.mp4" type="video/mp4">
         </video>
         <div class="containerBtnPlay">
           <img src="./img/boton-de-play.png" alt="boton-de-play" class="play">
@@ -116,8 +120,8 @@
     </div>
       
     <div class="history" id="history">
-      <div class="texto" >
-        <p class="parrafo traducir" data-content="lore" data-type="text">The year is 3055.
+      <div class="lore-texto" >
+        <p class="lore-parrafo" data-content="lore" data-type="lore-text">The year is 3055.
             <br>
             <br>
             Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days.
@@ -143,13 +147,13 @@
             <br>
             And here is where the adventure begins.</p>
         </div>
-      <img src="./img/planetafinal (3).png" alt="planet">
+      <img src="./img/planetafinal.png" alt="planet">
     </div>
 
     <div class="lifeOut">
-      <div class="texto">
-        <h1 class="traducir" data-content="about" data-type="title2">What is Life Out?</h1>
-        <p class="parrafo traducir" data-content="about" data-type="text">
+      <div class="lifeOut-texto">
+        <h1 data-content="lifeOut" data-type="lifeOut-title">What is Life Out?</h1>
+        <p class="lifeOut-parrafo" data-content="lifeOut" data-type="lifeOut-text">
             Life Out is an utility NFT Project created on the Ethereum chain aiming to create a Multiverse that will reside in the web3 community.
             <br>
             <br>
@@ -161,20 +165,20 @@
       </div>
     </div>
 
-      <div class="about" id="about">
-        <div class="dvabout">
-          <h1 class="about-title traducir" data-content="about" data-type="title">Life Out Supply</h1>
+      <div class="supply" id="supply">
+        <div class="dvsupply">
+          <h1 class="supply-title" data-content="supply" data-type="supply-title">Life Out Supply</h1>
         
           
           
-          <div class="questions q2 traducir" data-content="about" data-type="text2">
+          <div class="supply-text" data-content="supply" data-type="supply-text">
               LIFE OUT aims to launch 6012 NFTs in three generations.The First Generation will be launched as follows:
           </div>
-          <div class="questions q3">
-            <h3 class="traducir" data-content="about" data-type="subtitle">
+          <div class="supply-text">
+            <h3 data-content="supply" data-type="supply-subtitle">
                 GENERATION 1
             </h3>
-            <p class="traducir" data-content="about" data-type="text3">
+            <p data-content="supply" data-type="supply-description">
                 999 NFTs will be launched via Public Sale.
                 <br>
                 <br>
@@ -191,20 +195,19 @@
         
       </div>
 
-      <div class="containerPorcentajes">
-        <h1 class="traducir" data-content="nft-nomincs" data-type="title">
+      <div class="container-nft-nomics" id="container-nft-nomics">
+        <h1 data-content="nft-nomincs" data-type="nft-nomincs-title">
           NFT-NOMICS
         </h1>
-        <p class="traducir" data-content="nft-nomincs" data-type="description">The distribution of our vision and economic organization is given as follows:</p>
+        <p data-content="nft-nomincs" data-type="nft-nomincs-description">The distribution of our vision and economic organization is given as follows:</p>
         <div class="containerTortas">
           <div class="containerTorta1">
-            <h2 class="traducir" data-content="nft-nomincs" data-type="title1">
+            <h2 data-content="nft-nomincs" data-type="torta1-title">
               SALE
             </h2>
-            <h3 class="texto1 traducir" data-content="nft-nomincs" data-type="text1">25% TEAM</h3>
-            <h3 class="texto2 traducir" data-content="nft-nomincs" data-type="text2">15% MARKETING</h3>
-            <h3 class="texto3 traducir" data-content="nft-nomincs" data-type="text3">60% LIFE OUT RESERVE</h3>
-            <div class="sombratorta1"></div>
+            <h3 class="torta1-percentage-team" data-content="nft-nomincs" data-type="torta1-percentage-team">25%<br>TEAM</h3>
+            <h3 class="torta1-percentage-marketing">15%<br>MARKETING</h3>
+            <h3 class="torta1-percentage-reserve" data-content="nft-nomincs" data-type="torta1-percentage-reserve">60% LIFE OUT RESERVE</h3>
             <div class="torta1">
               <div class="porcion1"></div>
               <div class="porcion2"></div>
@@ -213,13 +216,12 @@
           </div>
 
           <div class="containerTorta2">
-            <h2 class="traducir" data-content="nft-nomincs" data-type="title2">
+            <h2 data-content="nft-nomincs" data-type="torta2-title">
               FEES
             </h2>
-            <h3 class="texto4 traducir" data-content="nft-nomincs" data-type="text4">30% TEAM</h3>
-            <h3 class="texto5 traducir" data-content="nft-nomincs" data-type="text5">10% MARKETING</h3>
-            <h3 class="texto6 traducir"data-content="nft-nomincs" data-type="text6">60% RE-INVESTMENT FOR EXPANSION</h3>
-            <div class="sombratorta2"></div>
+            <h3 class="torta2-percentage-team" data-content="nft-nomincs" data-type="torta2-percentage-team">30%<br>TEAM</h3>
+            <h3 class="torta2-percentage-marketing">10%<br>MARKETING</h3>
+            <h3 class="torta2-percentage-investment"data-content="nft-nomincs" data-type="torta2-percentage-investment">60% RE-INVESTMENT FOR EXPANSION</h3>
             <div class="torta2">
               <div class="porcion4"></div>
               <div class="porcion5"></div>
@@ -231,7 +233,7 @@
 
       <div class="team-container" id="team-container">
 
-        <h1 class="aboutus traducir" data-content="team" data-type="title">
+        <h1 class="aboutus" data-content="team" data-type="title">
           About Us
         </h1> 
         <div class="team">
