@@ -158,11 +158,11 @@ article{
 .earthquake{
   position: fixed;
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .earthquake video{
@@ -173,6 +173,12 @@ article{
 
 #videoMovil {
   display:none;
+}
+
+/* logo */
+
+.canvas-container{
+  position: absolute;
 }
 
 /********* trailer *********/
