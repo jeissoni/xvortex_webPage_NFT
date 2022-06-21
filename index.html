@@ -60,6 +60,15 @@
         <a class="boton" href="#container-nft-nomics" data-content="navbar" data-type="nft-nomics">NFT-NOMICS</a>
         <a class="boton " href="#team-container" data-content="navbar" data-type="team">TEAM</a>
         <a class="boton" href="#footer" data-content="navbar" data-type="social-media">SOCIAL MEDIA</a>
+        <div class="btnWalletContainer">
+          <a class="wallet" data-content="navbar" data-type="social-media">
+            CONNECT WALLET  
+            <img src='./img/caret-abajo-negro.png' alt='flecha' style='height: 14px;'>
+          </a>
+          <div class="botonConnectContainer">
+            <a class="botonConnect" data-content="navbar" data-type="social-media">Connect with MetaMask</a>
+          </div>
+        </div>
         <div class="language-container">
           <a class="boton-language">
             Config.
@@ -79,7 +88,7 @@
 
   <div class="earthquake">
 
-    <video id="video" autoplay muted playsinline>
+    <video id="video" controls muted playsinline>
       <source src="./video/grieta.mp4" type="video/mp4">
     </video>
 
@@ -329,11 +338,35 @@
           </div>
         </div>
       </div>
-      <div>
-
-      </div>
-    
+      
   </article>
+
+  <div class="installAlert">
+    <img src="./img/alert.png" alt="alert">
+    <p>Please Install MetaMask</p>
+    <div class="closeAlert">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+    </div>
+  </div>
+
+  <div class="connectedToMainet">
+    <img src="./img/alert.png" alt="alert">
+    <p>You're connected to the ethereum network</p>
+    <div class="closeAlert">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+    </div>
+  </div>
+
+  <div class="disConnectedToMainet">
+    <img src="./img/alert.png" alt="alert">
+    <p>You're disconnected to the ethereum network</p>
+    <div class="closeAlert">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+    </div>
+  </div>
   
   <footer id="footer">
     <div class="hola">
@@ -342,6 +375,7 @@
   </div>
   </footer>
 
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
   <script src="./scripts/particles.js"></script>
   <script src="./scripts/app.js"></script>
   <script src="./scripts/index.js"></script>

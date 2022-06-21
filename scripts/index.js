@@ -13,6 +13,7 @@ const textTrailer = document.querySelector('.containerBtnPlay h2')
 const videoTrailerMovil = document.getElementById('trailer2')
 const playTrailerMovil = document.querySelector('.play2')
 const textTrailerMovil = document.querySelector('.containerBtnPlay2 h2')
+
 let userPlaytVideo = false
 let userPlaytVideoMovil = false
 
@@ -171,3 +172,111 @@ videoTrailerMovil.addEventListener('play', () => {
   textTrailerMovil.style.display = 'none'
 })
 
+//Codigo Minteo//
+
+const botonConnect = document.querySelector('.botonConnect');
+const installAlert = document.querySelector('.installAlert');
+const connectWallet = document.querySelector('.wallet');
+const closeAlert = document.querySelector('.closeAlert');
+const connectedToMainet = document.querySelector('.connectedToMainet');
+const disConnectedToMainet = document.querySelector('.disConnectedToMainet');
+const showAlert = document.querySelector('.showAlert');
+
+
+// login and logout
+
+let isConnected = false
+
+botonConnect.addEventListener('click',async function() {
+  if (!isConnected){
+    login()
+  } else {
+    //log out
+    location.reload()
+  }
+})
+
+async function login(){
+
+  if(window.ethereum){
+
+    permissions()
+    changeChain()
+
+  }else{
+    installAlert.classList.add("showAlert")
+  }
+}
+
+// get metamask permissions
+
+async function permissions(){
+
+  await window.ethereum
+        .request({ method: 'wallet_requestPermissions',
+                             params: [
+                                  {
+                                 eth_accounts: {}
+                                  }
+                                ]
+                          })
+        .then(() => {
+
+            let catch1 = /^\w{5}/
+            let catch2 = /\w{4}$/
+            let test1 = ethereum.selectedAddress.match(catch1)
+            let test2 = ethereum.selectedAddress.match(catch2)
+            connectWallet.innerHTML = test1 + '...' + test2
+            botonConnect.innerHTML = "Disconect"
+
+            isConnected = true
+
+        }).catch((x) => {
+            console.log(x.message)
+        })
+}
+
+// change web3 chain
+
+async function changeChain(){
+  ethereum.on('chainChanged', (chainId) => {
+
+    if(chainId === '0x1'){
+
+      connectedToMainet.classList.add("showAlert")
+
+      setTimeout(() => {
+        connectedToMainet.classList.remove("showAlert")
+      }, 5000)
+
+
+    }else{
+
+      disConnectedToMainet.classList.add("showAlert")
+      // setTimeout(() => {
+      //   disConnectedToMainet.classList.remove("showAlert")
+      // }, 5000)
+
+    }
+
+  });
+
+  return await window.ethereum.request({
+    "id": 1,
+        "jsonrpc": "2.0",
+        "method": "wallet_switchEthereumChain",
+        "params": [
+            {
+            "chainId": "0x1",
+            }
+        ]
+        })
+        
+}
+
+//close alerts//
+function installAlertOff() {
+  disConnectedToMainet.classList.remove("showAlert")
+}
+
+closeAlert.onclick = installAlertOff

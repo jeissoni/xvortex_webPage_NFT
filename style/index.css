@@ -80,8 +80,39 @@ header{
   cursor: pointer;
 }
 
+.botonConnect{
+  height: 80px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.wallet {
+  height: 80px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: black;
+  background: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
 .boton::after,
-.boton-language::after{
+.boton-language::after,
+.wallet::after,
+.botonConnect::after {
   content: '';
   position: absolute;
   bottom: 0px;
@@ -92,15 +123,32 @@ header{
 }
 
 .boton:hover::after,
-.boton-language::after{
+.wallet:hover::after,
+.boton-language:hover::after,
+.botonConnect:hover::after{
   display: block;
 }
 
-.language-container{
+.language-container,
+.btnWalletContainer{
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.language {
+  display: none;
+  position: absolute;
+  top: 80px;
+  background: rgb(0, 0, 0, 0.6);
+}
+
+.botonConnectContainer{
+  display: none;
+  position: absolute;
+  top: 80px;
+  background: rgb(0, 0, 0, 0.6);
 }
 
 .language{
@@ -110,20 +158,29 @@ header{
   background: rgb(0, 0, 0, 0.6);
 }
 
-.language-container a{
+.language-container a,
+.btnWalletContainer a{
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .language .boton{
-  height: 40px;
+  height: 50px;
   line-height: 40px;
   font-family: Orbitron;
   font-size: 1.2em;
 }
 
-.language-container:hover > .language{
+.botonConnectContainer .botonConnect{
+  height: 80px;
+  line-height: 40px;
+  font-family: Orbitron;
+  font-size: 1.2em;
+}
+
+.language-container:hover > .language,
+.btnWalletContainer:hover > .botonConnectContainer{
   display: block;
 }
 
@@ -854,6 +911,65 @@ footer a:hover {
   border: 2px solid yellow;
   /* transform: scale(1.05); */
   transition: 1s ease linear;
+}
+
+/* Alerta instalar Metamask */
+
+.installAlert,
+.connectedToMainet,
+.disConnectedToMainet {
+  position: fixed;
+  left: 0px;
+  bottom: 80px;
+  display: flex;
+  font-family: Orbitron;
+  clip-path: circle(0% at 0 50%);
+  transition: clip-path 1s ease;
+  align-items: center;
+  justify-content: center;
+  min-width: 600px;
+  height: 50px;
+  background: white;
+  z-index: 100;
+}
+
+.installAlert img,
+.connectedToMainet img,
+.disConnectedToMainet img {
+  position: absolute;
+  left: 30px;
+  width: 30px;
+}
+
+.showAlert {
+  clip-path: circle(150% at 0 50%);
+}
+
+.closeAlert{
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+}
+
+.closeAlert .bar1{
+  background: black;
+  width: 25px;
+  height: 4px;
+  transform: rotateZ(45deg);
+  position: absolute;
+}
+
+.closeAlert .bar2{
+  background: black;
+  width: 25px;
+  height: 4px;
+  transform: rotateZ(-45deg);
+  position: absolute;
 }
 
 /********** footer ************/
