@@ -205,8 +205,9 @@ article{
   width: 100%;
   height: 100vh;
   position: relative;
-  background: #000 url(../img/estrellas-min.png);
-  opacity: 0;
+  opacity: 1;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .persona a:hover,
@@ -215,6 +216,60 @@ footer a:hover {
   border: 2px solid yellow;
   /* transform: scale(1.05); */
   transition: 1s ease linear;
+}
+
+.logo2 {
+  position: absolute; 
+  color: rgba(255, 255, 255, 0.85);
+  bottom: 100px;
+  right: 300px;
+  transition: all 1s linear;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  animation: logo2 6s linear;
+  animation-fill-mode: forwards;
+}
+
+.logo2 h1:nth-child(1),
+.logo2 h1:nth-child(2) {
+  /* background-color: aqua; */
+  font-family: 'long-shot';
+  font-size: 250px;
+  text-align: center;
+  line-height: 220px;
+}
+
+.logo2 h1:nth-child(3) {
+  /* background-color: aqua; */
+  font-family: 'long-shot';
+  color: white;
+  font-size: 75px;
+  text-align: center;
+  line-height: 25px;
+  margin-left: -20px;
+  transition: all 1s linear;
+}
+
+@keyframes logo2 {
+
+  100%{
+    transform: translate(-200px, -200px);
+  }
+
+}
+
+.planeta {
+  position: absolute;
+  right: 0px;
+  bottom: 250px;
+  height: 650px;
+  width: auto;
+  z-index: 20;
+  transition: 3s
 }
 
 /* Alerta instalar Metamask */
