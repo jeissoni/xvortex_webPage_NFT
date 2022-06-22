@@ -1,0 +1,360 @@
+@font-face {
+    font-family: 'long-shot';
+    src: url('../fonts/Long_Shot.ttf');
+}
+
+@font-face {
+  font-family: Orbitron;
+  src: url(../fonts/Orbitron-VariableFont_wght.ttf);
+}
+
+:root{
+  --space-blue: #0C0C16;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  width: 100%;
+  background: url(../img/estrellas-min.png) #000 ;
+}
+
+/************ navbar *************/
+
+header{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: rgb(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nvLogo{
+  font-size: 3em;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'long-shot';
+}
+
+.menu-container {
+  margin-right: 10px;
+  display: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-container div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px;
+  transition: 0.4s;
+}
+
+.botones{
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton,
+.boton-language{
+  height: 80px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.botonConnect{
+  height: 80px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.wallet {
+  height: 80px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: black;
+  background: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.boton::after,
+.boton-language::after,
+.wallet::after,
+.botonConnect::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  background-color: #ff0000;
+  display: none;
+}
+
+.boton:hover::after,
+.wallet:hover::after,
+.boton-language:hover::after,
+.botonConnect:hover::after{
+  display: block;
+}
+
+.language-container,
+.btnWalletContainer{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language {
+  display: none;
+  position: absolute;
+  top: 80px;
+  background: rgb(0, 0, 0, 0.6);
+}
+
+.botonConnectContainer{
+  display: none;
+  position: absolute;
+  top: 80px;
+  background: rgb(0, 0, 0, 0.6);
+}
+
+.language{
+  display: none;
+  position: absolute;
+  top: 80px;
+  background: rgb(0, 0, 0, 0.6);
+}
+
+.language-container a,
+.btnWalletContainer a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language .boton{
+  height: 50px;
+  line-height: 40px;
+  font-family: Orbitron;
+  font-size: 1.2em;
+}
+
+.botonConnectContainer .botonConnect{
+  height: 80px;
+  line-height: 40px;
+  font-family: Orbitron;
+  font-size: 1.2em;
+}
+
+.language-container:hover > .language,
+.btnWalletContainer:hover > .botonConnectContainer{
+  display: block;
+}
+
+header .visible{
+  display: flex;
+}
+
+/*********** particulas **********/
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  position: fixed;
+  opacity: 10;
+  transition: all 1s;
+}
+
+/*********** contenido ***********/
+article{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: #000 url(../img/estrellas-min.png);
+  opacity: 0;
+}
+
+.persona a:hover,
+footer a:hover {
+  cursor: pointer;
+  border: 2px solid yellow;
+  /* transform: scale(1.05); */
+  transition: 1s ease linear;
+}
+
+/* Alerta instalar Metamask */
+
+.installAlert,
+.connectedToMainet,
+.disConnectedToMainet {
+  position: fixed;
+  left: 0px;
+  bottom: 130px;
+  display: flex;
+  font-family: Orbitron;
+  clip-path: circle(0% at 0 50%);
+  transition: clip-path 1s ease;
+  align-items: center;
+  justify-content: center;
+  min-width: 600px;
+  height: 50px;
+  background: white;
+}
+
+.installAlert img,
+.connectedToMainet img,
+.disConnectedToMainet img {
+  position: absolute;
+  left: 30px;
+  width: 30px;
+}
+
+.showAlert {
+  clip-path: circle(150% at 0 50%);
+}
+
+.closeAlert{
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+}
+
+.closeAlert .bar1{
+  background: black;
+  width: 25px;
+  height: 4px;
+  transform: rotateZ(45deg);
+  position: absolute;
+}
+
+.closeAlert .bar2{
+  background: black;
+  width: 25px;
+  height: 4px;
+  transform: rotateZ(-45deg);
+  position: absolute;
+}
+
+/********** footer ************/
+
+footer .hola{
+  background: rgb(0, 0, 0);
+  z-index: 50;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 80px;
+  gap: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid rgb(255, 255, 255);
+}
+
+footer a{
+  color: #fff;
+  text-decoration: none;
+  width: 36px;
+  border-radius: 8px;
+}
+
+footer a:hover{
+  text-decoration: underline;
+}
+
+
+
+@media (max-width: 1020px){
+
+  /* navbar */
+
+  .boton,
+  .boton-language{
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 840px){
+
+  /* navbar */
+
+  header{
+    flex-wrap: wrap;
+  }
+  .menu-container{
+    display: block;
+  }
+  .botones{
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    flex-direction: column;
+    top: 80px;
+    width: 100%;
+    display: none;
+
+  }
+  .boton,
+  .boton-language{
+    height: 50px;
+    line-height: 50px;
+  }
+  .language{
+    top: 50px;
+    width: 300px;
+  }
+
+}
+
+
+@media (max-width: 600px){
+  
+  /* footer */
+
+  footer .hola{
+    height: 50px;
+  }
+  footer img{
+    height: 30px;
+  }
+}
