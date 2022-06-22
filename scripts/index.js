@@ -16,6 +16,123 @@ const textTrailerMovil = document.querySelector(".containerBtnPlay2 h2");
 let userPlaytVideo = false;
 let userPlaytVideoMovil = false;
 
+// logo particles efect
+
+const canvas = document.getElementById('canvas1')
+const ctx = canvas.getContext('2d')
+canvas.width = window.innerWidth
+let adjustX = 2
+let adjustY = 3
+let showLogo = false
+let showLogo2 = false
+
+// handle maouse
+const mouse = {
+    x: null,
+    y: null,
+    radius: 100
+}
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth
+  if(showLogo){
+    fillCanvas()
+    init()
+  }
+})
+
+window.addEventListener('mousemove', (event) => {
+    mouse.x = event.x
+    mouse.y = event.y
+})
+
+
+function fillCanvas(){
+  ctx.fillStyle = 'white'
+  ctx.font = '80px Long-shot'
+  ctx.fillText('LIFE', (canvas.width / 4) - 50 , 265)
+  ctx.fillText('OUT', (canvas.width / 4) - 40, 330)
+  textCoordinates = ctx.getImageData(0, 90, (canvas.width / 2), 250)
+}
+setTimeout(() => {
+  showLogo = true
+  fillCanvas()
+  init()
+  ctx.clearRect( 0, 0, canvas.width, canvas.height)
+}, 10)
+
+class Particle {
+    constructor( x, y ){
+        this.x = Math.random() * canvas.width
+        this.y = Math.random() * canvas.height
+        this.size = 4
+        this.baseX = x
+        this.baseY = y
+        this.density = (Math.random() * 40) + 1
+        this.opacity = 0
+    }
+    draw(){
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.fill()
+    }
+    update(){
+        let dx = mouse.x - this.x
+        let dy = mouse.y - this.y
+        let distance = Math.sqrt(dx * dx + dy *dy)
+        let forceDirectionX = dx / distance
+        let forceDirectionY = dy / distance
+        let maxDistance = mouse.radius
+        let force = (maxDistance - distance) / maxDistance
+        let directionX = forceDirectionX * force * this.density
+        let directionY = forceDirectionY * force * this.density
+        if(this.opacity < 1){
+          this.opacity += 0.005
+          ctx.fillStyle = 'rgba(243, 246, 239,' + this.opacity +')'
+        }
+        // if(distance < mouse.radius){
+        //     this.x -= directionX
+        //     this.y -= directionY
+        // }
+        if(this.x !== this.baseX){
+          let dx = this.x - this.baseX
+          this.x -= dx / 30
+        }
+        if(this.y !== this.baseY){
+          let dy = this.y - this.baseY
+          this.y -= dy / 30
+        } 
+        
+    }
+}
+
+function init(){
+    particleArray = []
+    for( let y = 0; y < textCoordinates.height; y++){
+        for(let x = 0; x < textCoordinates.width; x++ ){
+            if(textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128){
+                let positionX = x
+                let positionY = y
+                particleArray.push( new Particle(positionX * adjustX, positionY * adjustY))
+            }
+        }
+    }
+    return animate()
+}
+
+
+
+function animate(){
+  ctx.clearRect( 0, 0, canvas.width, canvas.height)
+    for(let i = 0; i < particleArray.length; i++){
+        particleArray[i].draw()
+        particleArray[i].update()
+    }
+    requestAnimationFrame(animate)
+}
+
+
 // show particles
 
 setTimeout(() => {
@@ -162,126 +279,4 @@ videoTrailerMovil.addEventListener("play", () => {
   textTrailerMovil.style.display = "none";
 });
 
-// logo particles efect
-
-const canvas = document.getElementById('canvas1')
-const ctx = canvas.getContext('2d')
-canvas.width = 1800;
-canvas.height = 900;
-particles = []
-let adjustX = 3
-let adjustY = 4
-
-// handle maouse
-const mouse = {
-    x: null,
-    y: null,
-    radius: 100
-}
-
-
-window.addEventListener('mousemove', (event) => {
-    mouse.x = event.x
-    mouse.y = event.y
-})
-
-
-
-let textCoordinates
-
-function fillCanvas(){
-  ctx.fillStyle = 'white'
-  ctx.font = '80px Long-shot'
-  ctx.fillText('LIFE', 250, 115)
-  ctx.fillText('OUT', 260, 180)
-  textCoordinates = ctx.getImageData(0, 0, 500, 600)
-}
-setTimeout(() => {
-  fillCanvas()
-  init()
-  animate()
-}, 10000)
-
-let i = true
-class Particle {
-    constructor( x, y ){
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
-        this.size = 4
-        this.baseX = x
-        this.baseY = y
-        this.density = (Math.random() * 40) + 1
-        this.opacity = 0
-    }
-    draw(){
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.fill()
-    }
-    update(){
-        if(this.opacity < 1){
-            this.opacity += 0.008
-            ctx.fillStyle = 'rgba( 255, 255, 255,' + this.opacity +')'
-        }
-        if(this.x !== this.baseX){
-            let dx = this.x - this.baseX
-            this.x -= dx / 1000
-        }
-
-        if(this.y !== this.baseY){
-            let dy = this.y - this.baseY
-            this.y -= dy / 1000
-        }
-        
-
-        let dx = mouse.x - this.x
-        let dy = mouse.y - this.y
-        let distance = Math.sqrt(dx * dx + dy *dy)
-        let forceDirectionX = dx / distance
-        let forceDirectionY = dy / distance
-        let maxDistance = mouse.radius
-        let force = (maxDistance - distance) / maxDistance
-        let directionX = forceDirectionX * force * this.density
-        let directionY = forceDirectionY * force * this.density
-        if(distance < mouse.radius){
-            this.x -= directionX
-            this.y -= directionY
-        }else{
-            if(this.x !== this.baseX){
-                let dx = this.x - this.baseX
-                this.x -= dx / 10
-            }
-            if(this.y !== this.baseY){
-                let dy = this.y - this.baseY
-                this.y -= dy / 10
-            }
-        }
-    }
-}
-
-function init(){
-    particleArray = []
-    for( let y = 0, y2 = textCoordinates.height; y < y2; y++){
-        for(let x = 0, x2 = textCoordinates.width; x < x2; x++ ){
-            if(textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128){
-                let positionX = x
-                let positionY = y
-                particleArray.push( new Particle(positionX * adjustX, positionY * adjustY))
-            }
-        }
-    }
-}
-
-
-function animate(){
-    ctx.clearRect( 0, 0, canvas.width, canvas.height)
-    let opacity = 0
-    for(let i = 0; i < particleArray.length; i++){
-        particleArray[i].draw()
-        particleArray[i].update()
-    }
-    // connect()
-    requestAnimationFrame(animate)
-}
 
