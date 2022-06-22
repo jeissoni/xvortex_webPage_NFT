@@ -218,11 +218,11 @@ footer a:hover {
   transition: 1s ease linear;
 }
 
-.logo2 {
+.gen1 {
   position: absolute; 
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   bottom: 100px;
-  right: 300px;
+  right: 200px;
   transition: all 1s linear;
   user-select: none;
   display: flex;
@@ -230,12 +230,19 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   z-index: 2;
-  animation: logo2 6s linear;
+  animation: gen1 6s linear;
   animation-fill-mode: forwards;
 }
 
-.logo2 h1:nth-child(1),
-.logo2 h1:nth-child(2) {
+@keyframes gen1 {
+
+  100%{
+    transform: translate(-100px, -200px);
+  }
+}
+
+.gen1 h1:nth-child(1),
+.gen1 h1:nth-child(2) {
   /* background-color: aqua; */
   font-family: 'long-shot';
   font-size: 250px;
@@ -243,7 +250,7 @@ footer a:hover {
   line-height: 220px;
 }
 
-.logo2 h1:nth-child(3) {
+.gen1 h1:nth-child(3) {
   /* background-color: aqua; */
   font-family: 'long-shot';
   color: white;
@@ -254,12 +261,181 @@ footer a:hover {
   transition: all 1s linear;
 }
 
-@keyframes logo2 {
+.nftContainer{
+  width: 900px;
+  height: 300px;
+  border-radius: 20px;
+  background: linear-gradient(to right bottom, transparent, #7595C8);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 280px;
+  left: 270px;
+  z-index: 20;
+}
 
-  100%{
-    transform: translate(-200px, -200px);
-  }
+.nftVideo {
+  width: 370px;
+  height: 620px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #383838;
+  background: #2f2f2f;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.nftVideo video{
+  height: auto;
+  width: 90%;
+}
+
+.mintContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'long-shot';
+  text-align: center;
+}
+
+.mintProcess{
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 80px;
+  gap: 20px;
+}
+
+.mintContainer a{
+  color: #000;
+  font-size: 1.5em;
+}
+
+.amountContainer{
+  width: 200px;
+  height: 40px;
+  background: rgb(114, 114, 114);
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subtract{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.amount{
+  width: 60%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+}
+
+.add{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+
+#etherscan{
+  display: none;
+}
+
+#etherscan:hover{
+  text-decoration-line: underline;
+}
+
+.sales{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -25px;
+}
+
+.solds{
+  font-family: Orbitron;
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: bolder;
+
+}
+
+.refresh,
+.btnMint {
+  background: linear-gradient(to right bottom, transparent, #ffffff);
+  color: black;
+  width: 120px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'long-shot';
+  font-size: 30px;
+  border: 2px solid rgb(39, 39, 39);
+  border-radius: 10px;
+  position: relative;
+}
+
+.refresh::after,
+.btnMint::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  background-color: #ff0000;
+  display: none;
+}
+
+.refresh:hover::after,
+.btnMint:hover::after{
+  display: block;
+}
+
+.btnMint {
+  background: linear-gradient(to right bottom, transparent, #ffffff);
+  color: black;
+  padding: 10px 30px;
+  cursor: pointer;
+  border: 2px solid linear-gradient(to top left, transparent, #ffffff);
+  font-family: 'long-shot';
+  font-size: 25px;
+  position: relative;
+}
+
+.btnMint::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  background-color: #ff0000;
+  display: none;
+}
+
+.btnMint:hover::after{
+  display: block;
 }
 
 .planeta {
@@ -268,7 +444,7 @@ footer a:hover {
   bottom: 250px;
   height: 650px;
   width: auto;
-  z-index: 20;
+  z-index: 2;
   transition: 3s
 }
 
