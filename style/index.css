@@ -137,10 +137,9 @@ header .visible{
 
 #particles-js{
   width: 100%;
-  height: 100%;
-  z-index: -100;
+  height: 100vh;
   position: fixed;
-  opacity: 10;
+  top: 0;
   transition: all 1s;
 }
 
@@ -1170,6 +1169,12 @@ footer a:hover{
   #video {
     display:none;
   }
+  canvas{
+    display: none;
+  }
+
+  /* trailer */
+  
   .ads{
     display: none;
   }
@@ -1177,8 +1182,6 @@ footer a:hover{
     height: 70px;
     width: auto;
   }
-
-  /* trailer */
   
   .ads2{
     display: flex;

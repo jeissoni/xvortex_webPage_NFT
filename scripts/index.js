@@ -33,13 +33,14 @@ const mouse = {
     radius: 100
 }
 
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth
-  if(showLogo){
-    fillCanvas()
-    init()
-  }
-})
+// window.addEventListener('resize', async() => {
+//   canvas.width = window.innerWidth
+//   if(showLogo && showLogo2){
+//     fillCanvas()
+//     await init()
+//     animate()
+//   }
+// })
 
 window.addEventListener('mousemove', (event) => {
     mouse.x = event.x
@@ -50,16 +51,17 @@ window.addEventListener('mousemove', (event) => {
 function fillCanvas(){
   ctx.fillStyle = 'white'
   ctx.font = '80px Long-shot'
-  ctx.fillText('LIFE', (canvas.width / 4) - 50 , 265)
-  ctx.fillText('OUT', (canvas.width / 4) - 40, 330)
+  ctx.fillText('LIFE', (canvas.width / 4) - 50 , 235)
+  ctx.fillText('OUT', (canvas.width / 4) - 40, 310)
   textCoordinates = ctx.getImageData(0, 90, (canvas.width / 2), 250)
 }
-setTimeout(() => {
+setTimeout(async() => {
   showLogo = true
   fillCanvas()
-  init()
+  await init()
+  animate()
   ctx.clearRect( 0, 0, canvas.width, canvas.height)
-}, 10)
+}, 8000)
 
 class Particle {
     constructor( x, y ){
@@ -97,18 +99,19 @@ class Particle {
         // }
         if(this.x !== this.baseX){
           let dx = this.x - this.baseX
-          this.x -= dx / 30
+          this.x -= dx / 20
         }
         if(this.y !== this.baseY){
           let dy = this.y - this.baseY
-          this.y -= dy / 30
+          this.y -= dy / 20
         } 
         
     }
 }
 
-function init(){
+async function init(){
     particleArray = []
+    showLogo2 = false
     for( let y = 0; y < textCoordinates.height; y++){
         for(let x = 0; x < textCoordinates.width; x++ ){
             if(textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128){
@@ -118,7 +121,7 @@ function init(){
             }
         }
     }
-    return animate()
+    return showLogo2 = true
 }
 
 
