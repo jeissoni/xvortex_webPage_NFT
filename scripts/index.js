@@ -21,10 +21,10 @@ let userPlaytVideoMovil = false;
 const canvas = document.getElementById('canvas1')
 const ctx = canvas.getContext('2d')
 canvas.width = window.innerWidth
+let animationFrame
 let adjustX = 2
 let adjustY = 3
 let showLogo = false
-let showLogo2 = false
 
 // handle maouse
 const mouse = {
@@ -33,14 +33,15 @@ const mouse = {
     radius: 100
 }
 
-// window.addEventListener('resize', async() => {
-//   canvas.width = window.innerWidth
-//   if(showLogo && showLogo2){
-//     fillCanvas()
-//     await init()
-//     animate()
-//   }
-// })
+window.addEventListener('resize', () => {
+  cancelAnimationFrame(animationFrame)
+  canvas.width = window.innerWidth
+  if(showLogo){
+    fillCanvas()
+    init()
+    animate()
+  }
+})
 
 window.addEventListener('mousemove', (event) => {
     mouse.x = event.x
@@ -51,16 +52,15 @@ window.addEventListener('mousemove', (event) => {
 function fillCanvas(){
   ctx.fillStyle = 'white'
   ctx.font = '80px Long-shot'
-  ctx.fillText('LIFE', (canvas.width / 4) - 50 , 235)
-  ctx.fillText('OUT', (canvas.width / 4) - 40, 310)
+  ctx.fillText('LIFE', (canvas.width / 4) - 50 , 255)
+  ctx.fillText('OUT', (canvas.width / 4) - 40, 320)
   textCoordinates = ctx.getImageData(0, 90, (canvas.width / 2), 250)
 }
-setTimeout(async() => {
+setTimeout(() => {
   showLogo = true
   fillCanvas()
-  await init()
+  init()
   animate()
-  ctx.clearRect( 0, 0, canvas.width, canvas.height)
 }, 8000)
 
 class Particle {
@@ -91,12 +91,12 @@ class Particle {
         let directionY = forceDirectionY * force * this.density
         if(this.opacity < 1){
           this.opacity += 0.005
-          ctx.fillStyle = 'rgba(243, 246, 239,' + this.opacity +')'
+          ctx.fillStyle = 'rgba(241, 243, 245,' + this.opacity +')'
         }
-        // if(distance < mouse.radius){
-        //     this.x -= directionX
-        //     this.y -= directionY
-        // }
+        if(distance < mouse.radius){
+            this.x -= directionX
+            this.y -= directionY
+        }
         if(this.x !== this.baseX){
           let dx = this.x - this.baseX
           this.x -= dx / 20
@@ -109,9 +109,8 @@ class Particle {
     }
 }
 
-async function init(){
+function init(){
     particleArray = []
-    showLogo2 = false
     for( let y = 0; y < textCoordinates.height; y++){
         for(let x = 0; x < textCoordinates.width; x++ ){
             if(textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128){
@@ -121,7 +120,6 @@ async function init(){
             }
         }
     }
-    return showLogo2 = true
 }
 
 
@@ -132,15 +130,9 @@ function animate(){
         particleArray[i].draw()
         particleArray[i].update()
     }
-    requestAnimationFrame(animate)
+    animationFrame = requestAnimationFrame(animate)
 }
 
-
-// show particles
-
-setTimeout(() => {
-  particles1.style.opacity = "1";
-}, 15000);
 // navbar hamburger icon
 
 botones.addEventListener("click", (e) => {
