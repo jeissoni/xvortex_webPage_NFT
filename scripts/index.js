@@ -153,22 +153,22 @@ class Particle {
         ctx.fill()
     }
     update(){
-        let dx = mouse.x - this.x
-        let dy = mouse.y - this.y
-        let distance = Math.sqrt(dx * dx + dy *dy)
-        let forceDirectionX = dx / distance
-        let forceDirectionY = dy / distance
-        let maxDistance = mouse.radius
-        let force = (maxDistance - distance) / maxDistance
-        let directionX = forceDirectionX * force * this.density
-        let directionY = forceDirectionY * force * this.density
+        // let dx = mouse.x - this.x
+        // let dy = mouse.y - this.y
+        // let distance = Math.sqrt(dx * dx + dy *dy)
+        // let forceDirectionX = dx / distance
+        // let forceDirectionY = dy / distance
+        // let maxDistance = mouse.radius
+        // let force = (maxDistance - distance) / maxDistance
+        // let directionX = forceDirectionX * force * this.density
+        // let directionY = forceDirectionY * force * this.density
+        // if(distance < mouse.radius){
+        //     this.x -= directionX
+        //     this.y -= directionY
+        // }
         if(this.opacity < 1){
           this.opacity += 0.005
           ctx.fillStyle = 'rgba(241, 243, 245,' + this.opacity +')'
-        }
-        if(distance < mouse.radius){
-            this.x -= directionX
-            this.y -= directionY
         }
         if(this.x !== this.baseX){
           let dx = this.x - this.baseX
