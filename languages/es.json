@@ -1,11 +1,15 @@
 {
     "navbar":{
+        "slogan": "Hacemos que tu dinero valga",
         "lore": "HISTORIA",
         "supply": "SUMINISTRO",
         "nft-nomics": "NFT-NOMICS",
         "team": "EQUIPO",
         "social-media": "REDES SOCIALES",
-        "docs": "Docs<img src='./img/log-out.png' alt='flecha' style='height: 10px;'>"
+        "mintPage": "MINT",
+        "docs": "Docs<img src='./img/log-out.png' alt='flecha' style='height: 10px;'>",
+        "btnWAllet": "CONECTAR WALLET<img src='./img/caret-abajo-negro.png' alt='flecha' style='height: 14px;'>",
+        "metamask": "Conectar con MetaMask"
     },
     "lore": {
         "lore-text": "El año es 3055.<br><br>Exul es el cuarto planeta de la galaxia Sericom donde un año solar dura 700 días.<br><br>La humanidad fue devastada por guerras y diferentes virus que impiden la reproducción humana.<br><br>La última gran guerra dividió a Exul con la grieta de Voidlong, creando dos continentes diferentes:<br><br>El Este, conformado por los Kazonianos, Bauxianos, Gordianos y Najianos y el Oeste con los Resquerianos, Nagyrianos, Mortianos y Bulpianos.<br><br>Cada uno ha salvaguardado unos pocos recursos naturales sobrantes de las guerras que les ayudan a sobrevivir pero sin ninguna esperanza han sido llevados a guerras tratando de apoderarse de las tierras y recursos del otro.<br><br>Esto ha obligado a los Exulianos a buscar un lugar fuera de su planeta, un lugar donde puedan evitar la extinción, organizando un grupo de exploradores, expertos en estrategia bélica, pilotos en maniobras espaciales, navegantes (Especialistas en cartografía cósmica) y un capitán para cada grupo.<br><br>Todos son sobrevivientes de los campos de guerra y mantuvieron sus rangos militares para continuar con una estructura organizada en los viajes de búsqueda espacial.<br><br>Y aquí es donde comienza la aventura."
@@ -32,5 +36,16 @@
     },
     "team": {
         "title": "EQUIPO"
+    },
+    "mintProcess": {
+        "sold": "NFTs Vendidos: 0 / 999",
+        "refresh": "Actualizar",
+        "btnMint": "Mint",
+        "etherscan": "Ver en etherscan",
+        "price": "Precio 0.3 ETH",
+        "warning": "*Venta no disponible en dispositivos moviles"
+   },
+    "footer": {
+        "slogan": "Hacemos que tu dinero valga"
     }
 }

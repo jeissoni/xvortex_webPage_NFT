@@ -41,14 +41,17 @@ async function language(element){
   }
 }
 
+let selectedLanguage = "en"
+
 idioma.addEventListener('click', (e) => {
   if(e.target.dataset.function === 'en'){
     language(e.target.dataset.function)
+    selectedLanguage = "en"
   }
-
 
   if(e.target.dataset.function === 'es'){
     language(e.target.dataset.function)
+    selectedLanguage = "es"
   }
   
 })
@@ -756,12 +759,38 @@ window.addEventListener("load", async function(e) {
   const token = await contract.tokenIdCounter()
   const totalNftSolds = token.toNumber() - 1
 
-  nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
+  if (selectedLanguage === "en"){
+    nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
+  } else {
+    nftSoldsItem.innerHTML = "NFTs Vendidos: " + totalNftSolds + " / 999"
+  }
+  
+  if (totalNftSolds >= 9){
+    nftSoldsItem.innerHTML = "Sold Out"
+    btnMint.disabled = true
+    btnAdd.disabled = true
+    btnSubstract.disabled = true
+    btnRefresh.disabled = true
+  } else {
+    btnAdd.disabled = false
+    btnSubstract.disabled = false
+    btnMint.disabled = false
+    btnRefresh.disabled = false
+  }
+})
 
-  // if (totalNftSolds >= 9){
-  //   nftSoldsItem.innerHTML = "Sold Out"
-  //   btnMint.disabled = true
-  // }
+window.addEventListener("resize", () => {
+    if (window.innerWidth < 500){
+        btnMint.disabled = true
+        btnAdd.disabled = true
+        btnSubstract.disabled = true
+        btnRefresh.disabled = true
+    } else {
+        btnAdd.disabled = false
+        btnSubstract.disabled = false
+        btnMint.disabled = false
+        btnRefresh.disabled = false
+    }
 })
 
 // login and logout
@@ -932,7 +961,11 @@ async function nftSolds() {
   const token = await contract.tokenIdCounter()
   const totalNftSolds = token.toNumber() - 1
 
-  nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
+  if (selectedLanguage === "en"){
+    nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
+  } else {
+    nftSoldsItem.innerHTML = "NFTs Vendidos: " + totalNftSolds + " / 999"
+  }
 
   if (totalNftSolds >= 999){
     nftSoldsItem.innerHTML = "Sold Out"

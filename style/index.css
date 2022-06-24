@@ -98,6 +98,7 @@ header{
   text-decoration: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
   cursor: pointer;
 }
@@ -386,7 +387,6 @@ article{
   z-index: 6;
 }
 
-
 .lifeOut-texto h1{
   text-align: center;
   justify-content: center;
@@ -397,11 +397,6 @@ article{
   width: 100%;
   z-index: 6;
 }
-
-
-/* .holaya {
-  z-index: 100;
-} */
 
 /******** supply ******/
 
@@ -1013,6 +1008,10 @@ footer a:hover{
     font-size: 1em;
   }
 
+  .mint {
+    font-size: 1.4em;
+  }
+
   /* lore */
 
   .lore-texto{
@@ -1070,7 +1069,7 @@ footer a:hover{
 
 
 
-@media (max-width: 840px){
+@media (max-width: 860px){
 
   /* navbar */
 
@@ -1098,6 +1097,11 @@ footer a:hover{
     top: 50px;
     width: 300px;
   }
+
+  .mint {
+    height: 50px;
+  }
+
 
   /* team */
 
