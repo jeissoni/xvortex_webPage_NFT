@@ -1,4 +1,3 @@
-//Animacion parrafo pagina 1//
 const translatetexts = document.querySelectorAll("[data-content]");
 const menuContainer = document.querySelector(".menu-container");
 const botones = document.querySelector(".botones");
@@ -15,6 +14,22 @@ const playTrailerMovil = document.querySelector(".play2");
 const textTrailerMovil = document.querySelector(".containerBtnPlay2 h2");
 let userPlaytVideo = false;
 let userPlaytVideoMovil = false;
+
+// navbar hamburger icon
+
+botones.addEventListener("click", (e) => {
+  e.target.classList.forEach((clase) => {
+    if (clase === "boton") {
+      botones.classList.toggle("visible");
+    }
+  });
+});
+
+function showButtons() {
+  botones.classList.toggle("visible");
+}
+
+menuContainer.onclick = showButtons;
 
 // logo particles efect
 
@@ -33,6 +48,34 @@ const mouse = {
     radius: 100
 }
 
+// handle source of the videos acording to window size
+
+if(window.innerWidth > 600){
+  // fissure 
+  video.setAttribute('src', '/video/grieta.mp4')
+  video.classList.add('pc')
+  video.classList.remove('movil')
+  // trailer
+  videoTrailer.setAttribute('src', 'video/trailer.mp4')
+  videoTrailer.classList.add('pc')
+  videoTrailer.classList.remove('movil')
+  videoTrailer.setAttribute('poster', 'img/portada.png')
+}
+
+if(window.innerWidth < 600){
+  // fisure
+  video.setAttribute('src', 'video/grietaMovil.mp4')
+  video.classList.remove('pc')
+  video.classList.add('movil')
+  // trailer
+  videoTrailer.setAttribute('src', 'video/trailerMovil.mp4')
+  videoTrailer.classList.remove('pc')
+  videoTrailer.classList.add('movil')
+  videoTrailer.setAttribute('poster', 'img/portadaVideoMovil.png')
+
+}
+
+
 window.addEventListener('resize', () => {
   cancelAnimationFrame(animationFrame)
   canvas.width = window.innerWidth
@@ -41,13 +84,43 @@ window.addEventListener('resize', () => {
     init()
     animate()
   }
+  // make the videos responsive
+
+  if(window.innerWidth < 600 && video.className == 'pc'){
+    video.setAttribute('src', 'video/grietaMovil.mp4')
+    video.classList.remove('pc')
+    video.classList.add('movil')
+  }
+  if(window.innerWidth > 600 && video.className == 'movil'){
+    showLogo = false
+    video.setAttribute('src', '/video/grieta.mp4')
+    video.classList.add('pc')
+    video.classList.remove('movil')
+  }
+  if(window.innerWidth < 600 && videoTrailer.className == 'pc'){
+    userPlaytVideo = false
+    videoTrailer.setAttribute('src', 'video/trailerMovil.mp4')
+    videoTrailer.setAttribute('poster', 'img/portadaVideoMovil.png')
+    videoTrailer.classList.remove('pc')
+    videoTrailer.classList.add('movil')
+    playTrailer.style.display = "block";
+    textTrailer.style.display = "block";
+  }
+  if(window.innerWidth > 600 && videoTrailer.className == 'movil'){
+    userPlaytVideo = false
+    videoTrailer.setAttribute('src', 'video/trailer.mp4')
+    videoTrailer.setAttribute('poster', 'img/portada.png')
+    videoTrailer.classList.add('pc')
+    videoTrailer.classList.remove('movil')
+    playTrailer.style.display = "block";
+    textTrailer.style.display = "block";
+  }
 })
 
 window.addEventListener('mousemove', (event) => {
     mouse.x = event.x
     mouse.y = event.y
 })
-
 
 function fillCanvas(){
   ctx.fillStyle = 'white'
@@ -56,13 +129,13 @@ function fillCanvas(){
   ctx.fillText('OUT', (canvas.width / 4) - 40, 320)
   textCoordinates = ctx.getImageData(0, 90, (canvas.width / 2), 250)
 }
-setTimeout(() => {
+
+video.addEventListener('ended',() => {
   showLogo = true
   fillCanvas()
   init()
   animate()
-}, 8000)
-
+})
 class Particle {
     constructor( x, y ){
         this.x = Math.random() * canvas.width
@@ -133,27 +206,6 @@ function animate(){
     animationFrame = requestAnimationFrame(animate)
 }
 
-// navbar hamburger icon
-
-botones.addEventListener("click", (e) => {
-  e.target.classList.forEach((clase) => {
-    if (clase === "boton") {
-      botones.classList.toggle("visible");
-    }
-  });
-});
-
-function showButtons() {
-  botones.classList.toggle("visible");
-}
-
-menuContainer.onclick = showButtons;
-
-// speed video
-
-videoMovil.playbackRate = 3.0;
-video.playbackRate = 3.0;
-
 // change language
 
 async function language(element) {
@@ -193,8 +245,6 @@ document.addEventListener("scroll", () => {
 
 // stop video when is off screen
 
-// pc video
-
 function playandPause(entradas) {
   entradas.forEach((entrada) => {
     if (entrada.isIntersecting && userPlaytVideo) {
@@ -213,38 +263,13 @@ const observer = new IntersectionObserver(playandPause, {
 
 observer.observe(videoTrailer);
 
-// movil video
-
-function playandPauseMovil(entradas) {
-  entradas.forEach((entrada) => {
-    if (entrada.isIntersecting && userPlaytVideoMovil) {
-      videoTrailerMovil.play();
-    } else {
-      videoTrailerMovil.pause();
-    }
-  });
-}
-
-const observer2 = new IntersectionObserver(playandPauseMovil, {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.5,
-});
-
-observer2.observe(videoTrailerMovil);
-
 // playvideo button
 
 function playvideo() {
   videoTrailer.play();
   userPlaytVideo = true;
 }
-function playvideoMovil() {
-  videoTrailerMovil.play();
-  userPlaytVideoMovil = true;
-}
 
-playTrailerMovil.onclick = playvideoMovil;
 playTrailer.onclick = playvideo;
 
 // show play icon when video is stoped
@@ -253,10 +278,6 @@ videoTrailer.addEventListener("ended", () => {
   playTrailer.style.display = "block";
   textTrailer.style.display = "block";
 });
-videoTrailerMovil.addEventListener("ended", () => {
-  playTrailerMovil.style.display = "block";
-  textTrailerMovil.style.display = "block";
-});
 videoTrailer.addEventListener("pause", () => {
   playTrailer.style.display = "block";
   textTrailer.style.display = "block";
@@ -264,14 +285,6 @@ videoTrailer.addEventListener("pause", () => {
 videoTrailer.addEventListener("play", () => {
   playTrailer.style.display = "none";
   textTrailer.style.display = "none";
-});
-videoTrailerMovil.addEventListener("pause", () => {
-  playTrailerMovil.style.display = "block";
-  textTrailerMovil.style.display = "block";
-});
-videoTrailerMovil.addEventListener("play", () => {
-  playTrailerMovil.style.display = "none";
-  textTrailerMovil.style.display = "none";
 });
 
 
