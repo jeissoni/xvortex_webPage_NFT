@@ -1,6 +1,6 @@
 {
     "navbar":{
-        "slogan": "\"Hacemos que tu dinero valga\"",
+        "slogan": "Hacemos que tu dinero valga",
         "lore": "HISTORIA",
         "supply": "SUMINISTRO",
         "nft-nomics": "NFT-NOMICS",
@@ -35,6 +35,6 @@
         "title": "EQUIPO"
     },
     "footer": {
-        "slogan": "\"Hacemos que tu dinero valga\""
+        "slogan": "Hacemos que tu dinero valga"
     }
 }

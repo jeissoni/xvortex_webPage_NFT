@@ -1,6 +1,6 @@
 {
     "navbar":{
-        "slogan": "\"We’re making your money worth it\"",
+        "slogan": "We’re making your money worth it",
         "lore": "LORE",
         "supply": "SUPPLY",
         "nft-nomics": "NFT-NOMICS",
@@ -37,6 +37,6 @@
         "developer": ""
     },
     "footer": {
-        "slogan": "\"We’re making your money worth it\""
+        "slogan": "We’re making your money worth it"
     }
 }
