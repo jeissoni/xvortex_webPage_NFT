@@ -103,7 +103,7 @@ header{
 
 .boton,
 .boton-language{
-  height: 80px;
+  height: 90px;
   line-height: 80px;
   font-size: 2em;
   padding: 0px 20px;
@@ -117,7 +117,7 @@ header{
 }
 
 .wallet {
-  height: 80px;
+  height: 90px;
   line-height: 80px;
   font-size: 2em;
   padding: 0px 20px;
@@ -132,7 +132,7 @@ header{
 }
 
 .botonConnect{
-  height: 80px;
+  height: 90px;
   line-height: 80px;
   font-size: 2em;
   padding: 0px 20px;
@@ -150,12 +150,12 @@ header{
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 80px;
+  top: 90px;
   background: rgb(0, 0, 0, 0.6);
 }
 
 .botonConnectContainer .botonConnect{
-  height: 80px;
+  height: 90px;
   line-height: 40px;
   font-family: 'Nike';
   font-size: 1.2em;
@@ -191,7 +191,7 @@ header{
 .language {
   display: none;
   position: absolute;
-  top: 80px;
+  top: 90px;
   background: rgb(0, 0, 0, 0.6);
 }
 
@@ -218,7 +218,7 @@ header .visible{
   height: 100%;
   z-index: -100;
   position: fixed;
-  opacity: 10;
+  opacity: 1;
   transition: all 1s;
 }
 
@@ -238,7 +238,7 @@ article{
 
 .nftContainer {
   width: 1000px;
-  height: 330px;
+  height: 350px;
   border-radius: 20px;
   background: linear-gradient(to right bottom, transparent, #7595C8);
   display: flex;
@@ -426,7 +426,7 @@ article{
   display: none;
   font-family: Orbitron;
   font-size: 40px;
-  margin-top: -15px;
+  margin-top: -5px;
 }
 
 .viewOnEtherscan:link {
@@ -448,7 +448,7 @@ article{
   font-size: 20px;
   color: #ffffff;
   position: absolute;
-  bottom: -35px;
+  bottom: -45px;
   left: 0px;
 }
 
@@ -486,7 +486,7 @@ article{
 .disConnectedToMainet {
   position: fixed;
   left: 0px;
-  bottom: 130px;
+  bottom: 150px;
   display: flex;
   font-family: Orbitron;
   clip-path: circle(0% at 0 50%);
@@ -496,6 +496,7 @@ article{
   min-width: 600px;
   height: 50px;
   background: white;
+  z-index: 20;
 }
 
 .installAlert img,
@@ -602,8 +603,8 @@ footer a:hover{
     font-size: 30px;
   }
   .mintContainer p {
-    bottom: -30px;
-    left: 80px;
+    bottom: -45px;
+    left: 50px;
   }
 }
 
@@ -650,7 +651,8 @@ footer a:hover{
   /* navbar */
 
   .boton,
-  .boton-language{
+  .boton-language,
+  .wallet{
     font-size: 1.4em;
   }
 }
@@ -669,7 +671,7 @@ footer a:hover{
     background: rgba(0, 0, 0, 0.6);
     position: absolute;
     flex-direction: column;
-    top: 80px;
+    top: 90px;
     width: 100%;
     display: none;
   }

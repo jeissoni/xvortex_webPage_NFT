@@ -26,7 +26,7 @@
     },
     "nft-nomincs":{
         "nft-nomincs-title": "NFT-NOMICS",
-        "nft-nomincs-description": "Nuestra organización económica se dará como se muestra a continuación:",
+        "nft-nomincs-description": "The distribution of our vision and economic organization is given as follows:",
         "torta1-title": "SALE",
         "torta1-percentage-team": "30% TEAM",
         "torta1-percentage-reserve": "60% LIFE OUT RESERVE",
@@ -43,7 +43,7 @@
          "refresh": "Refresh",
          "btnMint": "Mint",
          "etherscan": "View on etherscan",
-         "price": "Price 0.3 ETH",
+         "price": "Price 1 NFT: 0.3 ETH",
          "warning": "*Sale not available on mobile devices"
     },
     "footer": {

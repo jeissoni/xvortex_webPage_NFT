@@ -5,11 +5,6 @@ const botones = document.querySelector('.botones')
 const idioma = document.querySelector('.language')
 const particles = document.getElementById('particles-js')
 
-// show particles
-
-setTimeout(() => {
-  particles.style.opacity = '1'
-}, 15000)
 
 // navbar hamburger icon
 
@@ -750,35 +745,48 @@ const contractAbi = [
       "type": "function"
   }
 ]
-const provider = new ethers.providers.Web3Provider(window.ethereum)   
-const signer = provider.getSigner();
-
+let provider,
+    provider2,
+    signer
 
 window.addEventListener("load", async function(e) {
-  const contract = new ethers.Contract(contractAdress, contractAbi, provider);
-  const token = await contract.tokenIdCounter()
-  const totalNftSolds = token.toNumber() - 1
+  if(window.ethereum){
 
-  if (selectedLanguage === "en"){
-    nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
+    const provider = new ethers.providers.Web3Provider(window.ethereum) 
+    const provider2 = ethers.getDefaultProvider("rinkeby")   
+    const signer = provider.getSigner();
+
+    const contract = new ethers.Contract(contractAdress, contractAbi, provider2);
+    const token = await contract.tokenIdCounter()
+    const totalNftSolds = token.toNumber() - 1
+
+    if (selectedLanguage === "en"){
+      nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
+    } else {
+      nftSoldsItem.innerHTML = "NFTs Vendidos: " + totalNftSolds + " / 999"
+    }
+    
+    if (totalNftSolds >= 9){
+      nftSoldsItem.innerHTML = "Sold Out"
+      btnMint.disabled = true
+      btnAdd.disabled = true
+      btnSubstract.disabled = true
+      btnRefresh.disabled = true
+    } else {
+      btnAdd.disabled = false
+      btnSubstract.disabled = false
+      btnMint.disabled = false
+      btnRefresh.disabled = false
+    }
   } else {
-    nftSoldsItem.innerHTML = "NFTs Vendidos: " + totalNftSolds + " / 999"
-  }
-  
-  if (totalNftSolds >= 9){
-    nftSoldsItem.innerHTML = "Sold Out"
-    btnMint.disabled = true
-    btnAdd.disabled = true
-    btnSubstract.disabled = true
-    btnRefresh.disabled = true
-  } else {
-    btnAdd.disabled = false
-    btnSubstract.disabled = false
-    btnMint.disabled = false
-    btnRefresh.disabled = false
+      installAlert.classList.add("showAlert")
+        setTimeout(() => {
+          installAlert.classList.remove("showAlert")
+        }, 5000)
   }
 })
 
+//desabilitar botones en dispositivos moviles
 window.addEventListener("resize", () => {
     if (window.innerWidth < 500){
         btnMint.disabled = true
@@ -815,6 +823,10 @@ async function login(){
 
   }else{
     installAlert.classList.add("showAlert")
+    setTimeout(() => {
+        installAlert.classList.remove("showAlert")
+    }, 5000)
+    
   }
 }
 
@@ -882,9 +894,11 @@ async function changeChain(){
         })   
 }
 
-//close alerts no funciona, revisar//
-closeAlert.addEventListener("click", function() {
-  disConnectedToMainet.classList.remove("showAlert")
+//close alerts//
+closeAlert.addEventListener('click', function() {
+    connectedToMainet.classList.remove("showAlert")
+    disConnectedToMainet.classList.remove("showAlert")
+    installAlert.classList.remove("showAlert")
 })
 
 //NFT amount//
@@ -942,8 +956,6 @@ async function mint() {
   //costo en formato ether//
   // let valEth = ethers.utils.formatEther(valueWei) 
   
-  console.log(amountNfts)
-  console.log(total)
   
   return await contract.mintLifeOutGenesis(amountNfts, {value: total})
     .then((tx) => {
@@ -957,7 +969,7 @@ async function mint() {
 //btn Refresh solds
 
 async function nftSolds() { 
-  const contract = new ethers.Contract(contractAdress, contractAbi, provider);
+  const contract = new ethers.Contract(contractAdress, contractAbi, provider2);
   const token = await contract.tokenIdCounter()
   const totalNftSolds = token.toNumber() - 1
 
@@ -970,6 +982,15 @@ async function nftSolds() {
   if (totalNftSolds >= 999){
     nftSoldsItem.innerHTML = "Sold Out"
     btnMint.disabled = true
+  }
+
+  if(chainId !== '0x4'){
+
+    disConnectedToMainet.classList.add("showAlert")
+    setTimeout(() => {
+      disConnectedToMainet.classList.remove("showAlert")
+    }, 5000)
+
   }
 }
 
