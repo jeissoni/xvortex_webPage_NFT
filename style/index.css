@@ -88,7 +88,7 @@ header{
 
 .boton,
 .boton-language{
-  height: 80px;
+  height: 90px;
   line-height: 80px;
   font-size: 2em;
   padding: 0px 20px;
@@ -127,7 +127,7 @@ header{
 .language{
   display: none;
   position: absolute;
-  top: 80px;
+  top: 90px;
   background: rgb(0, 0, 0, 0.6);
 }
 
@@ -1049,7 +1049,7 @@ footer a:hover{
     background: rgba(0, 0, 0, 0.6);
     position: absolute;
     flex-direction: column;
-    top: 80px;
+    top: 90px;
     width: 100%;
     display: none;
 
