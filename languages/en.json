@@ -6,7 +6,10 @@
         "nft-nomics": "NFT-NOMICS",
         "team": "TEAM",
         "social-media": "SOCIAL MEDIA",
-        "docs": "Docs<img src='./img/log-out.png' alt='flecha' style='height: 10px;'>"
+        "mintPage": "MINT",
+        "docs": "Docs<img src='./img/log-out.png' alt='flecha' style='height: 10px;'>",
+        "btnWAllet": "CONNECT WALLET<img src='./img/caret-abajo-negro.png' alt='flecha' style='height: 14px;'>",
+        "metamask": "Connect with MetaMask"
     },
     "lore": {
         "lore-text": "The year is 3055.<br><br>Exul is the 4th planet in the Sericom galaxy were a solar year takes 700 days.<br><br>Humanity was devastated by wars and different viruses that impede human reproduction.<br><br>The latest war, the huge one divided Exul with the Voidlong rift, creating two different continents:<br><br>East conformed by the Kazonians, Bauxians, Gordians and Najians and West with the Resquerians, Nagyrians, Mortians and Bulpians.<br><br>Each one has safeguarded a few natural resources left over from wars that help them to survive but without any hope they have been led to wars trying to possess the lands and resources of the other.<br><br>This has forced the Exulians to look for a place outside their planet, a place where they can avoid extinction,organizing a group of explorers, experts in war strategy, pilots in space maneuvers, navigators (Specialists in cosmic mapping) and a captain for each group.<br><br>They are all survivors of the war camps and kept their military ranks in order to continue with an organized structure in the space search trips.<br><br>And here is where the adventure begins."
@@ -23,7 +26,7 @@
     },
     "nft-nomincs":{
         "nft-nomincs-title": "NFT-NOMICS",
-        "nft-nomincs-description": "Nuestra organización económica se dará como se muestra a continuación:",
+        "nft-nomincs-description": "The distribution of our vision and economic organization is given as follows:",
         "torta1-title": "SALE",
         "torta1-percentage-team": "30% TEAM",
         "torta1-percentage-reserve": "60% LIFE OUT RESERVE",
@@ -33,8 +36,15 @@
         "torta2-percentage-investment": "60% RE-INVESTMENT FOR EXPANSION"
     },
     "team": {
-        "title": "About Us",
-        "developer": ""
+        "title": "EQUIPO"
+    },
+    "mintProcess": {
+         "sold": "NFTs Sold: 0 / 999",
+         "refresh": "Refresh",
+         "btnMint": "Mint",
+         "etherscan": "View on etherscan",
+         "price": "Price 1 NFT: 0.3 ETH",
+         "warning": "*Sale not available on mobile devices"
     },
     "footer": {
         "slogan": "We’re making your money worth it"
