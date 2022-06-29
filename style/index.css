@@ -97,12 +97,30 @@ header{
   text-decoration: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.mint {
+  height: 80px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: black;
+  background-color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   cursor: pointer;
 }
 
 .boton::after,
-.boton-language::after{
+.boton-language::after,
+.mint::after {
   content: '';
   position: absolute;
   bottom: 0px;
@@ -113,7 +131,8 @@ header{
 }
 
 .boton:hover::after,
-.boton-language::after{
+.mint:hover::after,
+.boton-language:hover::after{
   display: block;
 }
 
@@ -124,27 +143,27 @@ header{
   justify-content: center;
 }
 
-.language{
+.language {
   display: none;
   position: absolute;
   top: 90px;
   background: rgb(0, 0, 0, 0.6);
 }
 
-.language-container a{
+.language-container {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .language .boton{
-  height: 40px;
+  height: 50px;
   line-height: 40px;
   font-family: 'Nike';
   font-size: 1.2em;
 }
 
-.language-container:hover > .language{
+.language-container:hover > .language {
   display: block;
 }
 
@@ -346,7 +365,6 @@ canvas{
   margin: 80px 0px;
   z-index: 6;
 }
-
 
 .lifeOut-texto h1{
   text-align: center;
@@ -984,6 +1002,10 @@ footer a:hover{
     font-size: 1em;
   }
 
+  .mint {
+    font-size: 1.4em;
+  }
+
   /* lore */
 
   .lore-texto{
@@ -1070,7 +1092,41 @@ footer a:hover{
 
 }
 
-@media (max-width: 840px){
+
+
+@media (max-width: 860px){
+
+  /* navbar */
+
+  header{
+    flex-wrap: wrap;
+  }
+  .menu-container{
+    display: block;
+  }
+  .botones{
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    flex-direction: column;
+    top: 80px;
+    width: 100%;
+    display: none;
+
+  }
+  .boton,
+  .boton-language{
+    height: 50px;
+    line-height: 50px;
+  }
+  .language{
+    top: 50px;
+    width: 300px;
+  }
+
+  .mint {
+    height: 50px;
+  }
+
 
   /* team */
 

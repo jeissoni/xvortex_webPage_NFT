@@ -1,0 +1,773 @@
+@font-face {
+    font-family: 'long-shot';
+    src: url('../fonts/Long_Shot.ttf');
+}
+
+@font-face {
+  font-family: 'Nike';
+  src: url('../fonts/nike_0204_x.ttf');
+}
+
+@font-face {
+  font-family: Orbitron;
+  src: url(../fonts/Orbitron-VariableFont_wght.ttf);
+}
+
+:root{
+  --space-blue: #0C0C16;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  width: 100%;
+  background: url(../img/estrellas-min.png) #000 ;
+}
+
+/************ navbar *************/
+
+header{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  background: rgb(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Contenedor texto logo y slogan */
+.nvLogoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10px;
+  width: 270px;
+}
+
+.nvLogo{
+  font-size: 3em;
+  margin-left: 0px;
+  font-size: 2.5em;
+  color: #fff;
+  font-family: 'long-shot';
+  text-decoration: none;
+  position: relative;
+}
+
+.nvLogoContainer p{
+  font-size: 15px;
+  color: #fff;
+  font-family: 'Nike';
+}
+
+/* Icono Hamburguesa */
+
+.menu-container {
+  margin-right: 10px;
+  display: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-container div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px;
+  transition: 0.4s;
+}
+
+/* Botones Navbar */
+
+.botones{
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-container,
+.btnWalletContainer{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton,
+.boton-language{
+  height: 90px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.wallet {
+  height: 90px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'long-shot';
+  color: black;
+  background: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.botonConnect{
+  height: 90px;
+  line-height: 80px;
+  font-size: 2em;
+  padding: 0px 20px;
+  font-family: 'Nike';
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.botonConnectContainer{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 90px;
+  background: rgb(0, 0, 0, 0.6);
+}
+
+.botonConnectContainer .botonConnect{
+  height: 90px;
+  line-height: 40px;
+  font-family: 'Nike';
+  font-size: 1.2em;
+}
+
+.boton::after,
+.boton-language::after,
+.wallet::after,
+.botonConnect::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  background-color: #ff0000;
+  display: none;
+}
+
+.boton:hover::after,
+.wallet:hover::after,
+.boton-language:hover::after,
+.botonConnect:hover::after{
+  display: flex;
+}
+
+.language-container a,
+.btnWalletContainer a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language {
+  display: none;
+  position: absolute;
+  top: 90px;
+  background: rgb(0, 0, 0, 0.6);
+}
+
+.language .boton{
+  height: 50px;
+  line-height: 40px;
+  font-family: 'Nike';
+  font-size: 1.2em;
+}
+
+.language-container:hover > .language,
+.btnWalletContainer:hover > .botonConnectContainer{
+  display: block;
+}
+
+header .visible{
+  display: flex;
+}
+
+/*********** particulas **********/
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  position: fixed;
+  opacity: 1;
+  transition: all 1s;
+}
+
+/*********** contenido ***********/
+article{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Contenedor proceso minteo*/
+
+.nftContainer {
+  width: 1000px;
+  height: 350px;
+  border-radius: 20px;
+  background: linear-gradient(to right bottom, transparent, #7595C8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  position: relative;
+  margin-top: -100px;
+}
+
+.nftVideo {
+  width: 370px;
+  height: 620px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #383838;
+  background: #2f2f2f;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nftVideo video{
+  height: 90%;
+  width: 90%;
+}
+
+.mintContainer {
+  height: 330px;
+  width: 450px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'long-shot';
+  text-align: center;
+  position: absolute;
+  left: 450px;
+}
+
+.gen1 {
+  position: absolute; 
+  color: rgba(255, 255, 255, 0.9);
+  top: -100px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation-fill-mode: forwards;
+}
+
+.gen1 h1 {
+  font-family: 'long-shot';
+  font-size: 80px;
+  text-align: center;
+}
+
+.sales{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.solds{
+  font-family: 'Nike';
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.refresh,
+.btnMint {
+  background: white;
+  color: black;
+  width: 120px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Nike';
+  font-size: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.refresh::after,
+.btnMint::after,
+.subtract::after,
+.add::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  background-color: #ff0000;
+  display: none;
+}
+
+.refresh:hover::after,
+.btnMint:hover::after,
+.subtract:hover::after,
+.add:hover::after {
+  display: block;
+}
+
+.mintProcess{
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.amountContainer{
+  width: 200px;
+  height: 40px;
+  background: rgb(161, 161, 161);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'long-shot';
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+.subtract{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  font-family: 'long-shot';
+  font-size: 25px;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.amount{
+  width: 60%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+}
+
+.add{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  font-family: 'long-shot';
+  font-size: 25px;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.refresh:disabled,
+.add:disabled,
+.subtract:disabled,
+.btnMint:disabled{
+  color: #575757;
+  background-color: #888888;
+}
+
+.viewOnEtherscan {
+  display: none;
+  font-family: Orbitron;
+  font-size: 40px;
+  margin-top: -5px;
+}
+
+.viewOnEtherscan:link {
+  color: white;
+}
+
+.viewOnEtherscan:visited{
+  color: black;
+}
+
+.mintContainer a{
+  color: #000;
+  font-size: 1.5em;
+}
+
+
+.mintContainer p {
+  font-family: 'Nike';
+  font-size: 20px;
+  color: #ffffff;
+  position: absolute;
+  bottom: -45px;
+  left: 0px;
+}
+
+.warning {
+  display: none;
+  font-family: 'Nike';
+  font-size: 20px;
+  color: #ffffff;
+  bottom: 0px;
+  left: 0px;
+}
+
+
+/* Imagen planeta fondo */
+
+.planeta {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 1000px;
+  width: auto;
+  z-index: 2;
+  user-select: none;
+}
+
+.planeta img {
+  height: 100%;
+  user-select: none;
+}
+
+/* Alertas instalar Metamask */
+
+.installAlert,
+.connectedToMainet,
+.disConnectedToMainet {
+  position: fixed;
+  left: 0px;
+  bottom: 150px;
+  display: flex;
+  font-family: Orbitron;
+  clip-path: circle(0% at 0 50%);
+  transition: clip-path 1s ease;
+  align-items: center;
+  justify-content: center;
+  min-width: 600px;
+  height: 50px;
+  background: white;
+  z-index: 20;
+}
+
+.installAlert img,
+.connectedToMainet img,
+.disConnectedToMainet img {
+  position: absolute;
+  left: 30px;
+  width: 30px;
+}
+
+.showAlert {
+  clip-path: circle(150% at 0 50%);
+}
+
+.closeAlert{
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+}
+
+.closeAlert .bar1{
+  background: black;
+  width: 25px;
+  height: 4px;
+  transform: rotateZ(45deg);
+  position: absolute;
+}
+
+.closeAlert .bar2{
+  background: black;
+  width: 25px;
+  height: 4px;
+  transform: rotateZ(-45deg);
+  position: absolute;
+}
+
+/********** footer ************/
+
+footer {
+  color: #fff;
+  font-family: 'Nike';
+  font-size: 20px;
+  background: rgb(0, 0, 0);
+  z-index: 50;
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  bottom: 0px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid rgb(255, 255, 255);
+}
+
+footer a{
+  color: #fff;
+  text-decoration: none;
+  width: 36px;
+  border-radius: 8px;
+}
+
+footer a:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  border: 2px solid yellow;
+  transition: 1s ease linear;
+}
+
+.redesLifeOut {
+  height: 50%;
+  gap: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1200px){
+  /*Contenedor proceso minteo*/
+  .nftContainer{
+    width: 700px;
+  }
+  .nftVideo {
+    width: 280px;
+    height: 480px;
+  }
+  .mintContainer {
+    left: 300px;
+  }
+  .gen1 {
+    top: -50px;
+  } 
+  .gen1 h1 {
+    font-size: 40px;
+  }
+  .solds{
+    font-size: 30px;
+  }
+  .mintContainer p {
+    bottom: -45px;
+    left: 50px;
+  }
+}
+
+/*Ajuste en eltura*/
+
+@media (max-height: 900px){
+  /*Contenedor proceso minteo*/
+  .nftContainer{
+    width: 700px;
+  }
+  .nftVideo {
+    width: 280px;
+    height: 480px;
+  }
+  .mintContainer {
+    left: 300px;
+  }
+  .gen1 {
+    top: -50px;
+  } 
+  .gen1 h1 {
+    font-size: 40px;
+  }
+  .solds{
+    font-size: 30px;
+  }
+
+  .mintContainer p {
+    bottom: -50px;
+    left: 50px;
+  }
+}
+
+/*Ajuste en eltura*/
+
+@media (max-height: 750px){
+  .nftContainer {
+  margin-top: -50px;
+  }
+}
+
+@media (max-width: 1020px){
+
+  /* navbar */
+
+  .boton,
+  .boton-language,
+  .wallet{
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 850px){
+
+  /* navbar */
+
+  header{
+    flex-wrap: wrap;
+  }
+  .menu-container{
+    display: block;
+  }
+  .botones{
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    flex-direction: column;
+    top: 90px;
+    width: 100%;
+    display: none;
+  }
+  .boton,
+  .boton-language{
+    height: 50px;
+    line-height: 50px;
+  }
+  .wallet {
+    height: 50px;
+    font-size: 1.4em;
+  }
+  .botonConnectContainer{
+    width: 200px;
+    left: 100%;
+    top: 0px;
+  }
+  .language{
+    top: 50px;
+    width: 300px;
+  }
+
+  /*contenedor proceso minteo*/
+  
+  .nftContainer{
+    margin-top: 100px;
+    flex-wrap: wrap;
+    top: 200px;
+    width: 400px;
+    height: 1000px;
+    justify-content: center;
+    gap: 30px;
+  }
+  .nftVideo {
+    width: 280px;
+    height: 480px;
+    position: relative;
+    top: 0px;
+    transform: translateY(0%);
+    left: 0px;
+  }
+  .mintContainer {
+    width: 300px;
+    position: relative;
+    left: 0px;
+  }
+  .solds{
+    font-size: 30px;
+  }
+  .gen1 {
+    margin-top: 20px;
+    position: relative;
+    top: 0px;
+  } 
+  .gen1 h1 {
+    font-size: 40px;
+  }
+  .mintContainer p {
+    position: relative;
+    bottom: -50px;
+    left: -100px;
+  }
+  .planeta {
+    bottom: -600px;
+  }
+  /* footer */
+  footer {
+    bottom: -700px;
+  }
+
+}
+
+
+@media (max-width: 500px){
+
+  /*Bototon conectar navbar  */
+  .btnWalletContainer{
+    display: none;
+  }
+  /* Contenedor proceso minteo */
+  .nftContainer{
+    width: 350px;
+  }
+  .mintProcess{
+    width: 350px;
+  }
+  .mintContainer p {
+    bottom: -20px;
+    left: -80px;
+  }
+  .warning {
+    display: block;
+  }  
+  
+  /* footer */
+  footer img{
+    height: 30px;
+  }
+}
