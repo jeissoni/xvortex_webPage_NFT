@@ -67,7 +67,7 @@ const btnMint = document.querySelector('.btnMint');
 const viewOnEtherscan = document.querySelector('.viewOnEtherscan');
 const btnRefresh = document.querySelector('.refresh');
 const nftSoldsItem = document.querySelector('.solds');
-const contractAdress = "0xEA47d73c6456379A82C970B42cc4c483411AbB75"
+const contractAdress = "0x08D05998Fe1eC6EB8c8858c4566d9842Cb01eA6C"
 const contractAbi = [
   {
       "inputs": [],
@@ -760,7 +760,7 @@ window.addEventListener("load", async function(e) {
   if(window.ethereum){
 
     provider = new ethers.providers.Web3Provider(window.ethereum) 
-    provider2 = ethers.getDefaultProvider("rinkeby")   
+    provider2 = ethers.getDefaultProvider()   
     signer = provider.getSigner();
 
     const contract = new ethers.Contract(contractAdress, contractAbi, provider2);
@@ -773,7 +773,7 @@ window.addEventListener("load", async function(e) {
       nftSoldsItem.innerHTML = "NFTs Vendidos: " + totalNftSolds + " / 999"
     }
     
-    if (totalNftSolds >= 9){
+    if (totalNftSolds >= 999){
       nftSoldsItem.innerHTML = "Sold Out"
       btnMint.disabled = true
       btnAdd.disabled = true
@@ -872,7 +872,7 @@ async function connectWallet(){
 async function changeChain(){
   ethereum.on('chainChanged', (chainId) => {
 
-    if(chainId === '0x4'){
+    if(chainId === '0x1'){
 
       connectedToMainet.classList.add("showAlert")
 
@@ -892,12 +892,12 @@ async function changeChain(){
   });
 
   return await window.ethereum.request({
-    "id": 4,
+    "id": 1,
         "jsonrpc": "2.0",
         "method": "wallet_switchEthereumChain",
         "params": [
             {
-            "chainId": "0x4",
+            "chainId": "0x1",
             }
         ]
         })   
@@ -931,7 +931,7 @@ btnAdd.addEventListener('click', () => {
 //btn Mint
 btnMint.addEventListener("click", async() => {
   if(isConnected){
-    if(ethereum.chainId === '0x4'){
+    if(ethereum.chainId === '0x1'){
       mint()
     } else {
       changeChain()
@@ -939,7 +939,7 @@ btnMint.addEventListener("click", async() => {
     }
   } else {
     login()
-    if(ethereum.chainId === '0x4'){
+    if(ethereum.chainId === '0x1'){
       mint()
     } else {
       changeChain()
@@ -969,7 +969,7 @@ async function mint() {
   return await contract.mintLifeOutGenesis(amountNfts, {value: total})
     .then((tx) => {
       viewOnEtherscan.style.display = "block"
-      viewOnEtherscan.href = "https://rinkeby.etherscan.io/tx/"
+      viewOnEtherscan.href = "https://etherscan.io/tx/"
       viewOnEtherscan.href += tx.hash
     })
     .catch((x) => console.log(x.error.message))
@@ -993,7 +993,7 @@ async function nftSolds() {
     btnMint.disabled = true
   }
 
-  if(chainId !== '0x4'){
+  if(chainId !== '0x1'){
 
     disConnectedToMainet.classList.add("showAlert")
     setTimeout(() => {
