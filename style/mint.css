@@ -633,16 +633,16 @@ footer a:hover{
   }
 
   .mintContainer p {
-    bottom: -30px;
-    left: 80px;
+    bottom: -50px;
+    left: 50px;
   }
 }
 
 /*Ajuste en eltura*/
 
-@media (max-height: 800px){
+@media (max-height: 750px){
   .nftContainer {
-  margin-top: 0px;
+  margin-top: -50px;
   }
 }
 

@@ -67,7 +67,7 @@ const btnMint = document.querySelector('.btnMint');
 const viewOnEtherscan = document.querySelector('.viewOnEtherscan');
 const btnRefresh = document.querySelector('.refresh');
 const nftSoldsItem = document.querySelector('.solds');
-const contractAdress = "0x65603dDC7ECC347e1a1b9494db7B90ff3f867F1A"
+const contractAdress = "0xEA47d73c6456379A82C970B42cc4c483411AbB75"
 const contractAbi = [
   {
       "inputs": [],
@@ -255,6 +255,25 @@ const contractAbi = [
           {
               "indexed": false,
               "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+          }
+      ],
+      "name": "SetMintCost",
+      "type": "event"
+  },
+  {
+      "anonymous": false,
+      "inputs": [
+          {
+              "indexed": true,
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+          },
+          {
+              "indexed": false,
+              "internalType": "uint256",
               "name": "date",
               "type": "uint256"
           }
@@ -322,19 +341,6 @@ const contractAbi = [
   {
       "inputs": [],
       "name": "LIMIT_NFT_BY_ADDRES",
-      "outputs": [
-          {
-              "internalType": "uint256",
-              "name": "",
-              "type": "uint256"
-          }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-  },
-  {
-      "inputs": [],
-      "name": "MINT_COST",
       "outputs": [
           {
               "internalType": "uint256",
@@ -439,6 +445,19 @@ const contractAbi = [
       "type": "function"
   },
   {
+      "inputs": [],
+      "name": "mintCost",
+      "outputs": [
+          {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+          }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+  },
+  {
       "inputs": [
           {
               "internalType": "uint256",
@@ -501,19 +520,6 @@ const contractAbi = [
       "name": "renounceOwnership",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-  },
-  {
-      "inputs": [],
-      "name": "revelate",
-      "outputs": [
-          {
-              "internalType": "bool",
-              "name": "",
-              "type": "bool"
-          }
-      ],
-      "stateMutability": "view",
       "type": "function"
   },
   {
@@ -601,12 +607,12 @@ const contractAbi = [
   {
       "inputs": [
           {
-              "internalType": "bool",
-              "name": "value",
-              "type": "bool"
+              "internalType": "uint256",
+              "name": "newMintCost",
+              "type": "uint256"
           }
       ],
-      "name": "setRevelate",
+      "name": "setMintCost",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -745,6 +751,7 @@ const contractAbi = [
       "type": "function"
   }
 ]
+
 let provider,
     provider2,
     signer
@@ -752,9 +759,9 @@ let provider,
 window.addEventListener("load", async function(e) {
   if(window.ethereum){
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum) 
-    const provider2 = ethers.getDefaultProvider("rinkeby")   
-    const signer = provider.getSigner();
+    provider = new ethers.providers.Web3Provider(window.ethereum) 
+    provider2 = ethers.getDefaultProvider("rinkeby")   
+    signer = provider.getSigner();
 
     const contract = new ethers.Contract(contractAdress, contractAbi, provider2);
     const token = await contract.tokenIdCounter()
@@ -785,6 +792,8 @@ window.addEventListener("load", async function(e) {
         }, 5000)
   }
 })
+
+
 
 //desabilitar botones en dispositivos moviles
 window.addEventListener("resize", () => {
@@ -945,7 +954,7 @@ async function mint() {
   
   const contract = new ethers.Contract(contractAdress, contractAbi, signer);
   //costo en hex//
-  const costoMint = await contract.MINT_COST()
+  const costoMint = await contract.mintCost()
 
   //costo x # de NFTs//
   let total = costoMint.mul(amountNfts)
