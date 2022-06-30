@@ -56,7 +56,7 @@ idioma.addEventListener('click', (e) => {
 const botonConnect = document.querySelector('.botonConnect');
 const installAlert = document.querySelector('.installAlert');
 const btnConnectWallet = document.querySelector('.wallet');
-const closeAlert = document.querySelector('.closeAlert');
+const closeAlert = document.querySelectorAll('.closeAlert');
 const connectedToMainet = document.querySelector('.connectedToMainet');
 const disConnectedToMainet = document.querySelector('.disConnectedToMainet');
 const showAlert = document.querySelector('.showAlert');
@@ -83,19 +83,6 @@ const contractAbi = [
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "tokenIdCounter",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "_value",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [
             {
                 "internalType": "uint256",
@@ -107,47 +94,59 @@ const contractAbi = [
         "outputs": [],
         "stateMutability": "payable",
         "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "tokenIdCounter",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     }
 ]
-
+  
 let provider,
     provider2,
     signer
 
 window.addEventListener("load", async function(e) {
   if(window.ethereum){
+        
+        
+        provider2 = ethers.getDefaultProvider()   
+        
 
-    provider = new ethers.providers.Web3Provider(window.ethereum) 
-    provider2 = ethers.getDefaultProvider()   
-    signer = provider.getSigner();
+        const contract = new ethers.Contract(contractAdress, contractAbi, provider2);
+        const token = await contract.tokenIdCounter()
+        const totalNftSolds = token.toNumber() - 1
 
-    const contract = new ethers.Contract(contractAdress, contractAbi, provider2);
-    const token = await contract.tokenIdCounter()
-    const totalNftSolds = token.toNumber() - 1
-
-    if (selectedLanguage === "en"){
-      nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
-    } else {
-      nftSoldsItem.innerHTML = "NFTs Vendidos: " + totalNftSolds + " / 999"
-    }
-    
-    if (totalNftSolds >= 999){
-      nftSoldsItem.innerHTML = "Sold Out"
-      btnMint.disabled = true
-      btnAdd.disabled = true
-      btnSubstract.disabled = true
-      btnRefresh.disabled = true
-    } else {
-      btnAdd.disabled = false
-      btnSubstract.disabled = false
-      btnMint.disabled = false
-      btnRefresh.disabled = false
-    }
+        if (selectedLanguage === "en"){
+        nftSoldsItem.innerHTML = "NFTs Sold: " + totalNftSolds + " / 999"
+        } else {
+        nftSoldsItem.innerHTML = "NFTs Vendidos: " + totalNftSolds + " / 999"
+        }
+        
+        if (totalNftSolds >= 999){
+        nftSoldsItem.innerHTML = "Sold Out"
+        btnMint.disabled = true
+        btnAdd.disabled = true
+        btnSubstract.disabled = true
+        btnRefresh.disabled = true
+        } else {
+        btnAdd.disabled = false
+        btnSubstract.disabled = false
+        btnMint.disabled = false
+        btnRefresh.disabled = false
+        }
+        
   } else {
       installAlert.classList.add("showAlert")
-        setTimeout(() => {
-          installAlert.classList.remove("showAlert")
-        }, 5000)
+        
   }
 })
 
@@ -190,9 +189,7 @@ async function login(){
 
   }else{
     installAlert.classList.add("showAlert")
-    setTimeout(() => {
-        installAlert.classList.remove("showAlert")
-    }, 5000)
+    
     
   }
 }
@@ -219,6 +216,7 @@ async function connectWallet(){
             botonConnect.innerHTML = "Disconect"
 
             isConnected = true
+            
 
         }).catch((x) => {
             console.log(x.message)
@@ -231,19 +229,21 @@ async function changeChain(){
   ethereum.on('chainChanged', (chainId) => {
 
     if(chainId === '0x1'){
-
+    
+      disConnectedToMainet.classList.remove("showAlert")
       connectedToMainet.classList.add("showAlert")
+      connectedToMainet.style.zIndex = 50
 
       setTimeout(() => {
+        
         connectedToMainet.classList.remove("showAlert")
+        connectedToMainet.style.zIndex = 0
+        
       }, 5000)
 
     }else{
 
       disConnectedToMainet.classList.add("showAlert")
-      setTimeout(() => {
-        disConnectedToMainet.classList.remove("showAlert")
-      }, 5000)
 
     }
 
@@ -262,10 +262,12 @@ async function changeChain(){
 }
 
 //close alerts//
-closeAlert.addEventListener('click', function() {
-    connectedToMainet.classList.remove("showAlert")
-    disConnectedToMainet.classList.remove("showAlert")
-    installAlert.classList.remove("showAlert")
+    closeAlert.forEach((alert) => {
+        alert.addEventListener('click', function() {
+        connectedToMainet.classList.remove("showAlert")
+        disConnectedToMainet.classList.remove("showAlert")
+        installAlert.classList.remove("showAlert")
+    })  
 })
 
 //NFT amount//
@@ -290,25 +292,22 @@ btnAdd.addEventListener('click', () => {
 btnMint.addEventListener("click", async() => {
   if(isConnected){
     if(ethereum.chainId === '0x1'){
+        
       mint()
     } else {
       changeChain()
-      mint()
     }
   } else {
-    login()
-    if(ethereum.chainId === '0x1'){
-      mint()
-    } else {
-      changeChain()
-      mint()
-    }
+    disConnectedToMainet.classList.add("showAlert")
+      
+    
   }
 })
 
-
-
 async function mint() {
+
+  provider = new ethers.providers.Web3Provider(window.ethereum)
+  signer = provider.getSigner();   
   
   const contract = new ethers.Contract(contractAdress, contractAbi, signer);
   //costo en hex//
@@ -349,15 +348,6 @@ async function nftSolds() {
   if (totalNftSolds >= 999){
     nftSoldsItem.innerHTML = "Sold Out"
     btnMint.disabled = true
-  }
-
-  if(chainId !== '0x1'){
-
-    disConnectedToMainet.classList.add("showAlert")
-    setTimeout(() => {
-      disConnectedToMainet.classList.remove("showAlert")
-    }, 5000)
-
   }
 }
 
