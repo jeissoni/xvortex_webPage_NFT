@@ -116,11 +116,8 @@ let provider,
 
 window.addEventListener("load", async function(e) {
   if(window.ethereum){
-        
-        
-        provider2 = ethers.getDefaultProvider()   
-        
-
+                
+        provider2 = ethers.getDefaultProvider()
         const contract = new ethers.Contract(contractAdress, contractAbi, provider2);
         const token = await contract.tokenIdCounter()
         const totalNftSolds = token.toNumber() - 1

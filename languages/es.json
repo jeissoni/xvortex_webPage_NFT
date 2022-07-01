@@ -7,8 +7,8 @@
         "team": "EQUIPO",
         "social-media": "REDES SOCIALES",
         "mintPage": "MINT",
-        "docs": "Docs<img src='./img/log-out.png' alt='flecha' style='height: 10px;'>",
-        "btnWAllet": "CONECTAR WALLET<img src='./img/caret-abajo-negro.png' alt='flecha' style='height: 14px;'>",
+        "docs": "Docs<img src='../img/log-out.png' alt='flecha' style='height: 10px;'>",
+        "btnWAllet": "CONECTAR WALLET<img src='../img/caret-abajo-negro.png' alt='flecha' style='height: 14px;'>",
         "metamask": "Conectar con MetaMask"
     },
     "lore": {
